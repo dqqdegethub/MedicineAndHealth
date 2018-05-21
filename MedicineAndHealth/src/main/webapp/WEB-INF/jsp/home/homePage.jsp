@@ -543,7 +543,7 @@
         $(".imgList").animate({ left: "-" + goLeft + "px" }, 405);
     }
     //轮播结束
-    //测试信息2
+    //测试信息
     </script>
 </body>
 
