@@ -77,20 +77,20 @@ a {
 /*πÿ”⁄¬÷≤•*/
 		#wrapper{
             position:relative;
-            margin:30px auto;
-            width:400px;
-            height:200px;
+/*             margin:30px auto; */
+            width:819px;
+            height:405px;
         }
         #banner{
             position:relative;
-            width:400px;
-            height:200px;
+            width:819px;
+            height:405px;
             overflow:hidden;
         }
         .imgList{
             position:relative;
-            width:2000px;
-            height:200px;
+            width:2457px;
+            height:405px;
             overflow:hidden;
             z-index:10;
         }

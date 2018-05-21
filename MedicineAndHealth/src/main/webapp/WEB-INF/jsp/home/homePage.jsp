@@ -155,7 +155,7 @@
 	            <div id="banner"><!--轮播部分-->
 	                <ul class="imgList"><!--图片部分-->
 	                    <li>
-	                    	<img src="<%=request.getContextPath()%>/statics/images/post1.jpg" style="width:819px;height:405px" alt="This is the first picture of drug." />
+	                    	<img src="<%=request.getContextPath()%>/statics/images/post2.jpg" style="width:819px;height:405px" alt="This is the first picture of drug." />
 	                    </li>
 	                     <li>
 	                     	<img src="<%=request.getContextPath()%>/statics/images/post2.jpg" style="width:819px;height:405px" alt="This is the second picture of drug." />
@@ -475,14 +475,23 @@
     
     <script type="text/javascript">
     //轮播开始
+    var positioncontroll=0;
     var curIndex = 0;
     var imgLen = $(".imgList li").length;
     var autoChange = setInterval(function () {
-        if (curIndex < imgLen - 1) {
-            curIndex++;
+        if (positioncontroll==0) {
+        	if(curIndex==imgLen-1){ 
+        		positioncontroll=1;
+        		curIndex=curIndex-1;
+        	}
+        	else curIndex++;
         }
         else {
-            curIndex = imgLen-2;
+        	if(curIndex==0){
+        		positioncontroll=0;
+        		curIndex++;
+        	}
+        	else curIndex--;
         }
         changeTo(curIndex);
     }, 2500);
@@ -509,17 +518,25 @@
 //         }
 //     });
 
-    function autoChangeAgain() {
-        autoChange = setInterval(function () {
-            if (curIndex < imgLen - 1) {
-                curIndex++;
-            }
-            else {
-                curIndex--;
-            }
-            changeTo(curIndex);
-        }, 2500);
-    }
+//     function autoChangeAgain() {
+//         autoChange = setInterval(function () {
+//         	if (positioncontroll==0) {
+//             	if(curIndex==imgLen-1){ 
+//             		positioncontroll=1;
+//             		curIndex-1;	
+//             	}
+//             	else curIndex++;
+//             }
+//             else {
+//             	if(curIndex==0){
+//             		positioncontroll=1;
+//             		curIndex++;
+//             	}
+//             	else curIndex--;
+//             }
+//             changeTo(curIndex);
+//         }, 2500);
+//     }
 
     function changeTo(num) {
         var goLeft = num * 819;
