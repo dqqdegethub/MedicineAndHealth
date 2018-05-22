@@ -210,7 +210,7 @@
         						<span>￥ 14.60</span>
         					</dd>
         				</dl>
-        				<dl>
+        				<dl> 
         					<dt>
         						<img src="<%=request.getContextPath()%>/statics/images/drug24.jpg" class="drugListO" />
         					</dt>
