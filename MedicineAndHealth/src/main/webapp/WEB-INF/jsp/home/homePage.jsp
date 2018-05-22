@@ -40,116 +40,10 @@
   </head>
 
   <body>
-    <header>
-<!--     <a>登录</a> |  -->
- <div style="float:right">
- 		欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;
-    	<span>请登录&emsp;</span>
-    	<span>注册&emsp;</span>
-    	<span><img src="<%=request.getContextPath()%>/statics/images/cart.png" style="width:25px;height:25px;padding-bottom:5px"/>需求清单</span>
-    </div>
-   </header>
-	<div style="width:1024px;margin:0 auto;">
-		<div id="headerImg" style="float:left;height:110px;width:110px">
-				<img src="<%=request.getContextPath()%>/statics/images/frontpages/logo.gif" style="height:110px"/>
-		</div>
-		<div id="medicineSearch" style="float:left;margin:30px 0px 0px 150px;">
-			<div id="searchBorder" style="width:499px;height:50px;border:3px solid #0c69ae">
-				<div id="search-wrapper" style="width:420px;float:left;background:white">
-					<input id="searchtext" style="width:445px;height:46px;line-height:33px;padding-left:12px;border:white" type="text">
-				</div>
-				<div id="searchBtn" style="float:left;width:75px;height:46px;lin-height:46px;background:#0c69ae;margin-right:-15px">
-					<input value="搜索" style="background:none;width:75px;height:46px;border:#0c69ae;text-align:center;color:white">
-				</div>
-			</div>
-			<div id="searchMore">
-				<a style="color:grey">六味地黄丸</a>
-				<a style="padding-left:12px;color:grey">感康</a>
-				<a style="padding-left:12px;color:grey">止咳糖浆</a>
-				<a style="padding-left:12px;color:grey">速效救心丸</a>
-				<a style="padding-left:12px;color:grey">感冒灵颗粒</a>
-			</div>
-		</div>
-		<div id="headerImg" style="float:left;height:70px;width:70px;padding-left:90px;padding-top:35px">
-				<ul>
-					<li style="width:200px;height:70px">
-						<img src="<%=request.getContextPath()%>/statics/images/phone.png" style="height:40px;float:left"/>
-						<span style="font-size:16px;top:20px">客户投诉电话<b style="color:#efb336">15951078533</b>
-						</span>
-					</li>
-				</ul>
-		</div>
+  	<%@include file="../element/header.jsp"%>
+	<div class="main">
+		<%@include file="../element/searchBanner.jsp"%>
 		
-		<div class="header-wrapper" style="clear:both">
-			<div class="headerNavMain">
-				<div class="nav-all">
-					<a href="#">
-						<span style="color:white;font-size:19px">全部药品分类</span>
-					</a>
-					<div class="leftHeader" style="text-align:left;">
-						<div class="leftNavIndex" style="z-index:2;margin:0 auto;position:relative">
-							<div class="pulldown" style="z-index:1;position:absolute;list-style:none">
-								<ul class="pullDownList" id="pull">
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon1.png" style="width:20px;"/>
-										<a>重大疾病</a>、
-										<a>肿瘤</a>、
-										<a>肺癌</a>
-									</li>
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon2.png" style="width:20px;"/>
-										<a>新药特药</a>、
-										<a>血液</a>、
-										<a>罕见病</a>
-									</li>
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon3.png" style="width:20px;"/>
-										<a>慢性疾病</a>、
-										<a>三高</a>、
-										<a>帕金森</a>
-									</li>
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon4.png" style="width:20px;"/>
-										<a>家庭常备</a>、
-										<a>妇科</a>、
-										<a>儿科</a>
-									</li>
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon5.png" style="width:20px;"/>
-										<a>营养保健</a>、
-										<a>减肥</a>、
-										<a>亚健康</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="headerLink">
-					<ul>
-						<li>首页</li>
-					</ul>
-					<ul>
-						<li>新药特药进口药</li>
-					</ul>
-					<ul>
-						<li>慈善援助</li>
-					</ul>
-					<ul>
-						<li>重大疾病</li>
-					</ul>
-					<ul>
-						<li>慢性疾病</li>
-					</ul>
-					<ul>
-						<li>常见疾病</li>
-					</ul>
-					<ul>
-						<li>健康商城</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 		<div style="float:left;padding-left:205px;">
 			<div id="wrapper"><!--最外层部分-->
 	            <div id="banner"><!--轮播部分-->
@@ -435,31 +329,7 @@
         	</div>
         </div>
 	</div>
-	<div class="footer" style="margin-top:50px;width:100%;text-align:center;verticle:middle;">
-			<ul style="height:75px;line-height:75px;width:705px;margin-left:auto;margin-right:auto;">
-				<li style="color:#bc871f;font-size:18px;float:left;margin-right:50px;">
-					<img src="<%=request.getContextPath()%>/statics/images/footicon1.png" style="width:45px;"/>
-					正品保障
-				</li>
-				<li style="color:#bc871f;font-size:18px;float:left;margin-right:50px">
-					<img src="<%=request.getContextPath()%>/statics/images/footicon2.png" style="width:45px;"/>
-					品牌授权
-				</li>
-				<li style="color:#bc871f;font-size:18px;float:left;margin-right:50px">
-					<img src="<%=request.getContextPath()%>/statics/images/footicon3.png" style="width:45px;"/>
-					药监认证
-				</li>
-				<li style="color:#bc871f;font-size:18px;float:left;margin-right:50px">
-					<img src="<%=request.getContextPath()%>/statics/images/footicon4.png" style="width:45px;"/>
-					天天省钱
-				</li>
-			</ul>
-			<dl style="border-top:1px solid grey;">
-				<dd style="font-size:14px;line-height:50px">.
-					Copyright©2005-2019 药扛网（北京）医药科技有限公司版权所有，并保留所有权利。互联网药品交易服务证：京C20160006号
-				</dd>
-			</dl>
-		</div>
+	<%@include file="../element/footer.jsp"%>
 	
 	
 	<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
