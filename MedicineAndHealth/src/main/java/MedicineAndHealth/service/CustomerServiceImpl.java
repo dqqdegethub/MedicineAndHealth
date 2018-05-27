@@ -1,5 +1,5 @@
 package MedicineAndHealth.service;
 
-public class CustomerService {
+public class CustomerServiceImpl {
 
 }
