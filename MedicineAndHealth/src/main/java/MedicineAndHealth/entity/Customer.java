@@ -1,8 +1,8 @@
 package MedicineAndHealth.entity;
 
 public class Customer {
-	private int customerId;
-	private String customerName;
+	private int customerId; //客户Id
+	private String customerName; //客户姓名
 	private String password;
 	
 	public int getCustomerId() {
