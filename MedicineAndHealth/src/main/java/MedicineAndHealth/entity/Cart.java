@@ -7,7 +7,11 @@ public class Cart {
 	
 	private int count; //药品购买数量 
 	
-	private boolean stockout; //库存状态
+	private int stockAmount; //库存数量
+	
+	private int price; // 药品单价
+	
+	private String size;
 
 	public int getMedicineId() {
 		return medicineId;
@@ -29,12 +33,19 @@ public class Cart {
 	public void setCount(int count) {
 		this.count = count;
 	}
-
-	public boolean isStockout() {
-		return stockout;
+	
+	public int getStockAmount() {
+		return stockAmount;
 	}
-	public void setStockout(boolean stockout) {
-		this.stockout = stockout;
+	public void setStockAmount(int stockAmount) {
+		this.stockAmount = stockAmount;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	
