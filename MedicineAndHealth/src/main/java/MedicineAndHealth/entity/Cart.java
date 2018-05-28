@@ -9,7 +9,7 @@ public class Cart {
 	
 	private int stockAmount; //库存数量
 	
-	private int price; // 药品单价
+	private double price; // 药品单价
 	
 	private String size;
 
@@ -41,11 +41,17 @@ public class Cart {
 		this.stockAmount = stockAmount;
 	}
 	
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
 	}
 
 	
