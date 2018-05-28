@@ -23,7 +23,6 @@ public class CartDaoImpl implements CartDao {
 	
 	@Override
 	public List<Cart> queryCart(int customerId){
-		List<Cart> carts = sqlSessionTemplate.selectList(NAME_SPACE + "selectCart", customerId);
 		return  sqlSessionTemplate.selectList(NAME_SPACE + "selectCart", customerId);
 	}
 }

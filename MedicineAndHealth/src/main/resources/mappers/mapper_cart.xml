@@ -5,9 +5,9 @@
 
 <mapper namespace="MedicineAndHealth.customer">
 	<resultMap type="MedicineAndHealth.entity.Cart" id="cartMap">
-		<result column="id" property="medicineId"/>
-		<result column="name" property="medicineName"/>
-		<result column="size" property="size"/>
+		<result column="medicineId" property="medicineId"/>
+		<result column="medicineName" property="medicineName"/>
+		<result column="medicineSize" property="size"/>
 		<result column="price" property="price"/>
 		<result column="count" property="count"/>
 		<result column="amount" property="stockAmount"/>
@@ -24,9 +24,9 @@
 	
 	<select id="selectCart" parameterType="java.lang.Integer" resultMap="cartMap">
 		SELECT 
-			medicine.id,
-			medicine.name,
-			information.size,
+			medicine.id as medicineId,
+			medicine.name as medicineName,
+			information.size as medicineSize,
 			price,
 			count,
 			amount

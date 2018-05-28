@@ -16,7 +16,6 @@ public class Cart {
 	public Integer getMedicineId() {
 		return medicineId;
 	}
-
 	public void setMedicineId(Integer medicineId) {
 		this.medicineId = medicineId;
 	}
@@ -24,7 +23,6 @@ public class Cart {
 	public String getMedicineName() {
 		return medicineName;
 	}
-
 	public void setMedicineName(String medicineName) {
 		this.medicineName = medicineName;
 	}
@@ -32,7 +30,6 @@ public class Cart {
 	public Integer getCount() {
 		return count;
 	}
-
 	public void setCount(Integer count) {
 		this.count = count;
 	}
@@ -40,7 +37,6 @@ public class Cart {
 	public Integer getStockAmount() {
 		return stockAmount;
 	}
-
 	public void setStockAmount(Integer stockAmount) {
 		this.stockAmount = stockAmount;
 	}
@@ -48,7 +44,6 @@ public class Cart {
 	public double getPrice() {
 		return price;
 	}
-
 	public void setPrice(double price) {
 		this.price = price;
 	}
@@ -56,7 +51,6 @@ public class Cart {
 	public String getSize() {
 		return size;
 	}
-
 	public void setSize(String size) {
 		this.size = size;
 	}
