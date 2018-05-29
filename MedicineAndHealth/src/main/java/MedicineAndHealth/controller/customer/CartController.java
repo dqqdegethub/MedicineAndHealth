@@ -54,6 +54,7 @@ public class CartController {
 			cartService.deleteCart(customerId, cart.getMedicineId());
 		}
 		response.setObj(null);
+		response.setCode(1);
 		
 		MultiValueMap<String, String> header = new HttpHeaders();
 		header.set("Access-Control-Allow-Origin", "*");
@@ -69,6 +70,7 @@ public class CartController {
 		int customerId = (Integer)session.getAttribute("customerId");
 		cartService.deleteCart(customerId, medicineId.getMedicineId());
 		response.setObj(null);
+		response.setCode(1);
 		
 		MultiValueMap<String, String> header = new HttpHeaders();
 		header.set("Access-Control-Allow-Origin", "*");

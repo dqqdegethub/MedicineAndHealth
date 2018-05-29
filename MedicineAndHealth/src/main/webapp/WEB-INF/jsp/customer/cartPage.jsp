@@ -181,7 +181,7 @@
 				"crossDomain" : true,
 				"success" : function(data){
 					if (data.code==1){
-						window.location.href = contextpath + "/customer/cartPage";
+						window.location.href = contextPath + "/customer/cartPage";
 					 }
 				},
 				"error" : function(){
@@ -197,7 +197,6 @@
     				medicineId = $(this).data("medicineid");
     				postData = { medicineId: medicineId,
     								count: $("#count-" + medicineId).val()};
-					console.log(postData)
         			cartArray.push(postData);
     			}
     		})
@@ -212,7 +211,7 @@
 				"crossDomain" : true,
 				"success" : function(data){
 					if (data.code==1){
-						window.location.href = contextpath + "/customer/indentPage";
+						window.location.href = contextPath + "/customer/cartPage";
 					 }
 				},
 				"error" : function(){
