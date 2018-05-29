@@ -94,5 +94,10 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 
 	}
+	
+	@RequestMapping(value="/custonerCenter",method = RequestMethod.GET)//
+	public String custonerCenter(){
+		return "customer/custonerCenter";
+	}
 	 
 }
