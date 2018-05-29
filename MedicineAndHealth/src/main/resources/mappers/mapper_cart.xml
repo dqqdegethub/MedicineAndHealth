@@ -12,16 +12,7 @@
 		<result column="count" property="count"/>
 		<result column="amount" property="stockAmount"/>
 	</resultMap>
-	
-	
-	<select id="cartCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-		SELECT 
-			COUNT(medicineid)
-		FROM 
-			cart
-		WHERE customerid = #{customerId}
-	</select>
-	
+		
 	<select id="selectCart" parameterType="java.lang.Integer" resultMap="cartMap">
 		SELECT 
 			medicine.id as medicineId,
@@ -35,4 +26,24 @@
 		WHERE 
 			medicine.id = cart.medicineid AND medicine.id = information.medicineid AND cart.customerid = #{customerId} 
 	</select>
+	
+	<select id="selectCoupon" parameterType="java.lang.Integer" resultType="java.lang.Double">
+		SELECT 
+			coupon
+		FROM 
+			customer
+		WHERE 
+			id = #{customerId}
+	</select>
+	
+	<delete id="deleteCart" parameterType="java.util.Map">
+		DELETE 
+		FROM 
+			cart
+		where customerid = #{customerId} AND medicineid = #{medicineId}
+	</delete>
+	
+	<insert id="insertIndent" parameterType="java.util.Map">
+		INSERT INTO indent(customerid,medicineid,count,state) VALUES(#{customerId},#{medicineId},#{count},"未发货")
+	</insert>
 </mapper>

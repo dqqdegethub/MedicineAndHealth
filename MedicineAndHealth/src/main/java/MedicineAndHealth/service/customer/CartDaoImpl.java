@@ -1,6 +1,8 @@
 package MedicineAndHealth.service.customer;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +19,29 @@ public class CartDaoImpl implements CartDao {
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public int cartCount(int customerId){
-		return sqlSessionTemplate.selectOne(NAME_SPACE + "cartCount", customerId);
+	public List<Cart> queryCart(int customerId){
+		return  sqlSessionTemplate.selectList(NAME_SPACE + "selectCart", customerId);
 	}
 	
 	@Override
-	public List<Cart> queryCart(int customerId){
-		return  sqlSessionTemplate.selectList(NAME_SPACE + "selectCart", customerId);
+	public double queryCoupon(int customerId){
+		return sqlSessionTemplate.selectOne(NAME_SPACE + "selectCoupon", customerId);
+	}
+	
+	@Override
+	public void deleteCart(int customerId,int medicineId){
+		Map<String, Object> paraMap = new HashMap<>();
+		paraMap.put("customerId", customerId);
+		paraMap.put("medicineId", medicineId);
+		sqlSessionTemplate.delete(NAME_SPACE + "deleteCart", paraMap);
+	}
+	
+	@Override
+	public void insertIndent(int customerId,int medicineId,int count){
+		Map<String, Object> paraMap = new HashMap<>();
+		paraMap.put("customerId", customerId);
+		paraMap.put("medicineId", medicineId);
+		paraMap.put("count", count);
+		sqlSessionTemplate.insert(NAME_SPACE + "insertIndent", paraMap);
 	}
 }

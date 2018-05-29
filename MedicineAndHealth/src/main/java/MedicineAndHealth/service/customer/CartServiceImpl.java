@@ -13,15 +13,25 @@ import MedicineAndHealth.intf.customer.CartService;
 public class CartServiceImpl implements CartService {
 	@Autowired
 	CartDao cartDao;
-	
-	@Override
-	public int cartCount(int customerId){
-		return cartDao.cartCount(customerId);
-	}
-	
+		
 	@Override
 	public List<Cart> queryCart(int customerId){
 		return  cartDao.queryCart(customerId);
+	}
+	
+	@Override
+	public double queryCoupon(int customerId){
+		return cartDao.queryCoupon(customerId);
+	}
+	
+	@Override
+	public void deleteCart(int customerId,int medicineId){
+		cartDao.deleteCart(customerId, medicineId);
+	}
+	
+	@Override
+	public void insertIndent(int customerId,int medicineId,int count){
+		cartDao.insertIndent(customerId, medicineId, count);
 	}
 }
  

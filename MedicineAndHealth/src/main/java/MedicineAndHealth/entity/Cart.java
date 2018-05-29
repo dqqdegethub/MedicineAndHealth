@@ -1,5 +1,7 @@
 package MedicineAndHealth.entity;
 
+import java.util.List;
+
 public class Cart {
 	private Integer medicineId;
 	
@@ -12,6 +14,8 @@ public class Cart {
 	private double price; // 药品单价
 	
 	private String size;
+	
+	private List<Cart> cartList;
 
 	public Integer getMedicineId() {
 		return medicineId;
@@ -53,6 +57,12 @@ public class Cart {
 	}
 	public void setSize(String size) {
 		this.size = size;
+	}
+	public List<Cart> getCartList() {
+		return cartList;
+	}
+	public void setCartList(List<Cart> cartList) {
+		this.cartList = cartList;
 	}
 
 	
