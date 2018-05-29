@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace = "MedicineAndHealth.home">
+	<resultMap type="MedicineAndHealth.entity.DrugInformation" id="viewdrugMap">
+		<result column="medicineId" property="medicineId"/>
+		<result column="medicineName" property="medicineName"/>
+		<result column="medicineSize" property="mSize"/>
+		<result column="amount" property="stockAmount"/>
+		<result column="price" property="price"/>
+		<result column="producer" property="mProducer"/>
+		<result column="isRx" property="isRx"/>
+		<result column="approvalNum" property="approvalNum"/>
+		<result column="ingredient" property="mIngredient"/>
+		<result column="indication" property="mIndication"/>
+		<result column="trait" property="mTrait"/>
+		<result column="dosage" property="mDosage"/>
+		<result column="storage" property="mStorage"/>
+		<result column="catalog" property="mCatalog"/>
+	</resultMap>
+	
+	<select id="selectDruginfo" parameterType="java.lang.Integer" resultMap="viewdrugMap">
+		SELECT 
+			medicine.id as medicineId,
+			medicine.name as medicineName,
+			information.size as medicineSize,
+			amount,
+			price,
+			producer,
+			isRx,
+			approvalNum,
+			ingredient,
+			indication,
+			trait,
+			dosage,
+			storage,
+			catalog
+		FROM 
+			medicine,information
+		WHERE 
+			medicine.id = information.medicineid AND medicine.id=#{medicineId}
+	</select>
+	
+	<insert id="insertCart" parameterType="java.util.Map">
+		INSERT cart VALUES (#{customerId},#{medicineId},#{amount})
+	</insert>
+</mapper>
