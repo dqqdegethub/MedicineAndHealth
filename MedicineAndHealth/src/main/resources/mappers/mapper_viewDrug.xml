@@ -9,7 +9,7 @@
 		<result column="medicineName" property="medicineName"/>
 		<result column="medicineSize" property="mSize"/> 
 		<result column="amount" property="stockAmount"/>
-		<result column="price" property="price"/>
+		<result column="price" property="price"/> 
 		<result column="producer" property="mProducer"/>
 		<result column="isRx" property="isRx"/>
 		<result column="approvalNum" property="approvalNum"/>
