@@ -152,6 +152,11 @@
     <script type="text/javascript">
     	var contextPath = "<%=request.getContextPath()%>";
     	$("#leftBar").hide();
+    	$("#allNav").hover(function(){	
+    		$("#leftBar").show();
+    	},function(){	
+    		$("#leftBar").hide();
+    	})
     	
     	$(document).ready(function(){
     		if("${cartCount }" == 0){

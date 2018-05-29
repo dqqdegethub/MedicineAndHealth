@@ -92,7 +92,7 @@
 		
 		<div class="header-wrapper" style="clear:both">
 			<div class="headerNavMain">
-				<div class="nav-all">
+				<div id="allNav" class="nav-all">
 					<a href="#">
 						<span style="color:white;font-size:19px">全部药品分类</span>
 					</a>
