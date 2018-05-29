@@ -66,8 +66,6 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 		
 	}
-	
-	
 	@RequestMapping(value="/customerRegister",method=RequestMethod.POST)
 	public HttpEntity<BaseResponse> customerRegister(HttpEntity<Customer>httpEntity,HttpSession session){
 		LOG.info("interface login() start");
