@@ -7,7 +7,7 @@
 	<resultMap type="MedicineAndHealth.entity.DrugInformation" id="viewdrugMap">
 		<result column="medicineId" property="medicineId"/>
 		<result column="medicineName" property="medicineName"/>
-		<result column="medicineSize" property="mSize"/>
+		<result column="medicineSize" property="mSize"/> 
 		<result column="amount" property="stockAmount"/>
 		<result column="price" property="price"/>
 		<result column="producer" property="mProducer"/>

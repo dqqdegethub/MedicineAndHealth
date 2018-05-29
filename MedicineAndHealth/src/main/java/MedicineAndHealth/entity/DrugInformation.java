@@ -1,7 +1,7 @@
 package MedicineAndHealth.entity;
 
 public class DrugInformation {
-	private Integer medicineId;
+	private Integer medicineId; 
 	
 	private String medicineName;
 	

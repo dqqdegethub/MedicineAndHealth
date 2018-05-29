@@ -8,7 +8,7 @@ import MedicineAndHealth.intf.home.DrugInfoDao;
 import MedicineAndHealth.intf.home.DrugInfoService;
 
 @Service
-public class DrugInfoServicelmpl implements DrugInfoService{
+public class DrugInfoServicelmpl implements DrugInfoService{ 
 	
 	@Autowired
 	DrugInfoDao drugInfoDao;

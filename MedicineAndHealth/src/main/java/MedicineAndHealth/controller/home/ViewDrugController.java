@@ -21,7 +21,7 @@ import MedicineAndHealth.intf.home.DrugInfoService;
 
 @Controller
 @RequestMapping("/home")
-public class ViewDrugController {
+public class ViewDrugController { 
 	@Autowired
 	DrugInfoService drugInfoService;
 	

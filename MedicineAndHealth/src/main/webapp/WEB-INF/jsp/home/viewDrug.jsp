@@ -52,7 +52,7 @@
 		}
 		.minus{
 			width: 25px;
-			height: 25px;
+			height: 25px; 
 			display: block;
 			float: left;
 			font-size: 16px;
