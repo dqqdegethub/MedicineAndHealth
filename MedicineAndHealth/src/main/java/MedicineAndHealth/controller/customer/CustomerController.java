@@ -82,6 +82,7 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		}
 		else {
 			//未注册过
+			
 			int userId=cs.customerRegister(c);//
 			Customer c3=cs.queryCustomerById(userId);
 			response.setObj(c3);
