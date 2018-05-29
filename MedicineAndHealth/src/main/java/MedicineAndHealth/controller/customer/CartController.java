@@ -27,7 +27,6 @@ public class CartController {
 	
 	@RequestMapping(value = "/cartPage",method = RequestMethod.GET)
 	public ModelAndView cartPage(HttpSession session){
-		session.setAttribute("customerId",1);
 		
 		Integer customerId = (Integer)session.getAttribute("customerId");
 		if(customerId == null){
