@@ -16,6 +16,7 @@ public class Customer {
 		return id;
 	}
 
+	
 	public String getUserName() {
 		return userName;
 	}

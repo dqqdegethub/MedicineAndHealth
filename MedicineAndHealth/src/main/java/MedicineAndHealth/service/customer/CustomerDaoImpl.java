@@ -12,7 +12,7 @@ import MedicineAndHealth.intf.customer.CustomerDao;
 
 @Repository
 public class CustomerDaoImpl implements CustomerDao {
-	//
+	
 	private static final String NAME_SPACE = "MedicineAndHealth.login.";
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;

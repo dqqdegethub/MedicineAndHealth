@@ -21,7 +21,6 @@ import MedicineAndHealth.entity.Customer;
 import MedicineAndHealth.intf.customer.CustomerService;
 
 
-
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {

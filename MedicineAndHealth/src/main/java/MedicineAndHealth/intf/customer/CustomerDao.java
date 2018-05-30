@@ -12,7 +12,7 @@ public interface CustomerDao {
 	
 	int insertCustomer(Customer c);
 	
-	//根据username和answer查是否存在该用户
+	//根据username和answer查是否存在该用户，
 	Integer queryCustomerByAnswer(String username,String answer);
 	
 	//根据userename 与新密码来 修改密码

@@ -10,6 +10,7 @@ import MedicineAndHealth.intf.customer.CustomerService;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 	
+
 	@Autowired
 	CustomerDao cusDao;
 	

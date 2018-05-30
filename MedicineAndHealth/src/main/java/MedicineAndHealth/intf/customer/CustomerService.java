@@ -3,6 +3,7 @@ package MedicineAndHealth.intf.customer;
 import MedicineAndHealth.entity.Customer;
 
 public interface CustomerService {
+	
 	public Integer queryCustomer(Customer c);
 	
 	public Customer queryCustomerById(Integer id);
