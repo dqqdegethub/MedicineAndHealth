@@ -51,7 +51,7 @@
    </header>
 	<div style="width:1024px;margin:0 auto;">
 		<div id="headerImg" style="float:left;height:110px;width:110px">
-				<img src="<%=request.getContextPath()%>/statics/images/frontpages/logo.gif" style="height:110px"/>
+				<img src="<%=request.getContextPath()%>/statics/images/logo.png" style="height:120px;margin-top:15px;width:150px;margin-left:27.5px;"/>
 		</div>
 		<div id="medicineSearch" style="float:left;margin:30px 0px 0px 150px;">
 			<div id="searchBorder" style="width:499px;height:50px;border:3px solid #0c69ae">
@@ -63,11 +63,11 @@
 				</div>
 			</div>
 			<div id="searchMore">
-				<a style="color:grey">六味地黄丸</a>
-				<a style="padding-left:12px;color:grey">感康</a>
-				<a style="padding-left:12px;color:grey">止咳糖浆</a>
-				<a style="padding-left:12px;color:grey">速效救心丸</a>
-				<a style="padding-left:12px;color:grey">感冒灵颗粒</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/401011" style="color:grey;text-decoration-line: none;">牛黄解毒丸</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/301041" style="padding-left:12px;color:grey;text-decoration-line: none;">六味地黄丸</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/302042" style="padding-left:12px;color:grey;text-decoration-line: none;">丹参片</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/401012" style="padding-left:12px;color:grey;text-decoration-line: none;">四季感冒片</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/402031" style="padding-left:12px;color:grey;text-decoration-line: none;">叶酸片</a>
 			</div>
 		</div>
 		<div id="headerImg" style="float:left;height:70px;width:70px;padding-left:90px;padding-top:35px">
@@ -202,58 +202,70 @@
         		</div>
         		<div class="drugRList">
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/201031" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug11.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/201031.jpg" class="drugListO" />
         					</dt>
         					<dd>
         						<p>盐酸西卡那塞片</p>
         						<span>￥ 398.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/201012" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug12.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/201012.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>注射用阿扎胞苷</p>
-        						<span>￥ 2625.00</span>
+        						<p>恩曲他滨替诺福韦片(舒发泰)</p>
+        						<span>￥ 1980.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/201042" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug13.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/201042.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>马来酸阿法替尼片</p>
-        						<span>￥ 1845.00</span>
+        						<p>维格列汀片(佳维乐)</p>
+        						<span>￥ 73.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/202011" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug14.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/202011.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>艾塞那肽注射液</p>
-        						<span>￥ 1542.00</span>
+        						<p>波生坦片(全可利)</p>
+        						<span>￥ 3996.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/202021" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug15.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/202021.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>达沙阿法替尼片（依尼舒）</p>
-        						<span>￥ 462.00</span>
+        						<p>氯膦酸二钠胶囊(固令)</p>
+        						<span>￥ 1580.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/201052" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug16.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/201052.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>达格列净片（安达唐）</p>
-        						<span>￥ 228.00</span>
+        						<p>拉米夫定胶囊</p>
+        						<span>￥ 59.00</span>
         					</dd>
+        					</a>
         				</dl>
         			</div>
         	</div>
@@ -261,7 +273,7 @@
         <div style="padding-top:30px;clear:both">
         	<h3 class="drugF1" style="border-bottom:2px solid #fb375b;">
         		<span style="background: #fb375b;color:white">2F&emsp;慢性疾病</span>
-        		<div class="keyword" style="top:1280px">
+        		<div class="keyword" style="top:1295px">
         			<a>爱谱沙</a>|
         			<a>凡瑞克</a>|
         			<a>韦瑞德</a>|
@@ -290,58 +302,70 @@
         		</div>
         		<div class="drugRList">
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/302022" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug21.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/302022.jpg" class="drugListO" />
         					</dt>
         					<dd>
         						<p>脂必妥片</p>
         						<span>￥ 9.30</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/305011" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug22.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/305011.jpg" class="drugListO" />
         					</dt>
         					<dd>
         						<p>左旋多巴片</p>
         						<span>￥ 30.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/301022" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug23.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/301022.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>戊四硝酯片</p>
-        						<span>￥ 14.60</span>
+        						<p>普乐安片</p>
+        						<span>￥13.50</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/301032" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug24.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/301032.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>桂利嗪片</p>
-        						<span>￥ 5.00</span>
+        						<p>桂附地黄丸</p>
+        						<span>￥ 13.80</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/302021" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug25.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/302021.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>安络化纤丸</p>
+        						<p>活血通脉胶囊</p>
         						<span>￥ 76.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/302042" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug26.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/302042.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>他达拉非片</p>
-        						<span>￥ 398.00</span>
+        						<p>丹参片</p>
+        						<span>￥ 19.90</span>
         					</dd>
+        					</a>
         				</dl>
         			</div>
         	</div>
@@ -349,7 +373,7 @@
         <div style="padding-top:30px;clear:both">
         	<h3 class="drugF1" style="border-bottom:2px solid #373cfb;">
         		<span style="background: #373cfb;color:white">3F&emsp;家庭常备</span>
-        		<div class="keyword" style="top:1875px">
+        		<div class="keyword" style="top:1892px">
         			<a>复方阿胶浆</a>|
         			<a>肾宝片</a>|
         			<a>蛋白粉</a>|
@@ -378,58 +402,70 @@
         		</div>
         		<div class="drugRList">
         				<dl>
-        					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug31.jpg" class="drugListO" />
-        					</dt>
-        					<dd>
-        						<p>柴银口服液</p>
-        						<span>￥ 14.50</span>
-        					</dd>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/401011" style="text-decoration-line: none;">
+        						<dt>
+        							<img src="<%=request.getContextPath()%>/statics/images/drug/401011.jpg" class="drugListO" />
+        						</dt>
+        						<dd>
+        							<p>牛黄解毒丸</p>
+        							<span>￥ 11.10</span>
+        						</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/401021" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug32.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/401021.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>清火栀麦片</p>
-        						<span>￥ 12.40</span>
+        						<p>双黄连口服液</p>
+        						<span>￥ 24.80</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/401052" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug33.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/401052.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>肠炎宁片（康恩贝）</p>
-        						<span>￥ 29.90</span>
+        						<p>银翘解毒丸</p>
+        						<span>￥ 12.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/401042" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug34.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/401042.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>黄藤素片</p>
-        						<span>￥13.10</span>
+        						<p>板蓝根颗粒</p>
+        						<span>￥18.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/402031" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug35.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/402031.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>复方樟脑乳膏</p>
-        						<span>￥ 13.47</span>
+        						<p>叶酸片</p>
+        						<span>￥ 15.00</span>
         					</dd>
+        					</a>
         				</dl>
         				<dl>
+        					<a href="<%=request.getContextPath()%>/home/viewDrug/404021" style="text-decoration-line: none;">
         					<dt>
-        						<img src="<%=request.getContextPath()%>/statics/images/drug36.jpg" class="drugListO" />
+        						<img src="<%=request.getContextPath()%>/statics/images/drug/404021.jpg" class="drugListO" />
         					</dt>
         					<dd>
-        						<p>百乐眠胶囊</p>
-        						<span>￥31.50</span>
+        						<p>肠炎宁片</p>
+        						<span>￥24.80</span>
         					</dd>
+        					</a>
         				</dl>
         			</div>
         	</div>

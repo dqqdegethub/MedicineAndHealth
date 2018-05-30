@@ -157,12 +157,12 @@
 			    	<span>${drugInformation.medicineName} </span>
 			    </div>
 				<div class="leftArea">
-					<div><img src="<%=request.getContextPath() %>/statics/images/drug/drug21.jpg" style="height:300px;"/></div>
+					<div><img src="<%=request.getContextPath() %>/statics/images/drug/${drugInformation.medicineId}.jpg" style="height:300px;width:330px;"/></div>
 					<div>
 						<p>
-							<span class="bold">郑重声明:</span>
+							<span class="bold" style="color:#bc871f;">郑重声明:</span>
 							<br>
-							药品监管部门提示：如发现本网站有任何直接或变相销售处方药行为，请保留证据，拨打12331举报，举报查实给予奖励。
+							<span style="color:#999;">药品监管部门提示：如发现本网站有任何直接或变相销售处方药行为，请保留证据，拨打12331举报，举报查实给予奖励。</span>
 						</p>
 					</div>
 				</div>
