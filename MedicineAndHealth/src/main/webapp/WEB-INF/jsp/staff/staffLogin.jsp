@@ -37,21 +37,21 @@
   </head>
 
   <body>
-    <header>
+<!--     <header> -->
 <!--     <a>登录</a> |  -->
- <div style="float:right">
- 		欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;
-    	<span>请登录&emsp;</span>
-    	<span>注册&emsp;</span>
+<!--  <div style="float:right"> -->
+<!--  		欢迎来到药房网！&emsp;&emsp;&emsp;&emsp; -->
+<!--     	<span>请登录&emsp;</span> -->
+<!--     	<span>注册&emsp;</span> -->
 <%--     	<span><img src="<%=request.getContextPath()%>/statics/images/cart.png" style="width:25px;height:25px;padding-bottom:5px"/>需求清单</span> --%>
-    </div>
-   </header>
+<!--     </div> -->
+<!--    </header> -->
 	<div style="margin:0 auto;min-width:1200px;width:1200px;margin:0 auto">
 		<div style="height:120px;margin:35px 0 0 0">
 			<div style="float:left;">
 				<img src="<%=request.getContextPath()%>/statics/images/logo.png" style="width:150px;height:120px;" />
 			</div>
-			<div style="float:right;margin-top:50px;color:#999">
+			<div style="float:right;margin-top:60px;color:#999">
 				新员工，
 				<a style="color:#4095d4;text-decoration: none;">快速注册</a>
 			</div>
@@ -70,22 +70,23 @@
 					<dl>
 						<dt style="height:45px;border:1px solid #cfcfcf;margin-bottom:25px;">
 							<img src="<%=request.getContextPath()%>/statics/images/account.png" style="width:25px;float:left;margin-left:10px;margin-top:8px" />
-							<input style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="工作证号" type="text">
+							<input id="staffId" style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="工作证号" type="text">
 							<img src="<%=request.getContextPath()%>/statics/images/reset.png" style="width:15px;float:right;margin-right:10px;margin-top:12px" />
 						</dt>
 					</dl>
 					<dl>
 						<dt style="height:45px;border:1px solid #cfcfcf;margin-bottom:25px;">
 							<img src="<%=request.getContextPath()%>/statics/images/password.png" style="width:25px;float:left;margin-left:10px;margin-top:8px" />
-							<input style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="密码" type="password">
+							<input id="password" style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="密码" type="password">
 							<img src="<%=request.getContextPath()%>/statics/images/reset.png" style="width:15px;float:right;margin-right:10px;margin-top:12px" />
 						</dt>
 					</dl>
-					<p style="padding:5px 0">
-						<a style="text-decoration:none;color:#5b5b5b;">忘记密码?</a>
-					</p>
+					<div style="padding:5px 0px">
+						<a style="text-decoration:none;color:#5b5b5b;float:left" href="return false;">忘记密码?</a>
+						<p style="float:right;color:red" id="failEr"></p>
+					</div>
 					<div>
-						<input value="登录" type="button" style="margin-bottom:10px;background:#1d8bd7;text-align:center;color:#fff;height:40px;width:100%;margin-top:20px;font-size:18px;">
+						<input id="loginBtn" value="登录" type="button" style="margin-bottom:10px;background:#1d8bd7;text-align:center;color:#fff;height:40px;width:100%;margin-top:20px;font-size:18px;">
 					</div>
 				</div>
 			</div>
@@ -109,7 +110,47 @@
     <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
     
     <script type="text/javascript">
-
+	$("#loginBtn").click(function(){
+		$("#failEr")[0].innerHTML="";
+		var loginData={
+			"staffId":$("#staffId").val(),
+			"password":$("#password").val()
+		};
+		$.ajax({
+		    "method": "POST",
+		    "url": contextPath + "/staff/staffLogin",
+		    "contentType": "application/json",
+		    "data": JSON.stringify(loginData),
+		    "dataType": "json",
+		    "crossDomain": true,
+		    "success": function(data){
+		      if (data.code==1){
+		    	$.removeCookie("staffName");
+				$.removeCookie("staffId");
+				$.removeCookie("partment");
+		 		var staffName = data.obj.staffName;
+		 		var Depart=data.obj.partment;
+				$.cookie("staffId",data.obj.staffId,{path: '/'});
+		 		$.cookie("staffName",staffName,{path: '/'});
+		 		$.cookie("partment",Depart,{path: '/'});
+		 		if(Depart=='客服部'){
+		 			location.href=contextPath+"/staff/supportStaffIndex"
+		 		}
+		 		else location.href=contextPath+"/staff/buyerStaffIndex"
+		      } else {
+				if(data.obj==1){
+					$("#failEr")[0].innerHTML+="不存在此工作证号，请重新输入！"
+				}
+				if(data.obj==2){
+					$("#failEr")[0].innerHTML+="密码错误，请重新输入！"
+				}
+		      }
+		    },
+		    "error": function(){
+			  alert("请检查网络连接")
+		    }
+		  });
+	})
     </script>
 </body>
 

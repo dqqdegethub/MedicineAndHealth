@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MedicineAndHealth.staff">
+	<resultMap type="MedicineAndHealth.entity.Staff" id="loginMap">
+		<result column="id" property="staffId"/>
+		<result column="name" property="staffName"/>
+		<result column="partname" property="partment"/>
+	</resultMap>
+	<resultMap type="MedicineAndHealth.entity.Staff" id="personalInfoMap">
+		<result column="id" property="staffId"/>
+		<result column="name" property="staffName"/>
+		<result column="partname" property="partment"/>
+		<result column="phoneNumber" property="phoneNumber"/>
+	</resultMap>
+
+	<select id="queryStaffExist" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM 
+			staff
+		WHERE
+			id=#{staffId}
+	</select>
+	
+	<select id="queryStaffPwd" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM 
+			staff
+		WHERE
+			id=#{staffId}
+		AND password=#{password}
+	</select>
+	
+	<select id="orderNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM 
+			indent
+		WHERE
+			staffid=#{staffId}
+		AND state='已发货'
+	</select>
+	
+	<select id="login" parameterType="java.util.Map" resultMap="loginMap">
+		SELECT
+			id,
+			name,
+			partname
+		FROM
+			staff
+		WHERE
+			id=#{staffId}
+		AND password=#{password}
+	</select>
+	
+	<update id="updateStudentPassword" parameterType="java.util.Map">
+		UPDATE staff
+		SET
+			password=#{password}
+		WHERE
+			id=#{staffId}
+	</update>
+	
+	<select id="searchStaffInfo" parameterType="java.lang.Integer" resultMap="personalInfoMap">
+		SELECT
+			id,
+			name,
+			partname,
+			phoneNumber
+		FROM
+			staff
+		WHERE
+			id=#{staffId}
+	</select>
+	
+	<update id="updateStudentInfo" parameterType="java.util.Map">
+		UPDATE staff
+		SET
+			partname=#{partment},
+			phoneNumber=#{phoneNumber}
+		WHERE
+			id=#{staffId}
+	</update>
+	
+</mapper>
