@@ -36,15 +36,12 @@
     </style>
   </head>
 
-  <body>
+  <body> 
     <header>
 <!--     <a>登录</a> |  -->
  <div style="float:right">
- 		欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;
-    	<span>请登录&emsp;</span>
-    	<span>注册&emsp;</span>
-    	<span><img src="<%=request.getContextPath()%>/statics/images/cart.png" style="width:25px;height:25px;padding-bottom:5px"/>需求清单</span>
-    </div>
+ 		欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;    	
+ </div>
    </header>
 	<div style="margin:0 auto;min-width:1200px;width:1200px;margin:0 auto">
 		<div style="height:120px;margin:35px 0 0 0">
@@ -53,7 +50,7 @@
 			</div>
 			<div style="float:right;margin-top:50px;color:#999">
 				新用户，
-				<a style="color:#4095d4;text-decoration: none;">快速注册</a>
+				<a href="<%=request.getContextPath() %>/customer/customerRegister" style="color:#4095d4;text-decoration: none;">快速注册</a>
 			</div>
 		</div>
 	</div>
@@ -70,22 +67,22 @@
 					<dl>
 						<dt style="height:45px;border:1px solid #cfcfcf;margin-bottom:25px;">
 							<img src="<%=request.getContextPath()%>/statics/images/account.png" style="width:25px;float:left;margin-left:10px;margin-top:8px" />
-							<input style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="用户名/手机号/邮箱" type="text">
+							<input id="username" style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="用户名/手机号/邮箱" type="text">
 							<img src="<%=request.getContextPath()%>/statics/images/reset.png" style="width:15px;float:right;margin-right:10px;margin-top:12px" />
 						</dt>
 					</dl>
 					<dl>
 						<dt style="height:45px;border:1px solid #cfcfcf;margin-bottom:25px;">
 							<img src="<%=request.getContextPath()%>/statics/images/password.png" style="width:25px;float:left;margin-left:10px;margin-top:8px" />
-							<input style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="密码" type="text">
+							<input id="pwd" style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="密码" type="password">
 							<img src="<%=request.getContextPath()%>/statics/images/reset.png" style="width:15px;float:right;margin-right:10px;margin-top:12px" />
 						</dt>
 					</dl>
 					<p style="padding:5px 0">
-						<a style="text-decoration:none;color:#5b5b5b;">忘记密码?</a>
+						<a style="text-decoration:none;color:#5b5b5b;" href="<%=request.getContextPath()%>/customer/forgetPwd">忘记密码?</a>
 					</p>
 					<div>
-						<input value="登录" type="button" style="margin-bottom:10px;background:#1d8bd7;text-align:center;color:#fff;height:40px;width:100%;margin-top:20px;font-size:18px;">
+						<input id="btn"  value="登录" type="button" style="margin-bottom:10px;background:#1d8bd7;text-align:center;color:#fff;height:40px;width:100%;margin-top:20px;font-size:18px;">
 					</div>
 				</div>
 			</div>
@@ -108,9 +105,44 @@
     <script>var contextPath="<%=request.getContextPath()%>";</script>
     <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
     
-    <script type="text/javascript">
-
+    
+    <script>
+    $("#btn").click(function(){
+    	//console.log(111)
+    	postdata = {"userName" : $("#username").val(),
+    				"password" : $("#pwd").val()	};
+    	
+    	$.ajax({
+			"method" : "POST",
+			"url" : contextPath + "/customer/customerLogin" ,
+			"contentType" : "application/json",
+			"data" : JSON.stringify(postdata),
+			"dataType" : "json",
+			"crossDomain" : true,
+			"success" : function(data){
+				if(data.code==1){
+					var cname=data.obj.userName;
+					//console.log(cname)
+					$.cookie("id",data.obj.id,{path:"/"})
+					$.cookie("userName",data.obj.userName,{path:"/"})
+					//$()
+					window.document.location.href=contextPath+"/customer/homepage"
+					//window.document.location.href=contextPath+"/customer/success"
+				}
+				else if(data.code==0){
+					alert("用户名或密码错误！请重新登录。")
+					//window.document.location.href=contextPath+"/customer/fail"
+					
+				}							
+			},
+			"error" : function(){
+				alert("errored.");
+			} 
+		});
+    })
     </script>
+
+	
 </body>
 
 </html>
