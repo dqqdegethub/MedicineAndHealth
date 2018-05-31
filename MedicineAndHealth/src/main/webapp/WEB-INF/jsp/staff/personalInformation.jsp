@@ -54,7 +54,7 @@
 				</span>
 				<div style="margin-top:20px;margin-left:20px" id="changePwd">
 					<a id="skipto" style="cursor:pointer;">个人中心</a>>><span>账户管理>>修改个人信息</span>
-					<div style="margin-top:60px;margin-left:50px;text-align:center;display:none" id="modifiedPage">
+					<div style="margin-top:60px;margin-left:50px;text-align:center;" id="modifiedPage">
 						<form class="form-horizontal">
 				 			<div class="form-group">
 								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>工作证号：</label>
@@ -86,7 +86,7 @@
 							</div>
 				    	</form>
 					</div>
-					<div id="resultPage" style="margin-left:350px;margin-top:150px">
+					<div id="resultPage" style="margin-left:350px;margin-top:150px;display:none">
 						<span class="glyphicon glyphicon-ok" style="color:green;font-size:16px"></span>修改成功
 					</div>
 				</div>
@@ -174,8 +174,7 @@
 					$.cookie("partment",Depart,{path: '/'});
 					$("#modifiedPage").css("display","none");
 					$("#resultPage").css("display","");
-				} 
-			  },
+			  }},
 		  error: function(){
 			    alert("更改失败.");
 			  }
