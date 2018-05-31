@@ -1,4 +1,4 @@
-package MedicineAndHealth.controller.home; 
+package MedicineAndHealth.controller.home;  
 
 import javax.servlet.http.HttpSession;
 
