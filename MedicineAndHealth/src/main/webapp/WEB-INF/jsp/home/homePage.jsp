@@ -46,7 +46,7 @@
  		欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;
     	<a href="<%=request.getContextPath() %>/customer/customerLogin"><span>请登录&nbsp;</span> </a>
     	<a href="<%=request.getContextPath() %>/customer/customerRegister" target="_blank"><span>注册</span> </a>
-    	<span><img src="<%=request.getContextPath()%>/statics/images/cart.png" style="width:25px;height:25px;padding-bottom:5px"/>需求清单</span>
+    	<span><img src="<%=request.getContextPath()%>/statics/images/cart.png" style="width:25px;height:25px;padding-bottom:5px"/><a href="<%=request.getContextPath() %>/customer/cartPage">需求清单</a></span>
     </div>
    </header>
 	<div style="width:1024px;margin:0 auto;">
@@ -587,7 +587,7 @@
     $(document).ready(function(){
     	if($.cookie('userName')!==null){
     		$("#note")[0].innerHTML="<div style=\"float:right\">"+$.cookie('userName')+"，欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;"+
-    									"<button id=\"exitLogin\" onclick=\"logout()\">退出登录</button><span><img src=\""+ contextPath +"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/>需求清单</span></div>"
+    									"<button id=\"exitLogin\" onclick=\"logout()\">退出登录</button><span><img src=\""+ contextPath +"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span></div>"
     	}
     	
     })
@@ -598,7 +598,7 @@
  		"欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;"+
     	"<a href=\""+contextPath+"/customer/customerLogin\"><span>请登录&nbsp;</span> </a>"+
     	"<a href=\""+contextPath+"/customer/customerRegister\"><span>注册</span> </a>" +
-    	"<span><img src=\""+contextPath+"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/>需求清单</span></div>"
+    	"<span><img src=\""+contextPath+"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span></div>"
     }
     </script>
     

@@ -355,13 +355,11 @@
 					"data" : JSON.stringify(postData),
 					"dataType" : "json",
 					"crossDomain" : true,
-					"success" : function(data){
-						if (data.code==1){
-// 							window.location.href = contextPath + "/customer/cartPage";
-						 }
+					"success" : function(){
+						alert("已成功加入购物车！");
 					},
 					"error" : function(){
-						alert("errored.");
+						alert("请您先登录！");
 					}
 				});
 		});

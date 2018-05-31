@@ -76,7 +76,7 @@
 				<div class="col-xs-12 cartBorder" style="line-height: 70px;text-align: center">
 					<div class="col-xs-5">
 						<div class="col-xs-1"><input id="cartCkb-${drug.medicineId }" data-medicineid="${drug.medicineId }" type="checkbox"/></div>
-						<img class="col-xs-5" style="height: 100px" src="<%= request.getContextPath()%>/statics/images/drug/drug21.jpg"/>
+						<img class="col-xs-5" style="height: 100px" src="<%= request.getContextPath()%>/statics/images/drug/${drug.medicineId}.jpg"/>
 						<div class="col-xs-6">
 							<div style="line-height: 20px;margin-top: 20px"><span>${drug.medicineName }</span></div>
 							<div style="line-height: 20px"><span>${drug.size }</span></div>

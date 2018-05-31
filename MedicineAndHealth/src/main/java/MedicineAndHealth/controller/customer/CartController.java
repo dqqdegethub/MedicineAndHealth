@@ -28,7 +28,7 @@ public class CartController {
 	@RequestMapping(value = "/cartPage",method = RequestMethod.GET)
 	public ModelAndView cartPage(HttpSession session){
 		
-		Integer customerId = (Integer)session.getAttribute("customerId");
+		Integer customerId = (Integer)session.getAttribute("userId");
 		if(customerId == null){
 			return new ModelAndView("redirect:/customer/customerLogin");
 		}
@@ -47,7 +47,7 @@ public class CartController {
 		BaseResponse response = new BaseResponse();
 		Cart cartList = httpEntity.getBody();
 		
-		int customerId = (Integer)session.getAttribute("customerId");
+		int customerId = (Integer)session.getAttribute("userId");
 		for(Cart cart : cartList.getCartList()){
 			cartService.insertIndent(customerId, cart.getMedicineId(), cart.getCount());
 			cartService.deleteCart(customerId, cart.getMedicineId());
@@ -66,7 +66,7 @@ public class CartController {
 		BaseResponse response = new BaseResponse();
 		Cart medicineId = httpEntity.getBody();
 		
-		int customerId = (Integer)session.getAttribute("customerId");
+		int customerId = (Integer)session.getAttribute("userId");
 		cartService.deleteCart(customerId, medicineId.getMedicineId());
 		response.setObj(null);
 		response.setCode(1);

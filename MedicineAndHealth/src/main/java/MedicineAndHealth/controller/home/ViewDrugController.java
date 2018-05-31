@@ -38,7 +38,7 @@ public class ViewDrugController {
 		BaseResponse response=new BaseResponse();
 		Cart cartdrug=httpEntity.getBody();
 		
-		int customerId=(Integer)session.getAttribute("customerId");
+		int customerId=(Integer)session.getAttribute("userId");
 		
 		drugInfoService.insertCart(customerId,cartdrug.getMedicineId(), cartdrug.getCount());
 		response.setCode(1);

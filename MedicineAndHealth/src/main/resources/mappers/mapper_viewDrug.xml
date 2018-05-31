@@ -43,7 +43,7 @@
 			medicine.id = information.medicineid AND medicine.id=#{medicineId}
 	</select>
 	
-	<insert id="insertCart" parameterType="java.util.Map">
+	<insert id="insertCart" parameterType="java.util.Map" keyProperty="#{customerId},medicineId">
 		INSERT cart VALUES (#{customerId},#{medicineId},#{amount})
 	</insert>
 </mapper>
