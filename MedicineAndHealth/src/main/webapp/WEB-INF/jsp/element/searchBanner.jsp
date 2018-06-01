@@ -68,9 +68,13 @@
 				<div id="search-wrapper">
 					<input id="searchtext" type="text">
 				</div>
-				<div id="searchBtn">
-					<input value="搜索">
+		 		<div> <!-- 暂时 -->
+		 			<button id="searchBtn" style="color:white">搜索</button>
+		 			
+					<!-- 暂时 <input value="搜索">    -->
 				</div>
+		
+			 					
 			</div>
 			<div id="searchMore">
 				<a style="padding-left:0px;color:grey">六味地黄丸</a>
@@ -161,6 +165,4 @@
 			</div>
 		</div>
     
-    
-    <script type="text/javascript">
     </script>

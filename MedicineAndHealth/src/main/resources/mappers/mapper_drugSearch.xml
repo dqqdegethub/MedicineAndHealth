@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "MedicineAndHealth.drugSearch">
+
+<resultMap type="MedicineAndHealth.entity.DrugInformation" id="DrugInformation">
+	<result column = "id" property="medicineId"/>
+	<result column = "name" property="medicineName"/>			
+	<result column = "price" property="price"/>	
+	<result column = "catalog" property="mCatalog"/>	
+	<result column = "producer" property="mProducer"/>	
+<!-- 	
+	<result column = "amount" property="stockAmount"/>	
+	<result column = "isRx" property="isRx"/>	
+	<result column = "approvalnum" property="approvalNum"/>
+
+	<result column="medicineId" property="medicineId"/>
+  	<result column = "mIgredient" property="mIngredient"/>		
+	<result column = "mIndication" property="mIndication"/>
+	<result column = "mTrait" property="mTrait"/>	
+	<result column = "mDosage" property="mDosage"/>	
+	<result column = "mStorage" property="mStorage"/>		
+	<result column = "mCatalog" property="mCatalog"/>	
+ -->		
+</resultMap>
+<select id="drugSearch" parameterType="java.lang.String" resultMap="DrugInformation">
+	SELECT
+		id,name,price,catalog,producer
+	FROM
+		medicine
+	WHERE
+		name LIKE #{name}
+</select>
+<select id="drugSearchByDrugType" parameterType="java.lang.String" resultMap="DrugInformation">
+	select
+		id,name,price,catalog,producer
+	FROM
+		medicine
+	WHERE
+		catalog=#{drugType}	
+</select>
+<select id="drugSearchByNameAndType" parameterType="java.util.Map" resultMap="DrugInformation">
+	select
+		id,name,price,catalog,producer
+		from 
+			medicine
+		where
+			name like #{medicineName} and catalog=#{drugType}
+</select>
+<!-- 
+<resultMap type="etraining.intf.homepage.dto.TAgencyRecommendCourse" id="TAgencyRecommendCourse">
+	<result column = "agency_id" property="agencyId"/>
+	<result column = "course_type_id" property="typeId"/>		
+</resultMap>
+
+<resultMap type="etraining.intf.course.dto.TCourse" id="TCourse">
+		<result column="course_id" property="courseId"/>
+		<result column="course_name" property="courseName"/>
+		<result column="course_type_id" property="courseTypeId"/>
+		<result column="class_duration" property="classDuration"/>
+		<result column="class_number" property="classNumber"/>
+		<result column="frequency" property="frequency"/>
+		<result column="class_fee" property="classFee"/>
+		<result column="class_size" property="classSize"/>
+		<result column="agency_id" property="agencyId"/>
+		<result column="target_student" property="targetStudent"/>
+		<result column="introduction" property="courseIntroduction"/>	
+	</resultMap>
+	
+ -->
+
+
+
+</mapper>

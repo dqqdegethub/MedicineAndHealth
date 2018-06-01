@@ -333,7 +333,18 @@
 // 	mIndication.split("。").forEach(function(item){
 // 		$("#mIndication")[0].innerHTML+=item;
 // 	})
-		
+		<!--searchBanner -->
+		var str="<%=request.getContextPath()%>/home/drugSearch?seekword="
+   	     $("#searchBtn").click(function(){
+   	    	 if($("#searchtext").val()!=""){
+   	    		 location.href=encodeURI(encodeURI("<%=request.getContextPath()%>/home/drugSearch?seekword="+$("#searchtext").val()))
+   		 	 }
+   	    	 else{
+   	    		 location.href="<%=request.getContextPath()%>/home/drugSearch"
+   	    	 }
+   	     });
+	  <!--searchBanner -->
+
 		if("${drugInformation.isRx}" != "Rx"){
 			$(".Rximg").hide();
 		}

@@ -59,6 +59,7 @@
 					<input id="searchtext" style="width:445px;height:46px;line-height:33px;padding-left:12px;border:white" type="text">
 				</div>
 				<div id="searchBtn" style="float:left;width:75px;height:46px;lin-height:46px;background:#0c69ae;margin-right:-15px">
+					<button id="searchBtn" style="background:none;width:75px;height:46px;border:#0c69ae;text-align:center;color:white">搜索</button>
 					<input value="搜索" style="background:none;width:75px;height:46px;border:#0c69ae;text-align:center;color:white">
 				</div>
 			</div>
@@ -589,6 +590,16 @@
     		$("#note")[0].innerHTML="<div style=\"float:right\">"+$.cookie('userName')+"，欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;"+
     									"<button id=\"exitLogin\" onclick=\"logout()\">退出登录</button><span><img src=\""+ contextPath +"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span></div>"
     	}
+    	
+    	var str="<%=request.getContextPath()%>/home/drugSearch?seekword="
+   	     $("#searchBtn").click(function(){
+   	    	 if($("#searchtext").val()!=""){
+   	    		 location.href=encodeURI(encodeURI("<%=request.getContextPath()%>/home/drugSearch?seekword="+$("#searchtext").val()))
+   	   	 	 }
+   	    	 else{
+   	    		 location.href="<%=request.getContextPath()%>/home/drugSearch"
+   	    	 }  
+   	     }); 
     	
     })
     <!--退出登录-->
