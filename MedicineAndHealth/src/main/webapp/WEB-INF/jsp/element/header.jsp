@@ -29,21 +29,23 @@
     		
     <script type="text/javascript">
     <!--已登录-->
-    $(document).ready(function(){
     	if($.cookie('userName')!=null){
     		$("#note")[0].innerHTML="<div style=\"float:right\">"+$.cookie('userName')+"，欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;"+
-    									"<button id=\"exitLogin\" onclick=\"logout()\">退出登录</button><span><img src=\""+ contextPath +"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span></div>"
+    									"<button id=\"exitLogin\" >退出登录</button><span><img src=\""+ contextPath +"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span></div>"
     	}
     	
-    })
     <!--退出登录-->
-    function logout(){
-    	$.cookie('userName', '', { expires: -1 });
+    $("#exitLogin").click(function(){
+		console.log($.cookie('userName'));
+    	$.removeCookie("id");
+		$.removeCookie("userName");
+//     	$.cookie('userName', '', { expires: -1 });
     	$("#note")[0].innerHTML="<div style=\"float:right\">"+
 							 		"欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;"+
 							    	"<a href=\""+contextPath+"/customer/customerLogin\"><span>请登录&nbsp;</span> </a>"+
 							    	"<a href=\""+contextPath+"/customer/customerRegister\"><span>注册</span> </a>" +
 							    	"<span><img src=\""+contextPath+"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span>" + 
-							    "</div>"
-    }
+							    "</div>";
+
+    	})
     </script>
