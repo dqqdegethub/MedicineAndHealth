@@ -12,10 +12,14 @@ public interface StaffDao {
 
 	Integer queryStaffPwd(Integer staffId, String password);
 
-	void updateStudentPassword(Integer staffId, String password);
+	void updateStaffPassword(Integer staffId, String password);
 
 	Staff searchStaffInfo(Integer staffId);
 
-	void updateStudentInfo(Integer staffId, String partment, String phoneNumber);
+	void updateStaffInfo(Integer staffId, String partment, String phoneNumber);
+
+	Integer getstaffId();
+
+	void staffInsert(Staff staff);
 
 }

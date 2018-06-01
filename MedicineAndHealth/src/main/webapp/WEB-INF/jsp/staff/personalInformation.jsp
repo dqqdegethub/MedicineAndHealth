@@ -137,7 +137,7 @@
 	$("#confirmChangeBtn").click(function(){
 		$("#msg-1").css("display","none");
 		$("#msg-2").css("display","none");
-		if($("#modifiedPart").val()=="1"){
+		if($("#modifiedPart").val()=="-1"){
 			$("#msg-1")[0].innerHTML="";
 			$("#msg-1").css("display","");
 			$("#msg-1")[0].innerHTML+="请选择您的部门！"

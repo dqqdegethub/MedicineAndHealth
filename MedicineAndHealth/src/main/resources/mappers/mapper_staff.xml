@@ -34,6 +34,13 @@
 		AND password=#{password}
 	</select>
 	
+	<select id="getstaffId" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM 
+			staff
+	</select>
+	
 	<select id="orderNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
 		SELECT
 			COUNT(*)
@@ -76,7 +83,7 @@
 			id=#{staffId}
 	</select>
 	
-	<update id="updateStudentInfo" parameterType="java.util.Map">
+	<update id="updateStaffInfo" parameterType="java.util.Map">
 		UPDATE staff
 		SET
 			partname=#{partment},
@@ -85,4 +92,19 @@
 			id=#{staffId}
 	</update>
 	
+	<insert id="staffInsert" parameterType="MedicineAndHealth.entity.Staff">
+		INSERT INTO staff(
+			id,
+			partname,
+			name,
+			password,
+			phoneNumber,
+			problem,
+			answer
+		)
+		VALUES
+		(
+			#{staffId},#{partment},#{staffName}, #{password}, #{phoneNumber}, #{problem}, #{answer}
+		)
+	</insert>
 </mapper>

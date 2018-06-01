@@ -53,7 +53,7 @@
 			</div>
 			<div style="float:right;margin-top:60px;color:#999">
 				新员工，
-				<a style="color:#4095d4;text-decoration: none;">快速注册</a>
+				<a style="color:#4095d4;text-decoration: none;" href="<%=request.getContextPath()%>/staff/staffRegister">快速注册</a>
 			</div>
 		</div>
 	</div>

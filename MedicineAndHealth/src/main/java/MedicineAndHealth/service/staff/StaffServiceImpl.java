@@ -44,9 +44,9 @@ public class StaffServiceImpl implements StaffService {
 	}
 	
 	@Override
-	public void updateStudentPassword(Staff request){
+	public void updateStaffPassword(Staff request){
 		String password=request.getNewPwd().toUpperCase();
-		staffDao.updateStudentPassword(request.getStaffId(), password);
+		staffDao.updateStaffPassword(request.getStaffId(), password);
 	}
 	
 	@Override
@@ -55,7 +55,19 @@ public class StaffServiceImpl implements StaffService {
 	}
 	
 	@Override
-	public void updateStudentInfo(Staff request){
-		staffDao.updateStudentInfo(request.getStaffId(), request.getPartment(),request.getPhoneNumber());
+	public void updateStaffInfo(Staff request){
+		staffDao.updateStaffInfo(request.getStaffId(), request.getPartment(),request.getPhoneNumber());
+	}
+	
+	@Override
+	public Integer getstaffId(){
+		return staffDao.getstaffId();
+	}
+	
+	@Override
+	public void staffInsert(Staff staff){
+		String password=staff.getPassword().toUpperCase();
+		staff.setPassword(password);
+		staffDao.staffInsert(staff);
 	}
 }

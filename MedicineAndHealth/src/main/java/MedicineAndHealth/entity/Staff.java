@@ -8,6 +8,8 @@ public class Staff {
 	private String newPwd; //仅针对修改密码
 	private String oldPwd; //仅针对修改密码
 	private String phoneNumber;
+	private String problem;
+	private String answer;
 	
 	public int getStaffId() {
 		return staffId;
@@ -50,5 +52,17 @@ public class Staff {
 	}
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	public String getProblem() {
+		return problem;
+	}
+	public void setProblem(String problem) {
+		this.problem = problem;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 }

@@ -14,10 +14,14 @@ public interface StaffService {
 
 	Integer queryStaffPwd(Staff request);
 
-	void updateStudentPassword(Staff request);
+	void updateStaffPassword(Staff request);
 
 	Staff searchStaffInfo(Integer staffId);
 
-	void updateStudentInfo(Staff request);
+	void updateStaffInfo(Staff request);
+
+	Integer getstaffId();
+
+	void staffInsert(Staff staff);
 
 }

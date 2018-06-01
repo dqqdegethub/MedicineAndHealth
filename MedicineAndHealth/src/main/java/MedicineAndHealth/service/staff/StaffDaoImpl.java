@@ -43,11 +43,11 @@ public class StaffDaoImpl implements StaffDao {
 	}
 	
 	@Override
-	public void updateStudentPassword(Integer staffId,String password){
+	public void updateStaffPassword(Integer staffId,String password){
 		Map<String, Object>paraMap=new HashMap<>();
 		paraMap.put("staffId",staffId);
 		paraMap.put("password", password);
-		sqlSessionTemplate.selectOne(NAME_SPACE+"updateStudentPassword",paraMap);
+		sqlSessionTemplate.selectOne(NAME_SPACE+"updateStaffPassword",paraMap);
 	}
 	
 	@Override
@@ -56,11 +56,21 @@ public class StaffDaoImpl implements StaffDao {
 	}
 	
 	@Override
-	public void updateStudentInfo(Integer staffId,String partment,String phoneNumber){
+	public void updateStaffInfo(Integer staffId,String partment,String phoneNumber){
 		Map<String, Object>paraMap=new HashMap<>();
 		paraMap.put("staffId", staffId);
 		paraMap.put("partment", partment);
 		paraMap.put("phoneNumber", phoneNumber);
-		sqlSessionTemplate.selectOne(NAME_SPACE+"updateStudentInfo",paraMap);
+		sqlSessionTemplate.selectOne(NAME_SPACE+"updateStaffInfo",paraMap);
+	}
+	
+	@Override
+	public Integer getstaffId(){
+		return sqlSessionTemplate.selectOne(NAME_SPACE+"getstaffId");
+	}
+	
+	@Override
+	public void staffInsert(Staff staff) {
+		sqlSessionTemplate.insert(NAME_SPACE + "staffInsert", staff);
 	}
 }

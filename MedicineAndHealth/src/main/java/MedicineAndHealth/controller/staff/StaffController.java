@@ -89,7 +89,7 @@ public class StaffController {
 			response.setCode(0);
 		}
 		else{
-			staffService.updateStudentPassword(request);
+			staffService.updateStaffPassword(request);
 			response.setCode(1); 
 		}
 		MultiValueMap<String, String>header=new HttpHeaders();
@@ -111,8 +111,28 @@ public class StaffController {
 	public ResponseEntity<BaseResponse>changeInfo(HttpEntity<Staff>httpEntity,HttpSession session){
 		BaseResponse response=new BaseResponse();
 		Staff request=httpEntity.getBody();
-		staffService.updateStudentInfo(request);
+		staffService.updateStaffInfo(request);
 		response.setCode(1); 
+		MultiValueMap<String, String>header=new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/staffRegister",method=RequestMethod.GET)
+	public ModelAndView showStaffRegister(){
+		Integer staffId=staffService.getstaffId();
+		ModelAndView mv=new ModelAndView("/staff/staffRegister");
+		mv.addObject("staffId", staffId);
+		return mv;
+	}
+	
+	@RequestMapping(value="/staffRegister",method=RequestMethod.POST)
+	public ResponseEntity<BaseResponse>staffInsert(HttpEntity<Staff>httpEntity,HttpSession session){
+		BaseResponse response=new BaseResponse();
+		Staff request=httpEntity.getBody();
+		staffService.staffInsert(request);
+		response.setCode(1);
 		MultiValueMap<String, String>header=new HttpHeaders();
 		header.set("Access-Control-Allow-Origin", "*");
 		header.set("Access-Control-Request-Method", "post");
