@@ -23,8 +23,9 @@
 	height:530px;
 	width:1100px;
 	background-color:#EDEDED;
-	position:absolute;
-	top:70px;
-	left:220px;
+/* 	position:absolute; */
+/* 	top:70px; */
+/* 	left:220px; */
+	margin:0px auto;
 	z-index:99;
 }

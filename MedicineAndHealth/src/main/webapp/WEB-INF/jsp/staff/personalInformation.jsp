@@ -44,6 +44,7 @@
 <!--     </div> -->
 <!--    </header> -->
 	<div class="staffmain">
+		<div style="opacity:1;height:50px"></div>
 		<div class="staffmainIn">
 			<%@include file="../element/staffLeftBar.jsp"%>
 			<div style="width:900px;float:left">

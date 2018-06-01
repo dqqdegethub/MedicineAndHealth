@@ -21,7 +21,7 @@
 		<result column="catalog" property="mCatalog"/>
 	</resultMap>
 	
-	<select id="selectDruginfo" parameterType="java.lang.Integer" resultMap="viewdrugMap">
+	<select id="selectDruginfo" parameterType="java.lang.Integer" resultMap="viewdrugMap"> 
 		SELECT 
 			medicine.id as medicineId,
 			medicine.name as medicineName,
