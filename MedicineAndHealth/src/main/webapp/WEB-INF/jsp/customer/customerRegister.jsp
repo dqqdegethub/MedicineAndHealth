@@ -38,6 +38,34 @@
 	    line-height: 0;
 	    overflow: hidden;
 	}	
+	.register h1{
+		border-bottom: 2px solid #ccc;
+		height:30px;
+		text-align:left;
+		margin-top:50px;
+		margin-left:80px;
+		padding: 0 30px;
+		font-weight: normal;
+		line-height:30px;
+	}
+	.register p{
+		text-align:left;
+		line-height:60px;
+		fint-size:14px;
+ 		margin-left:160px; 
+	}
+	.register input{
+		width:380px;
+		height:40px;
+	}
+	.register label{
+		color:#5b5b5b;
+		font-weight:normal;
+	}
+	label.error{
+		color:red;
+		margin-left:20px;
+	}
     </style>
 
 <title>用户注册</title>
@@ -49,54 +77,54 @@
  		</div>
    </header>
    <div>
-	   <div style="height:150px;width:1200px">
+	   <div style="height:150px;width:1200px;margin-left:90px;">
 	      <div style="float:left;margin-left:70px;margin-top:30px">
 	      	<img src="<%=request.getContextPath()%>/statics/images/logo.png" style="width:150px;height:120px;" />			
 	      </div>
-	      <div style="float:right;margin-right:40px;margin-top:70px">
+	      <div style="float:right;margin-right:-70px;margin-top:70px">
 	      		我已注册，<a href="<%=request.getContextPath() %>/customer/customerLogin" style="color:#4095d4">立即登录</a></h3>
 	      </div>
 	   </div>
    </div>
    
-   		<div class="container" style="background:#ecf5ff;width:1200px">
+   		<div class="container" style="background:#f8fcff;;width:1200px;border: 1px solid #acd4f1;">
    			<div class="register" style="margin-top:0">
    				<div style="text-align:center">
    					<form action="" method="post" id="register">
-   						 <h1><span>新用户注册</span></h1>
-				          <p>
+   						 <h1><span style="border-bottom: 2px solid #0c69ae;color:#0c69ae;font-size:18px;display: inline-block;">新用户注册</span></h1>
+				          <p style="margin-left:173px;margin-top:30px;">
 				             <label for="username">用户名：</label>
 				             <!-- id和name最好同时写上 -->
-				             <input id="username" name="username" type="text"  placeholder="请输入用户名" />
+				             <input id="username" name="username" type="text"  placeholder="请输入您的用户名，3-15位字符"/>
 				         </p>         
 				         <p>
-				             <label for="password">登陆密码：</label>
-				             <input id="password" name="password" type="password" placeholder="请输入密码" />
+				             <label for="password">登录密码：</label>
+				             <input id="password" name="password" type="password" placeholder="6-12位字符，可使用字母，数字" />
 				         </p>
 				         <p>
 				             <label for="confirm_password">确认密码：</label>
-				             <input id="confirm_password" name="confirm_password" type="password" placeholder="请确认密码" />
+				             <input id="confirm_password" name="confirm_password" type="password" placeholder="请再次输入密码" />
 				         </p>
 				          <p>
 				             <label for="realname">真实姓名：</label>
-				             <input id="realname" name="realname" type="text" placeholder="请输入真实姓名" />
+				             <input id="realname" name="realname" type="text" placeholder="请输入您的真实姓名" />
 				         </p>
 				         <p>
 				             <label for="phonenumber">电话号码：</label>
-				             <input id="phonenumber" name="phonenumber" type="text" placeholder="请输入电话号码" />
+				             <input id="phonenumber" name="phonenumber" type="text" placeholder="请输入正确的电话号码" />
 				         </p>
 				         <p>
 				             <label for="address">配送地址：</label>
-				             <input id="address" name="address" type="text" placeholder="请输入真实的配送地址" />
+				             <input id="address" name="address" type="text" placeholder="请输入您的配送地址" />
 				         </p>
-				         <p> 设置密保问题：你的幸运数字是？</p>
-						<p>
+				         <p style="color:#5b5b5b;font-weight:normal;"> 设置密保问题：你的幸运数字是？</p>
+						<p style="margin-left:188px;">
 				             <label for="answer">答案：</label>
-				             <input id="answer" name="answer" type="text" placeholder="请输入密保答案" />
+				             <input id="answer" name="answer" type="text" placeholder="请输入您的密保答案" />
 				         </p>
-						 <p>
-				             <input type="submit" value="立即注册" />                      
-                    		 <button id="reset">重置</button>
+						 <p style="margin-left:233px;line-height:30px;margin-top:30px;">
+				             <input type="submit" value="立即注册" style="background: #1d8bd7;color:#fff;width:300px;height:40px;font-size:18px;"/>                      
+                    		 <button id="reset" style="height:40px;width:50px;background:white;border:0px;color:grey;">重置</button>
                     	 </p> 
    					</form>
    				</div>
@@ -196,35 +224,35 @@
 	    	    },
 	    	    messages: {
 	    	      username: {
-	    	    	 required:"请输入用户名",
-	    	    	 minlength:"用户名必须只少由3个字母组成"
+	    	    	 required:"",
+	    	    	 minlength:"用户名格式不正确！"
 	    	      },    	      
 	    	      password: {
-	    	        required: "请输入密码",
-	    	        minlength: "密码长度不能小于 6 个字母",
-	    	        maxlength:"密码长度不能超过12位"
+	    	        required: "",
+	    	        minlength: "密码长度不能小于 6 个字母！",
+	    	        maxlength:"密码长度不能超过12位！"
 	    	        
 	    	      },
 	    	      confirm_password: {
-	    	    	required: "请输入密码",
-	      	        minlength: "密码长度不能小于 6 个字母",
-	      	        maxlength:"密码长度不能超过12位",
-	    	        equalTo: "两次密码输入不一致"
+	    	    	required: "",
+	      	        minlength: "密码长度不能小于 6 个字母！",
+	      	        maxlength:"密码长度不能超过12位！",
+	    	        equalTo: "您两次输入的密码不一致！"
 	    	      },
 	    	      realname:{
-	    	    	  required:"请输入真实姓名",
-	    	    	  minlength:"最小长度为2"
+	    	    	  required:"",
+	    	    	  minlength:"最小长度为2！"
 	    	      },
 	    	      phonenumber:{
-	    	    	  required:"请输入正确的电话号码",
-	    	    	  digits:"输入的电话号码非法",
-	    	    	  rangelength:"输入的电话号码非法"
+	    	    	  required:"",
+	    	    	  digits:"输入的电话号码非法！",
+	    	    	  rangelength:"输入的电话号码非法！"
 	    	      },
 	    	      address:{
-	    	    	  required:"请输入真实的配送地址"
+	    	    	  required:""
 	    	      },
 	    	      answer:{
-	    	    	  requried:"请输入密保答案"
+	    	    	  requried:""
 	    	      }
 	    	     }
 	    	    });
@@ -236,7 +264,10 @@
 		$("#username").val('');
 		$("#password").val('');
 		$("#confirm_password").val('');
-		
+		$("#realname").val('');
+		$("#phonenumber").val('');
+		$("#address").val('');
+		$("#answer").val('');
 	})
     </script>  
     
