@@ -93,33 +93,33 @@
 								<ul class="pullDownList" id="pull">
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon1.png" style="width:20px;"/>
-										<a>重大疾病</a>、
-										<a>肿瘤</a>、
-										<a>肺癌</a>
+										<a id="100000" herf="<%=request.getContextPath()%>/home/drugSearch/100000" value="100000">重大疾病</a>、
+										<a id="101000" herf="<%=request.getContextPath()%>/home/drugSearch/101000" value="101000">肿瘤</a>、
+										<a id="101030" herf="<%=request.getContextPath()%>/home/drugSearch/101030" value="101030">肺癌</a>
 									</li>
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon2.png" style="width:20px;"/>
-										<a>新药特药</a>、
-										<a>血液</a>、
-										<a>罕见病</a>
+										<a id="200000" herf="<%=request.getContextPath()%>/home/drugSearch" value="200000">新药特药</a>、
+										<a id="203000" herf="<%=request.getContextPath()%>/home/drugSearch" value="203000">血液</a>、
+										<a id="202000" herf="<%=request.getContextPath()%>/home/drugSearch" value="202000">罕见病</a>
 									</li>
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon3.png" style="width:20px;"/>
-										<a>慢性疾病</a>、
-										<a>三高</a>、
-										<a>帕金森</a>
+										<a id="300000" herf="<%=request.getContextPath()%>/home/drugSearch" value="300000">慢性疾病</a>、
+										<a id="302000" herf="<%=request.getContextPath()%>/home/drugSearch" value="302000">三高</a>、
+										<a id="302010" herf="<%=request.getContextPath()%>/home/drugSearch" value="302010">帕金森</a>
 									</li>
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon4.png" style="width:20px;"/>
-										<a>家庭常备</a>、
-										<a>妇科</a>、
-										<a>儿科</a>
+										<a id="400000" herf="<%=request.getContextPath()%>/home/drugSearch" value="400000">家庭常备</a>、
+										<a id="402000" herf="<%=request.getContextPath()%>/home/drugSearch" value="402000">妇科</a>、
+										<a id="403000" herf="<%=request.getContextPath()%>/home/drugSearch" value="403000">儿科</a>
 									</li>
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon5.png" style="width:20px;"/>
-										<a>营养保健</a>、
-										<a>减肥</a>、
-										<a>亚健康</a>
+										<a id="500000" herf="<%=request.getContextPath()%>/home/drugSearch" value="500000">营养保健</a>、
+										<a id="502020" herf="<%=request.getContextPath()%>/home/drugSearch" value="502020">减肥</a>、
+										<a id="501000" herf="<%=request.getContextPath()%>/home/drugSearch" value="501000">亚健康</a>
 									</li>
 								</ul>
 							</div>
@@ -128,25 +128,25 @@
 				</div>
 				<div class="headerLink">
 					<ul>
-						<li>首页</li>
+						<a href="<%=request.getContextPath()%>/home/homePage"><li>首页</li></a>
 					</ul>
 					<ul>
-						<li>新药特药进口药</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/200000"><li>新药特药进口药</li></a>
 					</ul>
 					<ul>
 						<li>慈善援助</li>
 					</ul>
 					<ul>
-						<li>重大疾病</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/100000"><li>重大疾病</li></a>
 					</ul>
 					<ul>
-						<li>慢性疾病</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/300000"><li>慢性疾病</li></a>
 					</ul>
 					<ul>
-						<li>常见疾病</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/400000"><li>常见疾病</li></a>
 					</ul>
 					<ul>
-						<li>健康商城</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/500000"><li>健康商城</li></a>
 					</ul>
 				</div>
 			</div>

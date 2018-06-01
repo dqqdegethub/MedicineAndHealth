@@ -115,7 +115,7 @@
    	    	 else{
    	    		 location.href="<%=request.getContextPath()%>/home/drugSearch"
    	    	 }
-   	     })
+   	     });
 	  <!--searchBanner -->
 		console.log(11);
 		if(location.href.split('?')[1]==undefined){
