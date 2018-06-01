@@ -47,7 +47,14 @@
 			margin-right:auto;
 			width:1024px;
 		}
-		
+		.drugRList dl {
+    		float: left;
+    		width: 170px;
+    		text-align: center;
+    		border-right: 1px solid #e9e9e9;
+    		padding:0px;
+    		height:192px;
+		}
 		</style>	
 	</head>
 	
@@ -56,17 +63,13 @@
 		<div class="detail">
 			<%@include file="../element/searchBanner.jsp" %>
 			<div style="margin-left:auto;margin-right:auto">
-			    <div class="breadcrumb">
-			    	<a href="<%=request.getContextPath()%>/home/homePage" class="bold">首页</a>
-			    	<b> > </b>
-			    	<a class="bold">lalala</a>
-			    	<b> > </b>
-			    	<span>lalal</span>
+			    <div class="breadcrumb" id="drugType">
+			    	
 			    </div>
 				
 			</div>
 			<div class="drugRList" id="select">
-  				<dl>
+  			<!--	<dl>
   					<a href="<%=request.getContextPath()%>/home/viewDrug/201031" style="text-decoration-line: none;">
   					<dt>
   						<img src="<%=request.getContextPath()%>/statics/images/drug/201031.jpg" class="drugListO" />
@@ -77,7 +80,7 @@
   					</dd>
   					</a>
   				</dl>
-  			<!-- 	<dl>
+  			 	<dl>
   					<a href="<%=request.getContextPath()%>/home/viewDrug/201012" style="text-decoration-line: none;">
   					<dt>
   						<img src="<%=request.getContextPath()%>/statics/images/drug/201012.jpg" class="drugListO" />
@@ -101,22 +104,23 @@
 		},function(){	
 			$("#leftBar").hide();
 		});
-		
-	var contextPath="<%=request.getContextPath()%>";
+	
+	
+	var contextPath="<%=request.getContextPath()%>" ;
 	var keyWord =decodeURI(decodeURI(location.href,"UTF-8"));
 	
 	$(document).ready(function(){
 		<!--searchBanner -->
 		var str="<%=request.getContextPath()%>/home/drugSearch?seekword="
-   	     $("#searchBtn").click(function(){
-   	    	 if($("#searchtext").val()!=""){
-   	    		 location.href=encodeURI(encodeURI("<%=request.getContextPath()%>/home/drugSearch?seekword="+$("#searchtext").val()))
-   		 	 }
-   	    	 else{
-   	    		 location.href="<%=request.getContextPath()%>/home/drugSearch"
-   	    	 }
-   	     });
-	  <!--searchBanner -->
+	  	     $("#searchBtn").click(function(){
+	  	    	 if($("#searchtext").val()!=""){
+	  	    		 location.href=encodeURI(encodeURI("<%=request.getContextPath()%>/home/drugSearch?seekword="+$("#searchtext").val()));
+	  		 	 }
+	  	    	 else{
+	  	    		 location.href="<%=request.getContextPath()%>/home/drugSearch"
+	  	    	 }
+	  	     });
+	  	<!--searchBanner -->
 		console.log(11);
 		if(location.href.split('?')[1]==undefined){
 			console.log(22);
@@ -134,9 +138,16 @@
 					dataType:"json",
 				 	crossDomain: true,
 					success: function(data){
-						list=data.obj;										
-						for(var i=0;i<list.length;i++){							
-							$("#select")[0].innerHTML+="<dl>"+
+						list=data.obj;	
+						var intType=parseInt(list[0].medicineId/100000);
+						var type=intType*100000;
+						$("#drugType")[0].innerHTML+="<a href=\""+contextPath+"\"/home/homePage\" class=\"bold\">首页</a>"+
+				    	"<b> > </b><a href=\""+contextPath+"/home/drugTypeSearch/"+type+" \" class=\"bold\">"+list[0].mCatalog+"</a>";
+				    
+				    	
+						for(var i=0;i<list.length;i++){	
+														
+					    	$("#select")[0].innerHTML+="<dl>"+
         					"<a href=\""+contextPath+"/home/viewDrug/"+list[0].medicinedId+"\" style=\"text-decoration-line: none;\">"+
         					"<dt>"+
         					"<img src=\""+contextPath+"/statics/images/drug/"+list[0].medicinedId+".jpg\" class=\"drugListO\" />"+
@@ -172,6 +183,11 @@
 				success: function(data){
 					console.log(44);
 					list=data.obj;
+					var intType=parseInt(list[0].medicineId/100000);
+					var type=intType*100000;
+					$("#drugType")[0].innerHTML+="<a href=\""+contextPath+"/home/homePage\" class=\"bold\">首页</a>"+
+			    	"<b> > </b><a href=\""+contextPath+"/home/drugTypeSearch/"+type+" \" class=\"bold\" >"+list[0].mCatalog+"</a><span>></span>";
+			    
 					//DrugInformation drug;
 					for(var i=0;i<list.length;i++){
 						console.log(list[i].medicineName);

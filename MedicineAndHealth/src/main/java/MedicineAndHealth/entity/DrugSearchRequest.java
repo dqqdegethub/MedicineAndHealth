@@ -7,7 +7,7 @@ import java.util.List;
 public class DrugSearchRequest {
 	//private DrugInformation drugInformation;
 	private String medicineName;
-	private  String medicineType;
+	private int medicineType;
 	private int code;
 	private int drugId;
 	private String drugPhoto; //药品图片
@@ -36,10 +36,10 @@ public class DrugSearchRequest {
 	public void setMedicineName(String medicineName) {
 		this.medicineName = medicineName;
 	}
-	public String getMedicineType() {
+	public int getMedicineType() {
 		return medicineType;
 	}
-	public void setMedicineType(String medicineType) {
+	public void setMedicineType(int medicineType) {
 		this.medicineType = medicineType;
 	}
 	

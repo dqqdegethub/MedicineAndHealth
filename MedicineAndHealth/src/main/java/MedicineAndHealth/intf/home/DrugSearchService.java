@@ -9,8 +9,7 @@ public interface DrugSearchService {
 	
 	public List<DrugInformation> getDrug(String name);
 	
-	public List<DrugInformation> getDrugByDrugType(String drugType);
+	public List<DrugInformation> getDrugByDrugType(int drugType,int max);
 	
-	public List<DrugInformation> getDrugByNameAndType(String name,String drugType);
-
+	
 }

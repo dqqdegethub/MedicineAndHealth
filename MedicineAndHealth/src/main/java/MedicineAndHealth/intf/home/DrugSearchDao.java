@@ -8,8 +8,7 @@ public interface DrugSearchDao {
 	
 public List<DrugInformation> searchDrug(String name);//通过关键词搜索
 
-public List<DrugInformation> drugSearchByDrugType(String drugType); //通过类别搜索
+public List<DrugInformation> drugSearchByDrugType(int drugType,int max); //通过类别搜索
 
-public List<DrugInformation> drugSearchByNameAndType(String name,String drugType);
 
 }

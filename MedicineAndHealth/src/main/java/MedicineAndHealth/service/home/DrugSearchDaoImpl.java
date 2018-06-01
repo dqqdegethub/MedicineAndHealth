@@ -28,18 +28,12 @@ private static final String NAME_SPACE = "MedicineAndHealth.drugSearch.";
 
 
 	@Override
-	public List<DrugInformation> drugSearchByDrugType(String drugType) {
-		
-		return SqlSessionTemplate.selectList(NAME_SPACE +"drugSearchByDrugType",drugType);
+	public List<DrugInformation> drugSearchByDrugType(int drugType,int max) {
+		Map<String,Object> map=new HashMap<>();		
+		map.put("drugType", drugType);
+		map.put("max", max);
+		return SqlSessionTemplate.selectList(NAME_SPACE +"drugSearchByDrugType",map);
 	}
 	
-	@Override
-	public List<DrugInformation> drugSearchByNameAndType(String name,String drugType){
-		Map<String,String> map=new HashMap<>();
-		map.put("medicineName", name);
-		map.put("drugType", drugType);
-		
-		return SqlSessionTemplate.selectList(NAME_SPACE+"drugSearchByNameAndType",map);
-	}
 
 }

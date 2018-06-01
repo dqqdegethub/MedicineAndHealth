@@ -32,22 +32,15 @@
 	WHERE
 		name LIKE #{name}
 </select>
-<select id="drugSearchByDrugType" parameterType="java.lang.String" resultMap="DrugInformation">
+<select id="drugSearchByDrugType" parameterType="java.util.Map" resultMap="DrugInformation">
 	select
 		id,name,price,catalog,producer
 	FROM
 		medicine
 	WHERE
-		catalog=#{drugType}	
+		id>=#{drugType}	and #{max}>id
 </select>
-<select id="drugSearchByNameAndType" parameterType="java.util.Map" resultMap="DrugInformation">
-	select
-		id,name,price,catalog,producer
-		from 
-			medicine
-		where
-			name like #{medicineName} and catalog=#{drugType}
-</select>
+
 <!-- 
 <resultMap type="etraining.intf.homepage.dto.TAgencyRecommendCourse" id="TAgencyRecommendCourse">
 	<result column = "agency_id" property="agencyId"/>

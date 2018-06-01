@@ -91,35 +91,35 @@
 						<div class="leftNavIndex" style="z-index:2;margin:0 auto;position:relative">
 							<div class="pulldown" style="z-index:1;position:absolute;list-style:none">
 								<ul class="pullDownList" id="pull">
-									<li>
+									<li> 
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon1.png" style="width:20px;"/>
-										<a id="100000" herf="<%=request.getContextPath()%>/home/drugSearch/100000" value="100000">重大疾病</a>、
-										<a id="101000" herf="<%=request.getContextPath()%>/home/drugSearch/101000" value="101000">肿瘤</a>、
-										<a id="101030" herf="<%=request.getContextPath()%>/home/drugSearch/101030" value="101030">肺癌</a>
+										<a id="100000" href="<%=request.getContextPath()%>/home/drugTypeSearch/100000" data-id="100000" >重大疾病</a>
+										<a id="101000" href="<%=request.getContextPath()%>/home/drugTypeSearch/101000" value="">肿瘤</a>、
+										<a id="101030" href="<%=request.getContextPath()%>/home/drugTypeSearch/101030" value="">肺癌</a>
 									</li>
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon2.png" style="width:20px;"/>
-										<a id="200000" herf="<%=request.getContextPath()%>/home/drugSearch" value="200000">新药特药</a>、
-										<a id="203000" herf="<%=request.getContextPath()%>/home/drugSearch" value="203000">血液</a>、
-										<a id="202000" herf="<%=request.getContextPath()%>/home/drugSearch" value="202000">罕见病</a>
+										<a id="200000" href="<%=request.getContextPath()%>/home/drugTypeSearch/200000" value="">新药特药</a>、
+										<a id="203000" href="<%=request.getContextPath()%>/home/drugTypeSearch/203000" value="">血液</a>、
+										<a id="202000" href="<%=request.getContextPath()%>/home/drugTypeSearch/202000" value="">罕见病</a>
 									</li>
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon3.png" style="width:20px;"/>
-										<a id="300000" herf="<%=request.getContextPath()%>/home/drugSearch" value="300000">慢性疾病</a>、
-										<a id="302000" herf="<%=request.getContextPath()%>/home/drugSearch" value="302000">三高</a>、
-										<a id="302010" herf="<%=request.getContextPath()%>/home/drugSearch" value="302010">帕金森</a>
+										<a id="300000" href="<%=request.getContextPath()%>/home/drugTypeSearch/300000" value="">慢性疾病</a>、
+										<a id="302000" href="<%=request.getContextPath()%>/home/drugTypeSearch/302000" value="">三高</a>、
+										<a id="302010" href="<%=request.getContextPath()%>/home/drugTypeSearch/302010" value="">帕金森</a>
 									</li>
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon4.png" style="width:20px;"/>
-										<a id="400000" herf="<%=request.getContextPath()%>/home/drugSearch" value="400000">家庭常备</a>、
-										<a id="402000" herf="<%=request.getContextPath()%>/home/drugSearch" value="402000">妇科</a>、
-										<a id="403000" herf="<%=request.getContextPath()%>/home/drugSearch" value="403000">儿科</a>
+										<a id="400000" href="<%=request.getContextPath()%>/home/drugTypeSearch/400000" value="">家庭常备</a>、
+										<a id="402000" href="<%=request.getContextPath()%>/home/drugTypeSearch/402000" value="">妇科</a>、
+										<a id="403000" href="<%=request.getContextPath()%>/home/drugTypeSearch/403000" value="">儿科</a>
 									</li>
 									<li>
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon5.png" style="width:20px;"/>
-										<a id="500000" herf="<%=request.getContextPath()%>/home/drugSearch" value="500000">营养保健</a>、
-										<a id="502020" herf="<%=request.getContextPath()%>/home/drugSearch" value="502020">减肥</a>、
-										<a id="501000" herf="<%=request.getContextPath()%>/home/drugSearch" value="501000">亚健康</a>
+										<a id="500000" href="<%=request.getContextPath()%>/home/drugTypeSearch/500000" value="">营养保健</a>、
+										<a id="502020" href="<%=request.getContextPath()%>/home/drugTypeSearch/500000" value="">减肥</a>、
+										<a id="501000" href="<%=request.getContextPath()%>/home/drugTypeSearch/500000" value="">亚健康</a>
 									</li>
 								</ul>
 							</div>
@@ -511,6 +511,7 @@
     <script src="<%=request.getContextPath()%>/statics/js/jqthumb.js"></script>
     
     <script type="text/javascript">
+   
     //轮播开始
     var positioncontroll=0;
     var curIndex = 0;
@@ -586,12 +587,11 @@
     <script type="text/javascript">
     <!--已登录-->
     $(document).ready(function(){
-    	if($.cookie('userName')!==null){
+    	if($.cookie('userName')!=null){
     		$("#note")[0].innerHTML="<div style=\"float:right\">"+$.cookie('userName')+"，欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;"+
     									"<button id=\"exitLogin\" onclick=\"logout()\">退出登录</button><span><img src=\""+ contextPath +"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span></div>"
     	}
-    	
-    	var str="<%=request.getContextPath()%>/home/drugSearch?seekword="
+
    	     $("#searchBtn").click(function(){
    	    	 if($("#searchtext").val()!=""){
    	    		 location.href=encodeURI(encodeURI("<%=request.getContextPath()%>/home/drugSearch?seekword="+$("#searchtext").val()))
@@ -599,9 +599,13 @@
    	    	 else{
    	    		 location.href="<%=request.getContextPath()%>/home/drugSearch"
    	    	 }  
-   	     }); 
-    	
-    })
+   	     });
+    });  
+   	  function skipto(){
+   		location.href=encodeURI(encodeURI(contextPath+"/home/drugTypeSearch/"+$(this).data('id')))
+   	   
+      	//location.href=encodeURI(encodeURI(contextPath+"/home/drugTypeSearch?drugType="+$(this).data('id')))
+      }
     <!--退出登录-->
     function logout(){
     	$.cookie('userName', '', { expires: -1 });

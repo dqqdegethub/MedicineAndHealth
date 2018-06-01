@@ -19,12 +19,9 @@ public class DrugSearchServiceImpl implements DrugSearchService {
 		return drugSearchDao.searchDrug(name);
 	}
 	@Override
-	public List<DrugInformation> getDrugByDrugType(String drugType) {
-		return drugSearchDao.drugSearchByDrugType(drugType);
+	public List<DrugInformation> getDrugByDrugType(int drugType,int max) {
+		return drugSearchDao.drugSearchByDrugType(drugType,max);
 	}
 
-	@Override
-	public List<DrugInformation> getDrugByNameAndType(String name,String drugType){
-		return drugSearchDao.drugSearchByNameAndType(name,drugType);
-	}
+	
 }
