@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>登录</title>
+    <title>找回密码</title>
 
     <!-- Bootstrap -->
     <link href="<%=request.getContextPath()%>/statics/css/bootstrap.min.css" rel="stylesheet">
@@ -38,6 +38,34 @@
 	    line-height: 0;
 	    overflow: hidden;
 	}	
+	.register h1{
+		border-bottom: 2px solid #ccc;
+		height:30px;
+		text-align:left;
+		margin-top:50px;
+		margin-left:80px;
+		padding: 0 30px;
+		font-weight: normal;
+		line-height:30px;
+	}
+	.register p{
+		text-align:left;
+		line-height:60px;
+		fint-size:14px;
+ 		margin-left:160px; 
+	}
+	.register input{
+		width:380px;
+		height:40px;
+	}
+	.register label{
+		color:#5b5b5b;
+		font-weight:normal;
+	}
+	label.error{
+		color:red;
+		margin-left:20px;
+	}
     </style>
 
 <title>用户注册</title>
@@ -49,27 +77,27 @@
  		</div>
    </header>
    <div>
-	   <div style="height:150px;width:1200px">
-	      <div style="float:left;margin-left:70px;margin-top:30px">
+	   <div style="height:150px;width:1200px;margin-left:90px;">
+	      <div style="float:left;margin-left:72px;margin-top:30px">
 	      	<img src="<%=request.getContextPath()%>/statics/images/logo.png" style="width:150px;height:120px;" />			
 	      </div>
-	      <div style="float:right;margin-right:40px;margin-top:70px">
+	      <div style="float:right;margin-right:-69px;margin-top:70px">
 	      		我已注册，<a href="<%=request.getContextPath() %>/customer/customerLogin" style="color:#4095d4">立即登录</a></h3>
 	      </div>
 	   </div>
    </div>
    
-   		<div class="container" style="background:#ecf5ff;width:1200px">
+   		<div class="container" style="background:#f8fcff;;width:1200px;border: 1px solid #acd4f1;">
    			<div class="register" style="margin-top:0">
    				<div style="text-align:center">
-   					<form action="" method="post" id="forgetPwd">
-   						 <h1><span>忘记密码</span></h1>
-				          <p>
+   					<form action="" method="post" id="forgetPwd" class="forgetPwd">
+   						 <h1><img src="<%=request.getContextPath()%>/statics/images/forgetPwd.jpg" style="height:20px;width:20px;margin-bottom:-5px;"/><span style="border-bottom: 2px solid #0c69ae;color:#0c69ae;font-size:20px;display: inline-block;margin-left:10px;">找回密码</span></h1>
+				          <p style="margin-left:175px;margin-top:30px;">
 				             <label for="username">用户名：</label>
 				             <!-- id和name最好同时写上 -->
-				             <input id="username" name="username" type="text"  placeholder="请输入电话号码" />
+				             <input id="username" name="username" type="text"  placeholder="请输入您的用户名" />
 				         </p> 
-				         <p>请回答注册时的密保问题：您的幸运数字是？</p>
+				         <p style="color:#5b5b5b;font-weight:normal;">请回答注册时的密保问题：您的幸运数字是？</p>
 				         <p>
 				             <label for="answer">密保答案：</label>
 				             <input id="answer" name="answer" type="text" placeholder="请输入密保答案" />
@@ -84,9 +112,9 @@
 				         </p>
 				         
 				         
-						 <p>
-				             <input type="submit" value="修改密码" />                      
-                    		 <button id="reset">重置</button>
+						 <p style="margin-left:233px;line-height:30px;margin-top:30px;">
+				             <input type="submit" value="修改密码" style="background: #1d8bd7;color:#fff;width:300px;height:40px;font-size:18px;" />                      
+                    		 <button id="reset" style="height:40px;width:50px;background:white;border:0px;color:grey;">重置</button>
                     	 </p> 
    					</form>
    				</div>
@@ -149,8 +177,8 @@
 	    	    rules: {
     	    	 username:{
 	    	    	  required:true,
-	    	    	  //digits:true,
-	    	    	 // rangelength:[11,11]
+	    	    	  minlength:3,
+	    	    	  maxlength:15
 	    	      },    
 	    	      password: {
 	    	        required: true,
@@ -171,24 +199,23 @@
 	    	    },
 	    	    messages: {
     	    	 username:{
-	    	    	  required:"请输入正确的电话号码",
-	    	    	 // digits:"输入的电话号码非法",
-	    	    	 // rangelength:"输入的电话号码非法"
+	    	    	  required:"",
+	    	    	  minlength:"用户名格式不正确！"
 	    	      },   	      
 	    	      password: {
-	    	        required: "请输入密码",
+	    	        required: "",
 	    	        minlength: "密码长度不能小于 6 个字母",
 	    	        maxlength:"密码长度不能超过12位"
 	    	        
 	    	      },
 	    	      confirm_password: {
-	    	    	required: "请输入密码",
+	    	    	required: "",
 	      	        minlength: "密码长度不能小于 6 个字母",
 	      	        maxlength:"密码长度不能超过12位",
 	    	        equalTo: "两次密码输入不一致"
 	    	      },
 	    	      answer:{
-	    	    	  required:"请输入密保答案",
+	    	    	  required:"",
 	    	      },
 	    	     }
 	    	    });
@@ -197,6 +224,7 @@
      </script>
      <script type="text/javascript">
 	$("#reset").click(function(){				
+		$("#username").val('');
 		$("#password").val('');
 		$("#confirm_password").val('');
 		$("#phonenumber").val('');

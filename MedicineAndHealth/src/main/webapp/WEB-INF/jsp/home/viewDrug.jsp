@@ -252,7 +252,7 @@
 					<div class="column-right-info">
 						<div class="productlist">
 							<table style="border-width: 1px;border-style: solid;border-color: rgb(233, 233, 233);width:800px;">
-								<tr><td colspan="2" style="font-size: 24px;color: #4095d4;text-align: center;line-height: 60px;">${drugInformation.medicineName}</td></tr>
+								<tr><td colspan="2" style="font-size: 24px;color: #4095d4;text-align: center;line-height: 60px;border-width: 1px;border-style: solid;border-color: rgb(233, 233, 233);">${drugInformation.medicineName}</td></tr>
 								<tr>
 									<td style="background-color: rgb(248, 248, 248);width:132px;text-align: center;">商品详情</td>
 									<td style="font-size: 14px;line-height: 30px;margin-left:10px;">
@@ -309,7 +309,7 @@
 				</div>
 			</div>
 		</div>
-	<%-- <%@include file="../element/footer.jsp" %> --%>
+<%-- 	 <%@include file="../element/footer.jsp" %>  --%>
 	
 	
 	<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
