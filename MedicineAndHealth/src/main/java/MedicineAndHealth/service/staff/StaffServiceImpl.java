@@ -1,8 +1,11 @@
 package MedicineAndHealth.service.staff;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffDao;
 import MedicineAndHealth.intf.staff.StaffService;
@@ -69,5 +72,20 @@ public class StaffServiceImpl implements StaffService {
 		String password=staff.getPassword().toUpperCase();
 		staff.setPassword(password);
 		staffDao.staffInsert(staff);
+	}
+	
+	@Override
+	public String queryStaffByNameAndId(Staff request){
+		return staffDao.queryStaffByNameAndId(request.getStaffId(),request.getStaffName());
+	}
+	
+	@Override
+	public Integer querySecretProblem(Staff request){
+		return staffDao.querySecretProblem(request.getStaffId(),request.getProblem(),request.getAnswer());
+	}
+	
+	@Override
+	public List<Ordercheck> queryOrder(){
+		return staffDao.queryOrder();
 	}
 }

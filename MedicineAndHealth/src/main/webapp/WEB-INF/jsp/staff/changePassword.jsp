@@ -43,14 +43,13 @@
 <%--     	<span><img src="<%=request.getContextPath()%>/statics/images/cart.png" style="width:25px;height:25px;padding-bottom:5px"/>需求清单</span> --%>
 <!--     </div> -->
 <!--    </header> -->
-	<div class="staffmain">
+	<div class="staffmain"><div style="width:100%;height:50px"></div>
 		<div class="staffmainIn">
 			<%@include file="../element/staffLeftBar.jsp"%>
 			<div style="width:900px;float:left">
-				<div style="width:100%;height:20px"></div>
 				<span style="margin-bottom:20px">
-					<span style="float:left;font-size:30px;margin-left:20px">修改密码</span>
-					<button class="btn" type="button" style="background-color:#45a9c9;color:white;width:80px;margin-left:600px">注销</button>
+					<span style="float:left;font-size:30px;margin-left:20px;margin-top:10px">修改密码</span>
+					<button class="btn" type="button" style="background-color:#45a9c9;color:white;width:80px;margin-left:600px;margin-top:20px">注销</button>
 				</span>
 				<div style="margin-top:20px;margin-left:20px" id="changePwd">
 					<a id="skipto" style="cursor:pointer;">个人中心</a>>><span>账户管理>>修改密码</span>

@@ -82,7 +82,7 @@
 						</dt>
 					</dl>
 					<div style="padding:5px 0px">
-						<a style="text-decoration:none;color:#5b5b5b;float:left" href="return false;">忘记密码?</a>
+						<a style="text-decoration:none;color:#5b5b5b;float:left" href="<%=request.getContextPath()%>/staff/forgetPassword">忘记密码?</a>
 						<p style="float:right;color:red" id="failEr"></p>
 					</div>
 					<div>

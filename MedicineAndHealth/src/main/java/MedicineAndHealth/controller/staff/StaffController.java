@@ -1,5 +1,7 @@
 package MedicineAndHealth.controller.staff;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import MedicineAndHealth.entity.BaseResponse;
+import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffService;
 
@@ -138,4 +141,64 @@ public class StaffController {
 		header.set("Access-Control-Request-Method", "post");
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/forgetPassword",method=RequestMethod.GET)
+	public ModelAndView showforgetPassword(){
+		ModelAndView mv=new ModelAndView("/staff/forgetPassword");
+		return mv;
+	}
+	
+	@RequestMapping(value="/forgetPassword",method=RequestMethod.POST)
+	public ResponseEntity<BaseResponse>getPassword(HttpEntity<Staff>httpEntity,HttpSession session){
+		BaseResponse response=new BaseResponse();
+		Staff request=httpEntity.getBody();
+		if(request.getStep()==1){
+			String problem=staffService.queryStaffByNameAndId(request);
+			if(problem==null){
+				response.setCode(0);
+			}
+			else{
+				response.setCode(1);
+				response.setObj(problem);
+			}
+		}
+		if(request.getStep()==2){
+			Integer count=staffService.querySecretProblem(request);
+			if(count==1){
+				response.setCode(1);
+			}
+			else{
+				response.setCode(0);
+			}
+		}
+		if(request.getStep()==3){
+			staffService.updateStaffPassword(request);
+			response.setCode(1);
+		}
+		
+		MultiValueMap<String, String>header=new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/ensureOrder",method=RequestMethod.GET)
+	public ModelAndView showOrder(){
+		ModelAndView mv=new ModelAndView("/staff/ensureOrder");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/ensureOrder",method = RequestMethod.POST)
+	public ResponseEntity<BaseResponse> orderManage(HttpEntity<Ordercheck>httpEntity,HttpSession session){
+		BaseResponse response = new BaseResponse();
+		List<Ordercheck> orders=staffService.queryOrder();
+		response.setCode(1);
+		response.setObj(orders);
+		
+		MultiValueMap<String, String> header = new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response, header, HttpStatus.OK);
+	}
+	
 }

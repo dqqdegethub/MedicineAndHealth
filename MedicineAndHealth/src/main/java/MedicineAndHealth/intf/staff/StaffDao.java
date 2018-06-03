@@ -1,5 +1,8 @@
 package MedicineAndHealth.intf.staff;
 
+import java.util.List;
+
+import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 
 public interface StaffDao {
@@ -21,5 +24,11 @@ public interface StaffDao {
 	Integer getstaffId();
 
 	void staffInsert(Staff staff);
+
+	String queryStaffByNameAndId(Integer staffId, String staffName);
+
+	Integer querySecretProblem(Integer staffId, String problem, String answer);
+
+	List<Ordercheck> queryOrder();
 
 }

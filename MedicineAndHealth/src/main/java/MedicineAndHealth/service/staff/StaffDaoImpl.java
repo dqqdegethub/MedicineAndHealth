@@ -1,12 +1,14 @@
 package MedicineAndHealth.service.staff;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffDao;
 
@@ -72,5 +74,27 @@ public class StaffDaoImpl implements StaffDao {
 	@Override
 	public void staffInsert(Staff staff) {
 		sqlSessionTemplate.insert(NAME_SPACE + "staffInsert", staff);
+	}
+	
+	@Override
+	public String queryStaffByNameAndId(Integer staffId,String staffName){
+		Map<String, Object>paraMap=new HashMap<>();
+		paraMap.put("staffId", staffId);
+		paraMap.put("staffName", staffName);
+		return sqlSessionTemplate.selectOne(NAME_SPACE+"queryStaffByNameAndId",paraMap);
+	}
+	
+	@Override
+	public Integer querySecretProblem(Integer staffId,String problem,String answer){
+		Map<String, Object>paraMap=new HashMap<>();
+		paraMap.put("staffId",staffId);
+		paraMap.put("problem", problem);
+		paraMap.put("answer", answer);
+		return sqlSessionTemplate.selectOne(NAME_SPACE+"querySecretProblem",paraMap);
+	}
+	
+	@Override
+	public List<Ordercheck> queryOrder(){
+		return sqlSessionTemplate.selectList(NAME_SPACE+"queryOrder");
 	}
 }

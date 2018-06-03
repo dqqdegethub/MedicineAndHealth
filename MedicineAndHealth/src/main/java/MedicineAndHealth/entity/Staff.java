@@ -10,8 +10,9 @@ public class Staff {
 	private String phoneNumber;
 	private String problem;
 	private String answer;
+	private int step; //针对忘记密码的页面
 	
-	public int getStaffId() {
+	public Integer getStaffId() {
 		return staffId;
 	}
 	public void setStaffId(Integer staffId) {
@@ -64,5 +65,11 @@ public class Staff {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	public int getStep() {
+		return step;
+	}
+	public void setStep(int step) {
+		this.step = step;
 	}
 }

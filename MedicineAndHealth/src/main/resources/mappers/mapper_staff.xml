@@ -14,6 +14,14 @@
 		<result column="partname" property="partment"/>
 		<result column="phoneNumber" property="phoneNumber"/>
 	</resultMap>
+	<resultMap type="MedicineAndHealth.entity.Ordercheck" id="OrderMap">
+		<result column="medicineId" property="medicineId"/>
+		<result column="medicineName" property="medicineName"/>
+		<result column="customerName" property="customerName"/>
+		<result column="count" property="count"/>
+		<result column="packagecode" property="code"/>
+		<result column="companyid" property="companyId"/>
+	</resultMap>
 
 	<select id="queryStaffExist" parameterType="java.lang.Integer" resultType="java.lang.Integer">
 		SELECT
@@ -32,6 +40,27 @@
 		WHERE
 			id=#{staffId}
 		AND password=#{password}
+	</select>
+	
+	<select id="queryStaffByNameAndId" parameterType="java.util.Map" resultType="java.lang.String">
+		SELECT
+			problem
+		FROM 
+			staff
+		WHERE
+			id=#{staffId}
+		AND name=#{staffName}
+	</select>
+	
+	<select id="querySecretProblem" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM 
+			staff
+		WHERE
+			id=#{staffId}
+		AND problem=#{problem}
+		AND answer=#{answer}
 	</select>
 	
 	<select id="getstaffId" resultType="java.lang.Integer">
@@ -63,7 +92,7 @@
 		AND password=#{password}
 	</select>
 	
-	<update id="updateStudentPassword" parameterType="java.util.Map">
+	<update id="updateStaffPassword" parameterType="java.util.Map">
 		UPDATE staff
 		SET
 			password=#{password}
@@ -107,4 +136,17 @@
 			#{staffId},#{partment},#{staffName}, #{password}, #{phoneNumber}, #{problem}, #{answer}
 		)
 	</insert>
+	<select id="queryOrder" resultMap="OrderMap">
+		SELECT
+			medicine.id as medicineId,
+			medicine.name as medicineName,
+			customer.username as customerName,
+			count,
+			packagecode,
+			companyid
+		FROM
+			medicine,indent,customer
+		WHERE
+			medicine.id=indent.medicineid AND indent.customerid=customer.id AND state='未发货'
+	</select>
 </mapper>
