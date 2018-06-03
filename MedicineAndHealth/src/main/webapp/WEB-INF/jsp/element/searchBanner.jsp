@@ -77,11 +77,11 @@
 			 					
 			</div>
 			<div id="searchMore">
-				<a style="padding-left:0px;color:grey">六味地黄丸</a>
-				<a>感康</a>
-				<a>止咳糖浆</a>
-				<a>速效救心丸</a>
-				<a>感冒灵颗粒</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/401011" style="color:grey;text-decoration-line: none;">牛黄解毒丸</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/301041" style="padding-left:12px;color:grey;text-decoration-line: none;">六味地黄丸</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/302042" style="padding-left:12px;color:grey;text-decoration-line: none;">丹参片</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/401012" style="padding-left:12px;color:grey;text-decoration-line: none;">四季感冒片</a>
+				<a href="<%=request.getContextPath()%>/home/viewDrug/402031" style="padding-left:12px;color:grey;text-decoration-line: none;">叶酸片</a>
 			</div>
 		</div>
 		<div id="headerImgT">
@@ -141,25 +141,25 @@
 				</div>
 				<div class="headerLink">
 					<ul>
-						<li>首页</li>
+						<a href="<%=request.getContextPath()%>/home/homePage"><li>首页</li></a>
 					</ul>
 					<ul>
-						<li>新药特药进口药</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/200000"><li>新药特药进口药</li></a>
 					</ul>
 					<ul>
 						<li>慈善援助</li>
 					</ul>
 					<ul>
-						<li>重大疾病</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/100000"><li>重大疾病</li></a>
 					</ul>
 					<ul>
-						<li>慢性疾病</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/300000"><li>慢性疾病</li></a>
 					</ul>
 					<ul>
-						<li>常见疾病</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/400000"><li>常见疾病</li></a>
 					</ul>
 					<ul>
-						<li>健康商城</li>
+						<a href="<%=request.getContextPath()%>/home/drugSearch/500000"><li>健康商城</li></a>
 					</ul>
 				</div>
 			</div>
