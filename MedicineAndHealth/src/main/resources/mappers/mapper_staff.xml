@@ -18,6 +18,7 @@
 		<result column="medicineId" property="medicineId"/>
 		<result column="medicineName" property="medicineName"/>
 		<result column="customerName" property="customerName"/>
+		<result column="customerid" property="customerId"/>
 		<result column="count" property="count"/>
 		<result column="packagecode" property="code"/>
 		<result column="companyid" property="companyId"/>
@@ -136,17 +137,51 @@
 			#{staffId},#{partment},#{staffName}, #{password}, #{phoneNumber}, #{problem}, #{answer}
 		)
 	</insert>
-	<select id="queryOrder" resultMap="OrderMap">
+	
+	<select id="queryOrder" resultMap="OrderMap" parameterType="java.lang.Integer">
 		SELECT
 			medicine.id as medicineId,
 			medicine.name as medicineName,
 			customer.username as customerName,
 			count,
 			packagecode,
-			companyid
+			companyid,
+			customerid,
 		FROM
 			medicine,indent,customer
-		WHERE
+		<where>
 			medicine.id=indent.medicineid AND indent.customerid=customer.id AND state='未发货'
+			<if test="_parameter!=null">
+				AND indent.medicineid=#{medicineId}
+			</if>
+		</where>
+	</select>
+	
+	<update id="updateOrderBySer" parameterType="java.util.Map">
+		UPDATE indent
+		SET
+			staffid=#{staffId},
+			packagecode=#{packageCode},
+			state='已发货',
+			companyid=#{companyId}
+		WHERE
+			medicineid=#{medicineId} AND customerid=#{customerId} AND state='未发货'
+	</update>
+	
+	<update id="updateMedicineBySer" parameterType="java.util.Map">
+		UPDATE medicine
+		SET
+			amount=#{num}
+		WHERE
+			id=#{medicineId}
+	</update>
+	
+	<select id="queryMedicineNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT 
+			amount
+		FROM
+			medicine
+		WHERE 
+			id=#{medicineId} 
 	</select>
 </mapper>

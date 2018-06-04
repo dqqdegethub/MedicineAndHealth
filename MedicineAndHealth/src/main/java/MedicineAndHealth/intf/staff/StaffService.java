@@ -31,6 +31,8 @@ public interface StaffService {
 
 	Integer querySecretProblem(Staff request);
 
-	List<Ordercheck> queryOrder();
+	List<Ordercheck> queryOrder(Integer medicineId);
+
+	String getPackagecode(Integer companyId);
 
 }

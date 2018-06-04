@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -191,7 +192,9 @@ public class StaffController {
 	@RequestMapping(value = "/ensureOrder",method = RequestMethod.POST)
 	public ResponseEntity<BaseResponse> orderManage(HttpEntity<Ordercheck>httpEntity,HttpSession session){
 		BaseResponse response = new BaseResponse();
-		List<Ordercheck> orders=staffService.queryOrder();
+		Ordercheck or=httpEntity.getBody();
+		or.setMedicineId(null);
+		List<Ordercheck> orders=staffService.queryOrder(or.getMedicineId());
 		response.setCode(1);
 		response.setObj(orders);
 		
@@ -199,6 +202,31 @@ public class StaffController {
 		header.set("Access-Control-Allow-Origin", "*");
 		header.set("Access-Control-Request-Method", "post");
 		return new ResponseEntity<BaseResponse>(response, header, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/orderDetails/{medicineId}",method=RequestMethod.GET)
+	public ModelAndView showOrderDeatils(@PathVariable Integer medicineId,HttpSession session){
+		ModelAndView mv = new ModelAndView();
+		List<Ordercheck> orders=staffService.queryOrder(medicineId);
+		mv.setViewName("staff/orderDetails");
+		mv.addObject("order",orders);
+		mv.addObject("medicineId",medicineId);
+		return mv;
+	}
+	
+	@RequestMapping(value="/orderDetails/{medicineId}",method=RequestMethod.POST)
+	public ResponseEntity<BaseResponse> updateOrder(HttpEntity<Ordercheck>httpEntity,@PathVariable Integer medicineId,HttpSession session){
+		BaseResponse response=new BaseResponse();
+		Ordercheck or=httpEntity.getBody();
+		if(or.getStep()==1){
+			response.setCode(1);
+			String packageCode=staffService.getPackagecode(or.getCompanyId());
+			response.setObj(packageCode);
+		}
+		MultiValueMap<String, String>header=new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
 	
 }

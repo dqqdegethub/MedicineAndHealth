@@ -94,7 +94,18 @@ public class StaffDaoImpl implements StaffDao {
 	}
 	
 	@Override
-	public List<Ordercheck> queryOrder(){
-		return sqlSessionTemplate.selectList(NAME_SPACE+"queryOrder");
+	public List<Ordercheck> queryOrder(Integer medicineId){
+		return sqlSessionTemplate.selectList(NAME_SPACE+"queryOrder",medicineId);
+	}
+	
+	@Override
+	public void updateOrderBySer(Integer staffId,String code,Integer companyId,Integer medicineId,Integer customerId){
+		Map<String, Object>paraMap=new HashMap<>();
+		paraMap.put("staffId", staffId);
+		paraMap.put("packageCode", code);
+		paraMap.put("companyId", companyId);
+		paraMap.put("medicineId", medicineId);
+		paraMap.put("customerId", customerId);
+		sqlSessionTemplate.selectOne(NAME_SPACE+"updateOrderBySer",paraMap);
 	}
 }

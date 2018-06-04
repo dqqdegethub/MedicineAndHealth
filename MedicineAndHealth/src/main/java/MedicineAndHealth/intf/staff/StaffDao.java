@@ -29,6 +29,8 @@ public interface StaffDao {
 
 	Integer querySecretProblem(Integer staffId, String problem, String answer);
 
-	List<Ordercheck> queryOrder();
+	List<Ordercheck> queryOrder(Integer medicineId);
+
+	void updateOrderBySer(Integer staffId, String code, Integer companyId, Integer medicineId, Integer customerId);
 
 }

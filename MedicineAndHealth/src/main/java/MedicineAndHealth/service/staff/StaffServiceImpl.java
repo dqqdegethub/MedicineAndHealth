@@ -1,6 +1,7 @@
 package MedicineAndHealth.service.staff;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -85,7 +86,16 @@ public class StaffServiceImpl implements StaffService {
 	}
 	
 	@Override
-	public List<Ordercheck> queryOrder(){
-		return staffDao.queryOrder();
+	public List<Ordercheck> queryOrder(Integer medicineId){
+		return staffDao.queryOrder(medicineId);
+	}
+	
+	@Override
+	public String getPackagecode(Integer companyId){
+		Random r=new Random();
+		int num=(int)(r.nextFloat()*100000000);
+		int end=(int)(r.nextFloat()*1000);
+		String packageCode=companyId.toString()+num+end;
+		return packageCode;
 	}
 }
