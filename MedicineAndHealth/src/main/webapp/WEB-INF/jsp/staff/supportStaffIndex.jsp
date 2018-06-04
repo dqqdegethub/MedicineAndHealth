@@ -134,12 +134,6 @@
 						</div>
 						<span style="">回复客户</span>
 					</div>
-					<div id="business3" style="width:250px;height:250px;background-color:white;margin-left:50px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
-						<div>
-							<img src="<%=request.getContextPath()%>/statics/images/staffIndexM.png" style="padding-bottom:60px;padding-top:80px;width:60px"/>
-						</div>
-						<span style="">通知采购</span>
-					</div>
 				</div>
 			</div>
 		</div>

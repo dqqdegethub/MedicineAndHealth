@@ -98,4 +98,14 @@ public class StaffServiceImpl implements StaffService {
 		String packageCode=companyId.toString()+num+end;
 		return packageCode;
 	}
+	
+	@Override
+	public void updateOrderBySer(Ordercheck request){
+		staffDao.updateOrderBySer(request.getStaffId(),request.getCode(),request.getCompanyId(),request.getMedicineId(),request.getCustomerId());
+		staffDao.updateMedicineBySer(request.getMedicineId(), request.getCount());
+		Integer saveNum=staffDao.queryMedicineNum(request.getMedicineId());
+		if(saveNum<=5){
+			staffDao.purchaseInsert(request.getMedicineId());
+		}
+	}
 }

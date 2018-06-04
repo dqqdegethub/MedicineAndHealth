@@ -9,6 +9,9 @@ public class Ordercheck {
 	private Integer count;
 	private String code;
 	private Integer companyId;
+	private Integer customerId;
+	
+	
 	public Integer getStaffId() {
 		return staffId;
 	}
@@ -56,5 +59,11 @@ public class Ordercheck {
 	}
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
+	}
+	public Integer getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
 	}
 }

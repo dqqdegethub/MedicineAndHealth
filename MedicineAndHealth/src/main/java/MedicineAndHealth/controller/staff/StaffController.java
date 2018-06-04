@@ -223,6 +223,11 @@ public class StaffController {
 			String packageCode=staffService.getPackagecode(or.getCompanyId());
 			response.setObj(packageCode);
 		}
+		if(or.getStep()==2){
+			staffService.updateOrderBySer(or);
+			response.setCode(1);
+		}
+		
 		MultiValueMap<String, String>header=new HttpHeaders();
 		header.set("Access-Control-Allow-Origin", "*");
 		header.set("Access-Control-Request-Method", "post");

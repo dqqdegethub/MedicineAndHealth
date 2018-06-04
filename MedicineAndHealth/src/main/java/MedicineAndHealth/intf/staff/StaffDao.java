@@ -33,4 +33,10 @@ public interface StaffDao {
 
 	void updateOrderBySer(Integer staffId, String code, Integer companyId, Integer medicineId, Integer customerId);
 
+	void updateMedicineBySer(Integer medicineId, Integer number);
+
+	Integer queryMedicineNum(Integer medicineId);
+
+	void purchaseInsert(Integer medicineId);
+
 }

@@ -35,4 +35,6 @@ public interface StaffService {
 
 	String getPackagecode(Integer companyId);
 
+	void updateOrderBySer(Ordercheck request);
+
 }

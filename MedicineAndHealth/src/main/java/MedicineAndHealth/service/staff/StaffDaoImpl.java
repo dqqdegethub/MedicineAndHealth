@@ -108,4 +108,22 @@ public class StaffDaoImpl implements StaffDao {
 		paraMap.put("customerId", customerId);
 		sqlSessionTemplate.selectOne(NAME_SPACE+"updateOrderBySer",paraMap);
 	}
+	
+	@Override
+	public void updateMedicineBySer(Integer medicineId,Integer number){
+		Map<String, Object>paraMap=new HashMap<>();
+		paraMap.put("medicineId", medicineId);
+		paraMap.put("num", number);
+		sqlSessionTemplate.selectOne(NAME_SPACE+"updateMedicineBySer",paraMap);
+	}
+	
+	@Override
+	public Integer queryMedicineNum(Integer medicineId){
+		return sqlSessionTemplate.selectOne(NAME_SPACE+"queryMedicineNum",medicineId);
+	}
+	
+	@Override
+	public void purchaseInsert(Integer medicineId) {
+		sqlSessionTemplate.insert(NAME_SPACE + "purchaseInsert", medicineId);
+	}
 }

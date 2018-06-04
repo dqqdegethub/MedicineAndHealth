@@ -87,7 +87,7 @@
 							</div>
 							<div class="form-group" style="padding-top:20px">
 								<div class="col-xs-2 col-xs-offset-3"><a href=""><button class=" btn btn-info"><span class="glyphicon glyphicon-chevron-left">返回</span></button></a></div>
-								<div class="col-xs-2"><button class="btn btn-success" id="confirmChangeBtn" type="button"><span class="glyphicon glyphicon-ok">确认修改</span></button></div>
+								<div class="col-xs-2"><button class="btn btn-success" id="confirmBtn" type="button"><span class="glyphicon glyphicon-ok">确认修改</span></button></div>
 							</div>
 						</form>	
 					</div>
@@ -114,6 +114,9 @@
     
     <script type="text/javascript">
     var medicineId="${medicineId }"
+    var customerId="${order[0].customerId}"
+    var count="${order[0].count }"
+    
 	$("#company").change(function(){
 		if($("#company").val()=="-1"){
 			return;
@@ -132,6 +135,34 @@
  			"success" : function(data){
  				if(data.code==1){
 					$("#packageCode").val(data.obj)
+	 			}
+ 			},
+ 			"error" : function(){
+ 				alert("search error!")
+ 			}
+ 		});
+	})
+	
+	$("#confirmBtn").click(function(){
+		var postData={
+			"step":2,
+			"staffId":$.cookie("staffId"),
+			"medicineId":medicineId,
+			"customerId":customerId,
+			"companyId":$("#company").val(),
+			"code":$("#packageCode").val(),
+			"count":count
+		}
+		$.ajax({
+ 			"method" : "POST",
+ 			"url" : contextPath + "/staff/orderDetails/" + medicineId,
+ 			"contentType" : "application/json",
+ 			"data" : JSON.stringify(postData),
+ 			"dataType" : "json",
+ 			"crossDomain" : true,
+ 			"success" : function(data){
+ 				if(data.code==1){
+					location.href=contextPath+"/staff/ensureOrder"
 	 			}
  			},
  			"error" : function(){
