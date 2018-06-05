@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import MedicineAndHealth.entity.BaseResponse;
 import MedicineAndHealth.entity.Customer;
@@ -126,5 +127,17 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		header.set("Access-Control-Allow-Origin", "*");
 		header.set("Access-Control-Request-Method", "post");		
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/customerCenter",method = RequestMethod.GET)
+	public ModelAndView  customerCenter(HttpSession session){
+		Integer customerId = (Integer)session.getAttribute("userId");
+		if(customerId == null){
+			return new ModelAndView("redirect:/customer/customerLogin");
+		}
+		Customer customer = cs.queryCustomerById(customerId);
+		ModelAndView mv = new ModelAndView("/customer/customerCenter");
+		mv.addObject("customer",customer);
+		return mv;
 	}
 }
