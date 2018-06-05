@@ -199,7 +199,7 @@
 		})
 		
 		$("#account1").click(function(){
-			
+			location.href=contextPath+"/staff/personalInformation"
 		})
 		$("#account2").click(function(){
 			location.href=contextPath+"/staff/changePassword"
