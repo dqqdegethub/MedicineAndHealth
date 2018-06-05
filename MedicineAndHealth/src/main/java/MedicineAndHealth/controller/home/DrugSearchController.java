@@ -32,6 +32,7 @@ public class DrugSearchController {
 		return mv;
 	}
 	
+	
 	@RequestMapping(value="/drugSearch",method=RequestMethod.POST)
 	public ResponseEntity<BaseResponse> DrugSearchPage(HttpEntity<DrugSearchRequest> request){
 		BaseResponse response=new BaseResponse();
