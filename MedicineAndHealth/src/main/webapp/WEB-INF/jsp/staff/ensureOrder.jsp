@@ -49,7 +49,7 @@
 			<div style="width:900px;float:left">
 				<span style="margin-bottom:20px">
 					<span style="float:left;font-size:30px;margin-left:20px;margin-top:10px">管理订单</span>
-					<button class="btn" type="button" style="background-color:#45a9c9;color:white;width:80px;margin-left:600px;margin-top:10px">注销</button>
+					<%@include file="../element/staffLogout.jsp"%>
 				</span>
 				<div style="margin-top:20px;margin-left:20px" id="changePwd">
 					<a id="skipto" style="cursor:pointer;">个人中心</a>>><span>业务管理>>订单管理</span>

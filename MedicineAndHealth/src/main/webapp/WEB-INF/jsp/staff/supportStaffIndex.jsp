@@ -99,7 +99,7 @@
 				<div style="width:100%;height:20px"></div>
 				<span style="margin-bottom:20px">
 					<span style="float:left;font-size:30px;margin-left:20px">个人中心</span>
-					<button class="btn" type="button" style="background-color:#45a9c9;color:white;width:80px;margin-left:600px">注销</button>
+					<%@include file="../element/staffLogout.jsp"%>
 				</span>
 				
 				<div id="accountManage" style="display:;border-bottom:2px solid #C4C4C4;height:30px;width:95%;margin-left:25px">

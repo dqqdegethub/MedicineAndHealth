@@ -65,6 +65,23 @@ public class StaffController {
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/staffLogout",method=RequestMethod.POST)
+	public ResponseEntity<BaseResponse>logout(HttpSession session){
+		BaseResponse response=new BaseResponse();
+
+		session.removeAttribute("staffId");
+		session.removeAttribute("staffName");
+		session.removeAttribute("partment");
+			
+		response.setCode(1);
+		response.setObj(null);
+		
+		MultiValueMap<String, String>header=new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
+	
 	@RequestMapping(value="/supportStaffIndex",method=RequestMethod.GET)
 	public ModelAndView showsupportStaffIndex(HttpSession session){
 		Integer staffId=(Integer)session.getAttribute("staffId");
