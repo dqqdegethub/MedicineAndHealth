@@ -95,6 +95,13 @@
 	var contextPath="<%=request.getContextPath()%>" 
 	$("#selectAllCheckbox").prop("checked",false);
 	
+	$("#skipto").click(function(){
+    	if($.cookie('partment')=='客服部'){
+     		location.href=contextPath+"/staff/supportStaffIndex"
+     	}
+     	else location.href=contextPath+"/staff/buyerStaffIndex"
+    })
+	
 	function cutSet(dataSet){
  		var dataCol = []
  		var _ = []

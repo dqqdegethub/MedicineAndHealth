@@ -103,13 +103,13 @@
 				</span>
 				
 				<div id="accountManage" style="display:;border-bottom:2px solid #C4C4C4;height:30px;width:95%;margin-left:25px">
-					<div id="account1" style="width:280px;height:280px;background-color:white;margin-left:-50px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
+					<div id="account1" style="width:280px;height:280px;background-color:white;margin-left:100px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
 						<div>
 							<img src="<%=request.getContextPath()%>/statics/images/staffIndexA.png" style="padding-bottom:80px;padding-top:80px;width:60px"/>
 						</div>
 						<span style="">修改个人信息</span>
 					</div>
-					<div id="account2" style="width:280px;height:280px;background-color:white;margin-left:50px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
+					<div id="account2" style="width:280px;height:280px;background-color:white;margin-left:100px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
 						<div>
 							<img src="<%=request.getContextPath()%>/statics/images/staffIndexP.png" style="padding-bottom:80px;padding-top:80px;width:60px"/>
 						</div>
@@ -117,8 +117,8 @@
 					</div>
 				</div>
 				<div id="businessManage" style="display:none;border-bottom:2px solid #C4C4C4;height:30px;width:95%;margin-left:25px">
-					<div id="business1" style="width:250px;height:280px;background-color:white;margin-left:-110px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
-						<div style="height:250px">
+					<div id="business1" style="width:280px;height:280px;background-color:white;margin-left:100px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
+						<div style="height:280px">
 							<div>
 							<img src="<%=request.getContextPath()%>/statics/images/staffIndexO.png" style="padding-bottom:60px;padding-top:80px;width:60px"/>
 						</div>
@@ -128,7 +128,7 @@
 							<span style="float:right;line-height:30px">已完成订单数：${orderNum }</span>
 						</div>
 					</div>
-					<div id="business2" style="width:250px;height:250px;background-color:white;margin-left:50px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
+					<div id="business2" style="width:280px;height:280px;background-color:white;margin-left:100px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
 						<div>
 							<img src="<%=request.getContextPath()%>/statics/images/staffIndexS.png" style="padding-bottom:60px;padding-top:80px;width:60px"/>
 						</div>
@@ -203,6 +203,9 @@
 		})
 		$("#account2").click(function(){
 			location.href=contextPath+"/staff/changePassword"
+		})
+		$("#business1").click(function(){
+			location.href=contextPath+"/staff/ensureOrder"
 		})
     </script>
 </body>

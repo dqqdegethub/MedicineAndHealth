@@ -101,7 +101,7 @@
 				</span>
 				
 				<div id="accountManage" style="display:;border-bottom:2px solid #C4C4C4;height:30px;width:95%;margin-left:25px">
-					<div id="account1" style="width:280px;height:280px;background-color:white;margin-left:-50px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
+					<div id="account1" style="width:280px;height:280px;background-color:white;margin-left:100px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
 						<div>
 							<img src="<%=request.getContextPath()%>/statics/images/staffIndexA.png" style="padding-bottom:60px;padding-top:80px;width:60px"/>
 						</div>
@@ -115,7 +115,7 @@
 					</div>
 				</div>
 				<div id="businessManage" style="display:none;border-bottom:2px solid #C4C4C4;height:30px;width:95%;margin-left:25px">
-					<div id="business1" style="width:280px;height:280px;background-color:white;margin-left:-50px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
+					<div id="business1" style="width:280px;height:280px;background-color:white;margin-left:100px;margin-top:100px;float:left;text-align:center;cursor:pointer;">
 						<div>
 							<img src="<%=request.getContextPath()%>/statics/images/staffIndexB.png" style="padding-bottom:60px;padding-top:80px;width:60px;"/>
 						</div>
@@ -192,7 +192,7 @@
 		})
 		
 		$("#account1").click(function(){
-			
+			location.href=contextPath+"/staff/personalInformation"
 		})
 		$("#account2").click(function(){
 			location.href=contextPath+"/staff/changePassword"
