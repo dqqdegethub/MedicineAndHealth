@@ -117,6 +117,12 @@
     var customerId="${order[0].customerId}"
     var count="${order[0].count }"
     
+    $("#skipto").click(function(){
+    	if($.cookie('partment')=='客服部'){
+     		location.href=contextPath+"/staff/supportStaffIndex"
+     	}
+     	else location.href=contextPath+"/staff/buyerStaffIndex"
+    })
 	$("#company").change(function(){
 		if($("#company").val()=="-1"){
 			return;

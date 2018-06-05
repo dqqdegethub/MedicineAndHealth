@@ -55,6 +55,17 @@
     		padding:0px;
     		height:192px;
 		}
+		.sign_01{
+			text-align:center;
+			display:block;
+			font-size:x-large;
+			color:orange;
+		}
+		.sign_02{
+			text-align:center;
+			display:block;
+			font-size:large;
+		}
 		</style>	
 	</head>
 	
@@ -183,26 +194,37 @@
 				success: function(data){
 					console.log(44);
 					list=data.obj;
-					var intType=parseInt(list[0].medicineId/100000);
-					var type=intType*100000;
-					$("#drugType")[0].innerHTML+="<a href=\""+contextPath+"/home/homePage\" class=\"bold\">首页</a>"+
-			    	"<b> > </b><a href=\""+contextPath+"/home/drugTypeSearch/"+type+" \" class=\"bold\" >"+list[0].mCatalog+"</a><span>></span>";
-			    
-					//DrugInformation drug;
-					for(var i=0;i<list.length;i++){
-						console.log(list[i].medicineName);
-						$("#select")[0].innerHTML+="<dl>"+
-    					"<a href=\""+contextPath+"/home/viewDrug/"+list[i].medicineId+"\" style=\"text-decoration-line: none;\">"+
-    					"<dt>"+
-    					"<img src=\""+contextPath+"/statics/images/drug/"+list[i].medicineId+".jpg\" class=\"drugListO\" />"+
-    					"</dt>"+
-    					"<dd>"+
-    						"<p>"+list[i].medicineName+"</p>"+
-    						"<span>￥"+list[i].price+"</span>"+
-    					"</dd>"+
-    					"</a>"+
-    				"</dl>";
-					}//for
+					
+					if(list.length<1){
+						$("#select")[0].innerHTML+="<span class=\"sign_01\">"+
+						"抱歉，没有找到相关商品"+
+						"</span><span class=\"sign_01\">您可以修改关键词重新搜索或向客服咨询是否有其他同类在售商品</span><!-- ，为您推荐以下结果 -->"+
+						"<ul class=\"sign_02\"><li><span>1：电话咨询   15951078533 </span></li> <li><span>2 : 将您需要的商品提供给我们<a target=\"_blank\">寻医问药</a></span></li><li><span class=\"sign_02\" >"+
+							"3：在线咨询   点击进行<a  onclick=\"#\">在线咨询</a></span></li></ul>";
+					}else{
+						var intType=parseInt(list[0].medicineId/100000);
+						var type=intType*100000;
+						$("#drugType")[0].innerHTML+="<a href=\""+contextPath+"/home/homePage\" class=\"bold\">首页</a>"+
+				    	"<b> > </b><a href=\""+contextPath+"/home/drugTypeSearch/"+type+" \" class=\"bold\" >"+list[0].mCatalog+"</a><span>></span>";
+				    
+						//DrugInformation drug;
+						for(var i=0;i<list.length;i++){
+							console.log(list[i].medicineName);
+							$("#select")[0].innerHTML+="<dl>"+
+	    					"<a href=\""+contextPath+"/home/viewDrug/"+list[i].medicineId+"\" style=\"text-decoration-line: none;\">"+
+	    					"<dt>"+
+	    					"<img src=\""+contextPath+"/statics/images/drug/"+list[i].medicineId+".jpg\" class=\"drugListO\" />"+
+	    					"</dt>"+
+	    					"<dd>"+
+	    						"<p>"+list[i].medicineName+"</p>"+
+	    						"<span>￥"+list[i].price+"</span>"+
+	    					"</dd>"+
+	    					"</a>"+
+	    				"</dl>";
+						}//for
+						
+					}
+					
 				  },
 				 
 				error: function(){

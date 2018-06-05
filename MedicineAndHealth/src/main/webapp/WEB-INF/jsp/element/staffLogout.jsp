@@ -6,7 +6,7 @@
 	<style>
    </style>
 
-	<button id="logout" class="btn" type="button" style="background-color:#45a9c9;color:white;width:80px;margin-left:600px">注销</button>
+	<button id="logout" class="btn" type="button" style="background-color:#45a9c9;color:white;width:80px;margin-left:600px;margin-top:10px">注销</button>
     
    <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
    <script src="<%=request.getContextPath()%>/statics/js/jquery.min.js"></script>
