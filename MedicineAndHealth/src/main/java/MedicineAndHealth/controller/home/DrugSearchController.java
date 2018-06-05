@@ -31,7 +31,7 @@ public class DrugSearchController {
 		ModelAndView mv=new ModelAndView("home/drugSearch");
 		return mv;
 	}
-	
+
 	
 	@RequestMapping(value="/drugSearch",method=RequestMethod.POST)
 	public ResponseEntity<BaseResponse> DrugSearchPage(HttpEntity<DrugSearchRequest> request){
