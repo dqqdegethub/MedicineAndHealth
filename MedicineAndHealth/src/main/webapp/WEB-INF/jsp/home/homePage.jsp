@@ -63,7 +63,7 @@
 					<input value="搜索" style="background:none;width:75px;height:46px;border:#0c69ae;text-align:center;color:white">
 				</div>
 			</div>
-			<div id="searchMore">
+			<div id="searchMore" style="padding-left:12px;">
 				<a href="<%=request.getContextPath()%>/home/viewDrug/401011" style="color:grey;text-decoration-line: none;">牛黄解毒丸</a>
 				<a href="<%=request.getContextPath()%>/home/viewDrug/301041" style="padding-left:12px;color:grey;text-decoration-line: none;">六味地黄丸</a>
 				<a href="<%=request.getContextPath()%>/home/viewDrug/302042" style="padding-left:12px;color:grey;text-decoration-line: none;">丹参片</a>
@@ -134,7 +134,7 @@
 						<a href="<%=request.getContextPath()%>/home/drugSearch/200000"><li>新药特药进口药</li></a>
 					</ul>
 					<ul>
-						<li>慈善援助</li>
+						<a href="<%=request.getContextPath()%>/home/charityTheme"><li>慈善援助</li></a>
 					</ul>
 					<ul>
 						<a href="<%=request.getContextPath()%>/home/drugSearch/100000"><li>重大疾病</li></a>

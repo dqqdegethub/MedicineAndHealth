@@ -147,7 +147,7 @@
 						<a href="<%=request.getContextPath()%>/home/drugSearch/200000"><li>新药特药进口药</li></a>
 					</ul>
 					<ul>
-						<li>慈善援助</li>
+						<a href="<%=request.getContextPath()%>/home/charityTheme"><li>慈善援助</li></a>
 					</ul>
 					<ul>
 						<a href="<%=request.getContextPath()%>/home/drugSearch/100000"><li>重大疾病</li></a>
