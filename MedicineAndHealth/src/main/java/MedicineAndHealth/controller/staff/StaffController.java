@@ -85,6 +85,9 @@ public class StaffController {
 	@RequestMapping(value="/supportStaffIndex",method=RequestMethod.GET)
 	public ModelAndView showsupportStaffIndex(HttpSession session){
 		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
 		Integer count=staffService.orderNum(staffId);
 		ModelAndView mv=new ModelAndView("/staff/supportStaffIndex");
 		mv.addObject("orderNum", count);
@@ -92,13 +95,23 @@ public class StaffController {
 	}
 	
 	@RequestMapping(value="/buyerStaffIndex",method=RequestMethod.GET)
-	public String showbuyerStaffIndex(){
-		return "staff/buyerStaffIndex";
+	public ModelAndView showbuyerStaffIndex(HttpSession session){
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
+		ModelAndView mv=new ModelAndView("/staff/buyerStaffIndex");
+		return mv;
 	}
 	
 	@RequestMapping(value="/changePassword",method=RequestMethod.GET)
-	public String showChangePassword(){
-		return "staff/changePassword";
+	public ModelAndView showChangePassword(HttpSession session){
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
+		ModelAndView mv=new ModelAndView("/staff/changePassword");
+		return mv;
 	}
 	
 	@RequestMapping(value="/changePassword",method=RequestMethod.POST)
@@ -122,6 +135,9 @@ public class StaffController {
 	@RequestMapping(value="/personalInformation",method=RequestMethod.GET)
 	public ModelAndView showPersonalInformation(HttpSession session){
 		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
 		Staff staff=staffService.searchStaffInfo(staffId);
 		ModelAndView mv=new ModelAndView("/staff/personalInformation");
 		mv.addObject("staff", staff);
@@ -201,7 +217,11 @@ public class StaffController {
 	}
 	
 	@RequestMapping(value="/ensureOrder",method=RequestMethod.GET)
-	public ModelAndView showOrder(){
+	public ModelAndView showOrder(HttpSession session){
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
 		ModelAndView mv=new ModelAndView("/staff/ensureOrder");
 		return mv;
 	}
@@ -223,6 +243,10 @@ public class StaffController {
 	
 	@RequestMapping(value="/orderDetails/{medicineId}",method=RequestMethod.GET)
 	public ModelAndView showOrderDeatils(@PathVariable Integer medicineId,HttpSession session){
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
 		ModelAndView mv = new ModelAndView();
 		List<Ordercheck> orders=staffService.queryOrder(medicineId);
 		mv.setViewName("staff/orderDetails");
