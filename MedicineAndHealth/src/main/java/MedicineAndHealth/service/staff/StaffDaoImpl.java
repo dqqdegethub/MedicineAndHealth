@@ -99,6 +99,19 @@ public class StaffDaoImpl implements StaffDao {
 	}
 	
 	@Override
+	public List<Ordercheck> queryPurchase(){
+		return sqlSessionTemplate.selectList(NAME_SPACE+"queryPurchase");
+	}
+	
+	@Override
+	public List<Ordercheck> queryPurchaseInfo(Integer medicineId,Integer staffId){
+		Map<String, Object>paraMap=new HashMap<>();
+		paraMap.put("staffId", staffId);
+		paraMap.put("medicineId", medicineId);
+		return sqlSessionTemplate.selectList(NAME_SPACE+"queryPurchaseInfo",paraMap);
+	}
+	
+	@Override
 	public void updateOrderBySer(Integer staffId,String code,Integer companyId,Integer medicineId,Integer customerId){
 		Map<String, Object>paraMap=new HashMap<>();
 		paraMap.put("staffId", staffId);
@@ -124,6 +137,25 @@ public class StaffDaoImpl implements StaffDao {
 	
 	@Override
 	public void purchaseInsert(Integer medicineId) {
+
 		sqlSessionTemplate.insert(NAME_SPACE + "purchaseInsert", medicineId);
+	}
+	
+	@Override
+	public void updatePurchase(Integer medicineId,Integer staffId,String date,Integer quantity) {
+		Map<String, Object>paraMap=new HashMap<>();
+		paraMap.put("medicineId", medicineId);
+		paraMap.put("staffId", staffId);
+		paraMap.put("date", date);
+		paraMap.put("quantity", quantity);
+		sqlSessionTemplate.selectOne(NAME_SPACE+"updatePurchase",paraMap);
+	}
+	
+	@Override
+	public void updateMedicine(Integer medicineId,Integer quantity) {
+		Map<String, Object>paraMap=new HashMap<>();
+		paraMap.put("medicineId", medicineId);
+		paraMap.put("quantity", quantity);
+		sqlSessionTemplate.selectOne(NAME_SPACE+"updateMedicine",paraMap);
 	}
 }

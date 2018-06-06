@@ -1,5 +1,7 @@
 package MedicineAndHealth.entity;
 
+import java.sql.Date;
+
 public class Ordercheck {
 	private int step;
 	private Integer staffId;
@@ -10,7 +12,11 @@ public class Ordercheck {
 	private String code;
 	private Integer companyId;
 	private Integer customerId;
-	
+	private Integer amount;
+	private String producer;
+	private String staffName;
+	private Integer quantity;
+	private String  date;
 	
 	public Integer getStaffId() {
 		return staffId;
@@ -65,5 +71,35 @@ public class Ordercheck {
 	}
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
+	}
+	public Integer getAmount() {
+		return amount;
+	}
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+	public String getProducer() {
+		return producer;
+	}
+	public void setProducer(String producer) {
+		this.producer = producer;
+	}
+	public String getStaffName() {
+		return staffName;
+	}
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 }

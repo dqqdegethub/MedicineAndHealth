@@ -37,4 +37,10 @@ public interface StaffService {
 
 	void updateOrderBySer(Ordercheck request);
 
+	List<Ordercheck> queryPurchase();
+
+	void updatePurchase(Ordercheck request);
+
+	List<Ordercheck> queryPurchaseInfo(Integer medicineId,Integer staffId);
+
 }

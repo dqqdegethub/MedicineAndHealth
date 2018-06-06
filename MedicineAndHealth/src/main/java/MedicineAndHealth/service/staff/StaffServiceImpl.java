@@ -91,6 +91,16 @@ public class StaffServiceImpl implements StaffService {
 	}
 	
 	@Override
+	public List<Ordercheck> queryPurchase(){
+		return staffDao.queryPurchase();
+	}
+		
+	@Override
+	public List<Ordercheck> queryPurchaseInfo(Integer medicineId,Integer staffId){
+		return staffDao.queryPurchaseInfo(medicineId,staffId);
+	}
+	
+	@Override
 	public String getPackagecode(Integer companyId){
 		Random r=new Random();
 		int num=(int)(r.nextFloat()*100000000);
@@ -107,5 +117,11 @@ public class StaffServiceImpl implements StaffService {
 		if(saveNum<=5){
 			staffDao.purchaseInsert(request.getMedicineId());
 		}
+	}
+	
+	@Override
+	public void updatePurchase(Ordercheck request) {
+		staffDao.updateMedicine(request.getMedicineId(), request.getQuantity());
+		staffDao.updatePurchase(request.getMedicineId(),request.getStaffId(),request.getDate(),request.getQuantity());
 	}
 }

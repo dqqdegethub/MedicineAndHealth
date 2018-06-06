@@ -275,4 +275,54 @@ public class StaffController {
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/ensurePurchase",method=RequestMethod.GET)
+	public ModelAndView showPurchase(HttpSession session) {
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
+		ModelAndView mv=new ModelAndView("/staff/ensurePurchase");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/ensurePurchase",method = RequestMethod.POST)
+	public ResponseEntity<BaseResponse> purchaseManage(HttpEntity<Ordercheck>httpEntity,HttpSession session){
+		BaseResponse response = new BaseResponse();
+		List<Ordercheck> purchases=staffService.queryPurchase();
+		response.setCode(1);
+		response.setObj(purchases);
+		
+		MultiValueMap<String, String> header = new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response, header, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/purchaseDetails/{medicineId}",method=RequestMethod.GET)
+	public ModelAndView showPurchaseDeatils(@PathVariable Integer medicineId,HttpSession session){
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
+		ModelAndView mv = new ModelAndView("/staff/purchaseDetails");
+		List<Ordercheck> purchaseInfo=staffService.queryPurchaseInfo(medicineId,staffId);
+		mv.setViewName("staff/purchaseDetails");
+		mv.addObject("purchaseInfo",purchaseInfo);
+		mv.addObject("medicineId",medicineId);
+		mv.addObject("staffId",staffId);
+		return mv;
+	}
+	
+	@RequestMapping(value="/purchaseDetails/{medicineId}",method=RequestMethod.POST)
+	public ResponseEntity<BaseResponse> updatePurchase(HttpEntity<Ordercheck>httpEntity,@PathVariable Integer medicineId,HttpSession session){
+		BaseResponse response=new BaseResponse();
+		Ordercheck or=httpEntity.getBody();
+		staffService.updatePurchase(or);
+		response.setCode(1);
+		
+		MultiValueMap<String, String>header=new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
 }

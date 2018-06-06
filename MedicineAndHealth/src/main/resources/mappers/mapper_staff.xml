@@ -24,6 +24,22 @@
 		<result column="companyid" property="companyId"/>
 	</resultMap>
 
+	<resultMap type="MedicineAndHealth.entity.Ordercheck" id="PurchaseMap">
+		<result column="medicineId" property="medicineId"/>
+		<result column="medicineName" property="medicineName"/>
+		<result column="staffName" property="staffName"/>
+		<result column="amount" property="amount"/>
+		<result column="producer" property="producer"/>
+		<result column="quantity" property="quantity"/>
+		<result column="date" property="date"/>
+	</resultMap>
+	
+	<resultMap type="MedicineAndHealth.entity.Ordercheck" id="PurchaseInfoMap">
+		<result column="staffName" property="staffName"/>
+		<result column="medicineName" property="medicineName"/>
+		<result column="producer" property="producer"/>
+	</resultMap>
+	
 	<select id="queryStaffExist" parameterType="java.lang.Integer" resultType="java.lang.Integer">
 		SELECT
 			COUNT(*)
@@ -194,4 +210,45 @@
 			#{medicineId}
 		)
 	</insert>
+
+	<select id="queryPurchase" resultMap="PurchaseMap">
+		SELECT
+			medicine.id as medicineId,
+			medicine.name as medicineName,
+			producer,
+			amount
+		FROM
+			medicine
+		WHERE
+			medicine.amount&lt;5
+	</select>
+	
+	<select id="queryPurchaseInfo" resultMap="PurchaseInfoMap" parameterType="java.util.Map">
+		SELECT
+			medicine.name as medicineName,
+			staff.name as staffName,
+			producer
+		FROM
+			medicine,staff
+		WHERE
+			medicine.id=#{medicineId} AND staff.id=#{staffId}
+	</select>
+	
+	<update id="updateMedicine" parameterType="java.util.Map">
+		UPDATE medicine
+		SET
+			amount=amount+#{quantity}
+		WHERE
+			id=#{medicineId}
+	</update>
+	<update id="updatePurchase" parameterType="java.util.Map">
+		UPDATE purchase
+		SET
+			staffid=#{staffId},
+			date=#{date},
+			quantity=#{quantity},
+			state=1
+		WHERE
+			medicineid=#{medicineId}
+	</update>
 </mapper>

@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
+<head>
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>订单详情</title>
-
+    <title>采购详情</title>
+    
     <!-- Bootstrap -->
     <link href="<%=request.getContextPath()%>/statics/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<%=request.getContextPath()%>/statics/css/index.css" rel="stylesheet">
@@ -30,59 +31,37 @@
 		overflow: hidden;
 	}
     </style>
-  </head>
-
-  <body>
-<!--     <header> -->
-<!--     <a>登录</a> |  -->
-<!--  <div style="float:right"> -->
-<!--  		欢迎来到药房网！&emsp;&emsp;&emsp;&emsp; -->
-<!--     	<span>请登录&emsp;</span> -->
-<!--     	<span>注册&emsp;</span> -->
-<%--     	<span><img src="<%=request.getContextPath()%>/statics/images/cart.png" style="width:25px;height:25px;padding-bottom:5px"/>需求清单</span> --%>
-<!--     </div> -->
-<!--    </header> -->
+    
+</head>
+<body>
 	<div class="staffmain"><div style="width:100%;height:50px"></div>
 		<div class="staffmainIn">
 			<%@include file="../element/staffLeftBar.jsp"%>
 			<div style="width:900px;float:left">
 				<span style="margin-bottom:20px">
-					<span style="float:left;font-size:30px;margin-left:20px;margin-top:10px">确认订单</span>
+					<span style="float:left;font-size:30px;margin-left:20px;margin-top:10px">采购确认</span>
 					<%@include file="../element/staffLogout.jsp"%>
 				</span>
 				<div style="margin-top:20px;margin-left:20px" id="changePwd">
 					<a id="skipto" style="cursor:pointer;">个人中心</a>>><span>业务管理>>
-					<a style="cursor:pointer;" href="<%=request.getContextPath()%>/staff/ensureOrder">订单管理</a>>>确认订单</span>
+					<a style="cursor:pointer;" href="<%=request.getContextPath()%>/staff/ensurePurchase">采购管理</a>>>采购确认</span>
 					<div style="margin-top:20px;margin-left:70px;text-align:center;">
 						<form class="form-horizontal" style="padding-top:20px">
 							<div class="form-group" style="">
-								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>顾客姓名：</label>
-								<label class="col-xs-3 control-label" style="margin-left:-80px;line-height:32px">${order[0].customerName }</label>
+								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>员工姓名：</label>
+								<label class="col-xs-3 control-label" style="margin-left:-80px;line-height:32px">${purchaseInfo[0].staffName }</label>
 							</div>
 							<div class="form-group">
 								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>药品名称：</label>
-								<label class="col-xs-3 control-label" style="margin-left:-40px;line-height:32px">${order[0].medicineName }</label>
+								<label class="col-xs-3 control-label" style="margin-left:10px;line-height:32px">${purchaseInfo[0].medicineName }</label>
 							</div>
 							<div class="form-group">
-								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>药品数量：</label>
-								<label class="col-xs-2 control-label" style="margin-left:-40px;">${order[0].count }</label>
+								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>生产厂家：</label>
+								<label class="col-xs-3 control-label" style="margin-left:-20px;line-height:32px">${purchaseInfo[0].producer }</label>
 							</div>
 							<div class="form-group">
-								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>快递公司：</label>
-								<div class="col-xs-4">
-									<select class="form-control " id="company" >
-										<option value="-1">请选择</option>
-										<option value="1">圆通</option>
-										<option value="2">韵达</option>
-										<option value="3">汇通</option>
-										<option value="4">顺丰</option>
-									</select>
-								</div>
-								<div class="col-xs-3 warning-errmsg" id="msg-1"></div>
-							</div>
-							<div class="form-group">
-								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>快递编号：</label>
-								<div class="col-xs-4"><input class="form-control" id="packageCode" type="text" placeholder=""></div>
+								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>采购数量：</label>
+								<div class="col-xs-4"><input class="form-control" id="quantity" type="text" placeholder=""></div>
 								<div class="col-xs-3 warning-errmsg" id="msg-2"></div>
 							</div>
 							<div class="form-group" style="padding-top:20px">
@@ -113,62 +92,35 @@
     <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
     
     <script type="text/javascript">
-    var medicineId="${medicineId }"
-    var customerId="${order[0].customerId}"
-    var count="${order[0].count }"
+    var medicineId="${medicineId}"
+    var staffId="${staffId}"
+    var date = new Date();
+    var year = date.getFullYear(); //获取年   
+    var month = date.getMonth()+1;//获取月
+    var day = date.getDate(); //获取当日
+    if(month<10 || day<10){
+    	month="0"+month;
+    	day="0"+day;
+    }
+    var time = year+month+day; //组合时间  
     
-    $("#skipto").click(function(){
-    	if($.cookie('partment')=='客服部'){
-     		location.href=contextPath+"/staff/supportStaffIndex"
-     	}
-     	else location.href=contextPath+"/staff/buyerStaffIndex"
-    })
-	$("#company").change(function(){
-		if($("#company").val()=="-1"){
-			return;
-		}
-		var postData={
-			"step":1,
-			"companyId":$("#company").val()
-		}
-		$.ajax({
- 			"method" : "POST",
- 			"url" : contextPath + "/staff/orderDetails/" + medicineId,
- 			"contentType" : "application/json",
- 			"data" : JSON.stringify(postData),
- 			"dataType" : "json",
- 			"crossDomain" : true,
- 			"success" : function(data){
- 				if(data.code==1){
-					$("#packageCode").val(data.obj)
-	 			}
- 			},
- 			"error" : function(){
- 				alert("search error!")
- 			}
- 		});
-	})
-	
 	$("#confirmBtn").click(function(){
 		var postData={
-			"step":2,
 			"staffId":$.cookie("staffId"),
+			"date":time,
 			"medicineId":medicineId,
-			"customerId":customerId,
-			"companyId":$("#company").val(),
-			"code":$("#packageCode").val(),
-			"count":count
+			"quantity":$("#quantity").val()
 		}
 		$.ajax({
  			"method" : "POST",
- 			"url" : contextPath + "/staff/orderDetails/" + medicineId,
+ 			"url" : contextPath + "/staff/purchaseDetails/" + medicineId,
  			"contentType" : "application/json",
  			"data" : JSON.stringify(postData),
  			"dataType" : "json",
  			"crossDomain" : true,
  			"success" : function(data){
  				if(data.code==1){
-					location.href=contextPath+"/staff/ensureOrder"
+					location.href=contextPath+"/staff/ensurePurchase"
 	 			}
  			},
  			"error" : function(){
@@ -178,5 +130,4 @@
 	})
     </script>
 </body>
-
 </html>
