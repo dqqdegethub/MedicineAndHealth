@@ -61,6 +61,7 @@
     <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
     
     <script>
+    
 	  	//leftNav
 		$(".centerLeftNav").hover(function(){
 			$(this).addClass("isHover")

@@ -85,9 +85,8 @@
 	<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
     <script src="<%=request.getContextPath()%>/statics/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<%=request.getContextPath()%>/statics/js/bootstrap.min.js"></script>  
-    <!-- Dynamic page helper script -->
-    <script>var contextPath="<%=request.getContextPath()%>";</script>
+    <script src="<%=request.getContextPath()%>/statics/js/bootstrap.min.js"></script> 
+    
     <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
     
     <script >

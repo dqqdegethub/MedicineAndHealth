@@ -86,7 +86,6 @@
     
     <script >
 	    var contextPath = "<%=request.getContextPath()%>";
-	    
 		$(document).ready(function(){
 			//allNav
 			$("#leftBar").hide();

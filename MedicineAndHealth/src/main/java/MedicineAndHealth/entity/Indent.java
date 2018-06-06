@@ -7,7 +7,6 @@ public class Indent {
 	private String company;
 	private String packagecode;
 	
-
 	public int getMedicineId() {
 		return medicineId;
 	}
