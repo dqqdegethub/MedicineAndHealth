@@ -6,6 +6,7 @@ public class Indent {
 	private int count;
 	private String company;
 	private String packagecode;
+	private String state;
 	
 	public int getMedicineId() {
 		return medicineId;
@@ -40,6 +41,13 @@ public class Indent {
 	}
 	public void setPackagecode(String packagecode) {
 		this.packagecode = packagecode;
+	}
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 
 }

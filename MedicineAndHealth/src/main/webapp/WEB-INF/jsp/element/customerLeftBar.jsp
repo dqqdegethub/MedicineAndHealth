@@ -36,9 +36,9 @@
 
 	<div style="width: 20%;height:450px;background-color:#c4dbed;float:left">
 		<div style="width:200px;height:50px;text-align:center;">
-			<label style="line-height:50px;font-size:18px">${customer.userName }</label>
+			<label style="line-height:50px;font-size:18px" id="customerName"></label>
 		</div>
-		<img id="customerImg" src="<%=request.getContextPath()%>/statics/images/customers/${customer.id }.jpeg" style="width:100px;margin-left:50px"/>
+		<img id="customerImg" src="<%=request.getContextPath()%>/statics/images/customers/${customerId }.jpeg" style="width:100px;margin-left:50px"/>
 		
 		<div class="showBar centerLeftNav" id="indent" style="margin-top:70px;">
 			<img id="indentImg" src="<%=request.getContextPath()%>/statics/images/staffIndexicon4.png" />
@@ -53,26 +53,13 @@
 		<div style="margin-left:15px"></div>
 	</div>
 	
-	<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-    <script src="<%=request.getContextPath()%>/statics/js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<%=request.getContextPath()%>/statics/js/bootstrap.min.js"></script>  
-    
-    <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
-    
+	
     <script>
+    	$("#customerName")[0].innerHTML = $.cookie("userName");	
     
-	  	//leftNav
-		$(".centerLeftNav").hover(function(){
-			$(this).addClass("isHover")
-		},function(){
-			$(this).removeClass("isHover");
-		})
-		
 		function leftBarStyleShow(){
 			switch($.cookie("customerLeftBar")){
 				case "1":
-					console.log(1)
 					$("#indent").removeClass("showBar");
 					$("#indent").addClass("unshowBar");
 					$("#information").removeClass("unshowBar");
@@ -82,7 +69,6 @@
 					$("#indentImg").attr('src','<%=request.getContextPath()%>/statics/images/staffIndexicon2.png');
 					break;
 				default:
-					console.log(0)
 					$("#information").removeClass("showBar");
 					$("#information").addClass("unshowBar");
 					$("#indent").removeClass("unshowBar");
@@ -93,6 +79,14 @@
 					break;
 			}
 		}
+		
+		//leftNav
+		$(".centerLeftNav").hover(function(){
+			$(this).addClass("isHover")
+		},function(){
+			$(this).removeClass("isHover");
+		})
+		
 		
     </script>
     
