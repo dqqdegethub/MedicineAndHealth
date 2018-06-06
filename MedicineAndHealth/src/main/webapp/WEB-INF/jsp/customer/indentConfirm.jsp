@@ -23,17 +23,12 @@
     <![endif]-->
     
     <style>
-	.aStyle{
-		width:240px;
-		height:240px;
-		background-color:white;
-		float:left;
-		cursor:pointer;	
-	}
-	.aImgStyle{
-		padding-bottom:32px;
-		padding-top:60px;
-		width:80px
+	.tableStyle{
+		width:90%;
+		margin-left:20px;
+		margin-top:50px;
+		min-height:300px;
+		background-color:white
 	}
     </style>
   </head>
@@ -52,29 +47,29 @@
 				<div style="margin-top:20px;margin-left:20px">
 					<a href="<%=request.getContextPath() %>/home/homePage" style="cursor:pointer;">药康网</a>>><span>我的药康网</span>
 					
-					<div id="indent_1" class="col-xs-12" style="margin-top:40px;text-align:center;padding-left: 100px">
-						<a class="col-xs-6 aStyle" href="<%=request.getContextPath()%>/customer/indentConfirm">
-							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexB.png" />
-							<span class="col-xs-12" style="color: black">确认订单</span>
-						</a>
+					<table class="table table-bordered tableStyle">
+						<thead>
+							<tr>
+								<th class="col-xs-3">药品名</th>
+								<th class="col-xs-2">药品数量</th>
+								<th class="col-xs-2">快递公司</th>
+								<th class="col-xs-3">快递号</th>
+								<th class="col-xs-2">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${indents }" var="indent">
+								<tr>
+									<td>${indent.medicineName }</td>
+									<td>${indent.count }</td>
+									<td>${indent.company }</td>
+									<td>${indent.packagecode }</td>
+									<td><a onclick="indentConfirm(${indent.medicineId })">确认收货</a></td>
+								</tr>
+							</c:forEach>
 						
-						<a class="col-xs-6 aStyle" style="margin-left:50px" href="<%=request.getContextPath()%>/customer/allIndent">
-							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexO.png" />
-							<span class="col-xs-12" style="color: black">全部订单</span>
-						</a>
-					</div>
-					
-					<div id="information_1" class="col-xs-12" style="margin-top:40px;text-align:center;padding-left: 100px">
-						<a class="col-xs-6 aStyle" href="<%=request.getContextPath()%>/customer/customerDetail">
-							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexA.png" />
-							<span class="col-xs-12" style="color: black">详细信息</span>
-						</a>
-						
-						<a class="col-xs-6 aStyle" style="margin-left:50px" href="<%=request.getContextPath()%>/customer/passwordChange">
-							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexP.png" />
-							<span class="col-xs-12" style="color: black">修改密码</span>
-						</a>
-					</div>
+						</tbody>
+					</table>
 				</div>
 					
 			</div>
@@ -86,14 +81,13 @@
     <script src="<%=request.getContextPath()%>/statics/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<%=request.getContextPath()%>/statics/js/bootstrap.min.js"></script>  
-    <!-- Dynamic page helper script -->
-    <script>var contextPath="<%=request.getContextPath()%>";</script>
+    
     <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
     
     <script >
 	    var contextPath = "<%=request.getContextPath()%>";
-	   
-		$(document).ready(function(){	
+	    
+		$(document).ready(function(){
 			//allNav
 			$("#leftBar").hide();
 			$("#allNav").hover(function(){	
@@ -101,36 +95,39 @@
 			},function(){	
 				$("#leftBar").hide();
 			})
-
-			leftBarStyleShow();
-			leftBarShow();
+			
+			$(".centerLeftNav").click(function(){
+				window.location.href = contextPath + "/customer/customerCenter";
+			})
 		})
 		
+		function indentConfirm(mId){
+			var postData={	medicineId: mId };
+	 		 $.ajax({
+	 			 method:"POST",
+	 			 url: contextPath + "/customer/indentConfirm",
+	 			 contentType: "application/json",
+	 			 data:JSON.stringify(postData),
+	 			 dataType:"json",
+	 		 	 crossDomain: true,
+	 			 success: function(data){
+	 				window.location.href = contextPath + "/customer/indentConfirm";
+	 			},
+	 			 error: function(){
+	 				   alert("error.");
+	 			}
+	 		})
+		}
+		
+
 		$("#indent").click(function(){
 			$.removeCookie("customerLeftBar");
 			$.cookie("customerLeftBar","0",{path: '/'});
-			leftBarStyleShow();
-			leftBarShow();
 		})
 		$("#information").click(function(){
 			$.removeCookie("customerLeftBar");
 			$.cookie("customerLeftBar","1",{path: '/'});
-			leftBarStyleShow();
-			leftBarShow();
 		})
-
-		function leftBarShow(){
-			switch($.cookie("customerLeftBar")){
-				case "1" :
-					$("#information_1").show();
-					$("#indent_1").hide();
-					break;
-				default:
-					$("#indent_1").show();
-					$("#information_1").hide();
-					break;
-			}
-		}
 	</script>
 	
 </body>
