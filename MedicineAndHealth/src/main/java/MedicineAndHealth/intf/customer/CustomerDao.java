@@ -25,5 +25,7 @@ public interface CustomerDao {
 
 	void indentConfirm(int customerId, int medicineId);
 
+	List<Indent> allIndents(int customerId);
+
 
 }
