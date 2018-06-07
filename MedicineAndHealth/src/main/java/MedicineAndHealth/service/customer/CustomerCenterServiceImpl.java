@@ -29,4 +29,14 @@ public class CustomerCenterServiceImpl implements CustomerCenterService {
 	public List<Indent> allIndents(int customerId){
 		return ccDao.allIndents(customerId);
 	}
+	
+	@Override
+	public boolean passwordCheck(String password,int customerId){
+		return ccDao.passwordQuery(customerId).equals(password);
+	}
+	
+	@Override
+	public void passwordChange(int customerId,String password){
+		ccDao.passwordChange(customerId, password);
+	}
 }

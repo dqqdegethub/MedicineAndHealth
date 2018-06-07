@@ -49,4 +49,21 @@
 			indent.medicineid=medicine.id AND indent.customerid=#{customerId}
  	</select>
  
+	<select id="passwordQuery" parameterType="java.lang.Integer" resultType="java.lang.String">
+		SELECT 
+			password	 
+		FROM 
+			customer
+		WHERE id = #{customerId}
+	</select>
+	
+	<update id="passwordChange" parameterType="java.util.Map">
+		UPDATE 
+			customer
+		SET 
+			password = #{password}
+		WHERE 
+			id = #{customerId}
+
+	</update>
  </mapper>

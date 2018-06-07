@@ -12,4 +12,9 @@ public interface CustomerCenterService {
 
 	List<Indent> allIndents(int customerId);
 
+	boolean passwordCheck(String password, int customerId);
+
+	void passwordChange(int customerId, String password);
+
+
 }

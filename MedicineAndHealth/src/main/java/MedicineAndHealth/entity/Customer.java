@@ -11,6 +11,8 @@ public class Customer {
 	private String message;	
 	private String answer;
 	
+	private String requestOldPassword;
+	private String requestNewPassword;
 	
 	public Integer getId() {
 		return id;
@@ -107,8 +109,6 @@ public class Customer {
 		
 	}
 	
-	
-	
 	public Customer(String name,String pwd,String realname,String phonenumber,String address,String answer ) {		
 		this.userName=name;
 		this.password=pwd;
@@ -117,9 +117,6 @@ public class Customer {
 		this.address=address;
 		this.answer=answer;
 	}
-	
-	
-	
 	
 	public Customer(int id,String name,String pwd,String realname,String phonenumber,String address,String answer ) {
 		this.id=id;
@@ -138,5 +135,26 @@ public class Customer {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+
+
+	public String getRequestOldPassword() {
+		return requestOldPassword;
+	}
+
+
+	public void setRequestOldPassword(String requestOldPassword) {
+		this.requestOldPassword = requestOldPassword;
+	}
+
+
+	public String getRequestNewPassword() {
+		return requestNewPassword;
+	}
+
+
+	public void setRequestNewPassword(String requestNewPassword) {
+		this.requestNewPassword = requestNewPassword;
+	}
+
 
 }

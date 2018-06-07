@@ -12,4 +12,8 @@ public interface CustomerCenterDao {
 
 	List<Indent> allIndents(int customerId);
 
+	String passwordQuery(int customerId);
+
+	void passwordChange(int customerId, String password);
+
 }

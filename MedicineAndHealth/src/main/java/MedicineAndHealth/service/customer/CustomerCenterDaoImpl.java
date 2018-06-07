@@ -36,4 +36,16 @@ public class CustomerCenterDaoImpl implements CustomerCenterDao {
 		return sqlSessionTemplate.selectList(NAME_SPACE + "allIndents", customerId);
 	}
 	
+	@Override
+	public String passwordQuery(int customerId){
+		return sqlSessionTemplate.selectOne(NAME_SPACE + "passwordQuery", customerId);
+	}
+	
+	@Override
+	public void passwordChange(int customerId,String password){
+		Map<String, Object> map = new HashMap<>();
+		map.put("customerId", customerId);
+		map.put("password", password);
+		sqlSessionTemplate.update(NAME_SPACE + "passwordChange", map);
+	}
 }

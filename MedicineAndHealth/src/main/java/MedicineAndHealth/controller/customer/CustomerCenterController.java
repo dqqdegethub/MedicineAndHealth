@@ -96,4 +96,25 @@ public class CustomerCenterController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/passwordChange",method=RequestMethod.POST)
+	public HttpEntity<BaseResponse> passwordChange(HttpEntity<Customer> httpEntity,HttpSession session){
+		BaseResponse response=new BaseResponse();
+		Customer customer=httpEntity.getBody();
+		Integer customerId = (Integer)session.getAttribute("userId");		
+		
+		if(ccService.passwordCheck(customer.getRequestOldPassword(), customerId)){
+			ccService.passwordChange(customerId, customer.getRequestNewPassword());
+			response.setCode(1);//密码正确
+			response.setObj(null);
+			
+		}else {
+			response.setCode(0);//密码错误
+			response.setObj(null);
+		}
+		MultiValueMap<String, String> header = new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");		
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
+	
 }
