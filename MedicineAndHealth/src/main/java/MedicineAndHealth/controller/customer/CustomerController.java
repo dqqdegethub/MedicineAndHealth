@@ -1,7 +1,6 @@
 package MedicineAndHealth.controller.customer;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,11 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import MedicineAndHealth.entity.BaseResponse;
 import MedicineAndHealth.entity.Customer;
-import MedicineAndHealth.entity.Indent;
 import MedicineAndHealth.intf.customer.CustomerService;
 
 

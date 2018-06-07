@@ -23,7 +23,7 @@ import MedicineAndHealth.intf.customer.CustomerService;
 
 @Controller
 @RequestMapping("/customer")
-public class CustomerCenter {
+public class CustomerCenterController {
 	@Autowired
 	CustomerCenterService ccService;
 	
