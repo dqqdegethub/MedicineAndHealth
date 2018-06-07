@@ -6,7 +6,7 @@
 	<resultMap type="MedicineAndHealth.entity.Staff" id="loginMap">
 		<result column="id" property="staffId"/>
 		<result column="name" property="staffName"/>
-		<result column="partname" property="partment"/>
+		<result column="partname" property="partment"/> 
 	</resultMap>
 	<resultMap type="MedicineAndHealth.entity.Staff" id="personalInfoMap">
 		<result column="id" property="staffId"/>

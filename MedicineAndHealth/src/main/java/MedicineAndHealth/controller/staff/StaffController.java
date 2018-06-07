@@ -28,7 +28,7 @@ public class StaffController {
 //	private final Logger LOG=LoggerFactory.getLogger(StaffLoginController.class);
 	
 	@Autowired
-	StaffService staffService;
+	StaffService staffService; 
 	
 	@RequestMapping(value="/staffLogin",method=RequestMethod.GET)
 	public String showHomepage(){
