@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -22,18 +23,9 @@
     <![endif]-->
     
     <style>
-	.aStyle{
-		width:240px;
-		height:240px;
-		background-color:white;
-		float:left;
-		cursor:pointer;	
-	}
-	.aImgStyle{
-		padding-bottom:32px;
-		padding-top:60px;
-		width:80px
-	}
+    .SpanStyle{
+    	line-height: 34px
+    }
     </style>
   </head>
 
@@ -51,28 +43,35 @@
 				<div style="margin-top:20px;margin-left:20px">
 					<a href="<%=request.getContextPath() %>/home/homePage" style="cursor:pointer;">药康网</a>>><span>我的药康网</span>
 					
-					<div id="indent_1" class="col-xs-12" style="margin-top:40px;text-align:center;padding-left: 100px">
-						<a class="col-xs-6 aStyle" href="<%=request.getContextPath()%>/customer/indentConfirm">
-							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexB.png" />
-							<span class="col-xs-12" style="color: black">确认订单</span>
-						</a>
-						
-						<a class="col-xs-6 aStyle" style="margin-left:50px" href="<%=request.getContextPath()%>/customer/allIndents">
-							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexO.png" />
-							<span class="col-xs-12" style="color: black">全部订单</span>
-						</a>
+					<div class="form-group ">
+						<label class="col-xs-3 control-label" >用户名：</label>
+						<div class="col-xs-4">
+							<span class="form-control SpanStyle">${customer.userName }</span>
+						</div>
 					</div>
-					
-					<div id="information_1" class="col-xs-12" style="margin-top:40px;text-align:center;padding-left: 100px">
-						<a class="col-xs-6 aStyle" href="<%=request.getContextPath()%>/customer/customerDetails">
-							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexA.png" />
-							<span class="col-xs-12" style="color: black">详细信息</span>
-						</a>
-						
-						<a class="col-xs-6 aStyle" style="margin-left:50px" href="<%=request.getContextPath()%>/customer/passwordChange">
-							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexP.png" />
-							<span class="col-xs-12" style="color: black">修改密码</span>
-						</a>
+					<div class="form-group ">
+						<label class="col-xs-3 control-label" >真实姓名：</label>
+						<div class="col-xs-4">
+							<span class="form-control SpanStyle">${customer.realName }</span>
+						</div>
+					</div>
+					<div class="form-group ">
+						<label class="col-xs-3 control-label" >联系电话：</label>
+						<div class="col-xs-4">
+							<span class="form-control SpanStyle">${customer.phoneNumber }</span>
+						</div>
+					</div>
+					<div class="form-group ">
+						<label class="col-xs-3 control-label" >收货地址：</label>
+						<div class="col-xs-4">
+							<span class="form-control SpanStyle">${customer.address }</span>
+						</div>
+					</div>
+					<div class="form-group ">
+						<label class="col-xs-3 control-label" >优惠券：</label>
+						<div class="col-xs-4">
+							<span class="form-control SpanStyle">${customer.coupon }</span>
+						</div>
 					</div>
 				</div>
 					
@@ -80,17 +79,17 @@
 		</div>
 	</div>
 	
+	
 	<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
     <script src="<%=request.getContextPath()%>/statics/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<%=request.getContextPath()%>/statics/js/bootstrap.min.js"></script> 
+    <script src="<%=request.getContextPath()%>/statics/js/bootstrap.min.js"></script>  
     
     <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
     
     <script >
 	    var contextPath = "<%=request.getContextPath()%>";
-	   
-		$(document).ready(function(){	
+		$(document).ready(function(){
 			//allNav
 			$("#leftBar").hide();
 			$("#allNav").hover(function(){	
@@ -98,36 +97,20 @@
 			},function(){	
 				$("#leftBar").hide();
 			})
-
-			leftBarStyleShow();
-			leftBarShow();
+			
+			$(".centerLeftNav").click(function(){
+				window.location.href = contextPath + "/customer/customerCenter";
+			})
 		})
 		
 		$("#indent").click(function(){
 			$.removeCookie("customerLeftBar");
 			$.cookie("customerLeftBar","0",{path: '/'});
-			leftBarStyleShow();
-			leftBarShow();
 		})
 		$("#information").click(function(){
 			$.removeCookie("customerLeftBar");
 			$.cookie("customerLeftBar","1",{path: '/'});
-			leftBarStyleShow();
-			leftBarShow();
 		})
-
-		function leftBarShow(){
-			switch($.cookie("customerLeftBar")){
-				case "1" :
-					$("#information_1").show();
-					$("#indent_1").hide();
-					break;
-				default:
-					$("#indent_1").show();
-					$("#information_1").hide();
-					break;
-			}
-		}
 	</script>
 	
 </body>

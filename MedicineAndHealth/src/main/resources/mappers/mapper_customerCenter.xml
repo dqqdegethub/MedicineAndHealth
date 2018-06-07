@@ -12,6 +12,14 @@
       	<result column="state" property="state"/>
      </resultMap>
      
+     <resultMap type="MedicineAndHealth.entity.Customer" id="detailsQuery">
+     	<result column="username" property="userName"/>
+     	<result column="realname," property="realName"/>
+     	<result column="phonenumber" property="phoneNumber"/>
+      	<result column="address" property="address"/> 
+      	<result column="coupon" property="coupon"/>
+     </resultMap>
+     
 	<select id="indentComfirmQuery" parameterType="java.lang.Integer" resultMap="indentQuery">
 		SELECT 
 			indent.medicineid as medicineId,
@@ -66,4 +74,15 @@
 			id = #{customerId}
 
 	</update>
+	
+	<select id="detais" parameterType="java.lang.Integer" resultMap="detailsQuery">
+		SELECT 
+			username,
+			realname,
+			phonenumber,
+			address,
+			coupon
+		FROM customer
+		WHERE id = #{customerId}
+	</select>
  </mapper>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import MedicineAndHealth.entity.Customer;
 import MedicineAndHealth.entity.Indent;
 import MedicineAndHealth.intf.customer.CustomerCenterDao;
 import MedicineAndHealth.intf.customer.CustomerCenterService;
@@ -38,5 +39,10 @@ public class CustomerCenterServiceImpl implements CustomerCenterService {
 	@Override
 	public void passwordChange(int customerId,String password){
 		ccDao.passwordChange(customerId, password);
+	}
+	
+	@Override
+	public Customer customerDetails(int customerId){
+		return ccDao.customerDetails(customerId);
 	}
 }

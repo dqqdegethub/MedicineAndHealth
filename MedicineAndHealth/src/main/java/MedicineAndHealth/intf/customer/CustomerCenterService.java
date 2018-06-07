@@ -2,6 +2,7 @@ package MedicineAndHealth.intf.customer;
 
 import java.util.List;
 
+import MedicineAndHealth.entity.Customer;
 import MedicineAndHealth.entity.Indent;
 
 public interface CustomerCenterService {
@@ -15,6 +16,8 @@ public interface CustomerCenterService {
 	boolean passwordCheck(String password, int customerId);
 
 	void passwordChange(int customerId, String password);
+
+	Customer customerDetails(int customerId);
 
 
 }

@@ -2,6 +2,7 @@ package MedicineAndHealth.intf.customer;
 
 import java.util.List;
 
+import MedicineAndHealth.entity.Customer;
 import MedicineAndHealth.entity.Indent;
 
 public interface CustomerCenterDao {
@@ -15,5 +16,7 @@ public interface CustomerCenterDao {
 	String passwordQuery(int customerId);
 
 	void passwordChange(int customerId, String password);
+
+	Customer customerDetails(int customerId);
 
 }

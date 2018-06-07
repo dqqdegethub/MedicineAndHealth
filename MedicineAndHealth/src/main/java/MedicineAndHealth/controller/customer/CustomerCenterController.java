@@ -117,4 +117,17 @@ public class CustomerCenterController {
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/customerDetails",method = RequestMethod.GET)
+	public ModelAndView customerDetails(HttpSession session){
+		Integer customerId = (Integer)session.getAttribute("userId");
+		if(customerId == null){
+			return new ModelAndView("redirect:/customer/customerLogin");
+		}
+		Customer customer = ccService.customerDetails(customerId);
+		ModelAndView mv = new ModelAndView("/customer/customerDetails");
+		mv.addObject("customer",customer);
+		mv.addObject("customerId",customerId);
+		return mv;
+	}
+	
 }

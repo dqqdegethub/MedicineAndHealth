@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import MedicineAndHealth.entity.Customer;
 import MedicineAndHealth.entity.Indent;
 import MedicineAndHealth.intf.customer.CustomerCenterDao;
 
@@ -47,5 +48,10 @@ public class CustomerCenterDaoImpl implements CustomerCenterDao {
 		map.put("customerId", customerId);
 		map.put("password", password);
 		sqlSessionTemplate.update(NAME_SPACE + "passwordChange", map);
+	}
+	
+	@Override
+	public Customer customerDetails(int customerId){
+		return sqlSessionTemplate.selectOne(NAME_SPACE + "detais", customerId);
 	}
 }
