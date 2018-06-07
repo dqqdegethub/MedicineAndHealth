@@ -20,7 +20,7 @@ public class StaffServiceImpl implements StaffService {
 	@Override
 	public Integer queryStaffExist(Staff request){
 		return staffDao.queryStaffExist(request.getStaffId());
-	}
+	} 
 	
 	@Override
 	public Staff login(Staff request){

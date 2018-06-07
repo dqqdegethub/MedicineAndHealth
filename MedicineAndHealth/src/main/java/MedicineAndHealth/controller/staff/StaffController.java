@@ -398,7 +398,7 @@ public class StaffController {
 		response.setCode(1);
 
 		MultiValueMap<String, String> header = new HttpHeaders();
-		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Allow-Origin", "*"); 
 		header.set("Access-Control-Request-Method", "post");
 		return new ResponseEntity<BaseResponse>(response, header, HttpStatus.OK);
 	}

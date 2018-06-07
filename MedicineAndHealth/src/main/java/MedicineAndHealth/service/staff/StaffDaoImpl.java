@@ -22,7 +22,7 @@ public class StaffDaoImpl implements StaffDao {
 	@Override
 	public Integer queryStaffExist(Integer staffId){
 		return sqlSessionTemplate.selectOne(NAME_SPACE+"queryStaffExist",staffId);
-	}
+	} 
 	
 	@Override
 	public Staff login(Integer staffId,String password){

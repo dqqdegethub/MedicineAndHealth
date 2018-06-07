@@ -6,7 +6,7 @@ import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 
-public interface StaffDao {
+public interface StaffDao { 
 
 	Integer queryStaffExist(Integer staffId);
 

@@ -8,7 +8,7 @@ public class Message {
 	private String answer;
 	private String time;
 	
-	public String getCustomerName() {
+	public String getCustomerName() { 
 		return customerName;
 	}
 	public void setCustomerName(String customerName) {
