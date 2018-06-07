@@ -6,6 +6,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffDao;
@@ -128,5 +129,22 @@ public class StaffServiceImpl implements StaffService {
 	@Override
 	public List<Ordercheck> inventorySearch(String medicineName) {
 		return staffDao.inventorySearch(medicineName);
+	}
+	
+	@Override
+	public List<Message> queryMessage(){
+		return staffDao.queryMessage();
+	}
+	
+	@Override
+	public List<Message> queryMessDetail(Integer customerId){
+		return staffDao.queryMessDetail(customerId);
+	}
+	
+	@Override
+	public void updateMessDetail(Message request) {
+		String answer=request.getAnswer();
+		String re=answer.split("<p>")[1].split("<br>")[0];
+		staffDao.updateMessDetail(request.getStaffId(),request.getCustomerId(),re);
 	}
 }

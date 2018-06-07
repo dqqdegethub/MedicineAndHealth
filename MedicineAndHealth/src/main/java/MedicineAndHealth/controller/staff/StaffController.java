@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import MedicineAndHealth.entity.BaseResponse;
+import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffService;
@@ -349,5 +350,56 @@ public class StaffController {
 		header.set("Access-Control-Allow-Origin", "*");
 		header.set("Access-Control-Request-Method", "post");
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/messageList",method=RequestMethod.GET)
+	public ModelAndView showMessageList(HttpSession session){
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
+		ModelAndView mv=new ModelAndView("/staff/messageList");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/messageList",method = RequestMethod.POST)
+	public ResponseEntity<BaseResponse> messageListManage(){
+		BaseResponse response = new BaseResponse();
+		List<Message> message=staffService.queryMessage();
+		response.setCode(1);
+		response.setObj(message);
+		
+		MultiValueMap<String, String> header = new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response, header, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/responseMessage/{customerId}",method=RequestMethod.GET)
+	public ModelAndView showResponseMess(@PathVariable Integer customerId,HttpSession session) {
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
+		List<Message>me=staffService.queryMessDetail(customerId);
+		ModelAndView mv=new ModelAndView("/staff/responseMessage");
+		mv.addObject("message",me);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/responseMessage/{customerId}",method = RequestMethod.POST)
+	public ResponseEntity<BaseResponse> responseMessage(HttpEntity<Message>httpEntity,@PathVariable Integer customerId,HttpSession session){
+		BaseResponse response = new BaseResponse();
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		Message request=httpEntity.getBody();
+		request.setCustomerId(customerId);
+		request.setStaffId(staffId);
+		staffService.updateMessDetail(request);
+		response.setCode(1);
+
+		MultiValueMap<String, String> header = new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response, header, HttpStatus.OK);
 	}
 }

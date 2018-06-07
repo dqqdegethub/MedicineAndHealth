@@ -2,6 +2,7 @@ package MedicineAndHealth.intf.staff;
 
 import java.util.List;
 
+import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 
@@ -44,5 +45,11 @@ public interface StaffService {
 	List<Ordercheck> queryPurchaseInfo(Integer medicineId,Integer staffId);
 
 	List<Ordercheck> inventorySearch(String medicineName);
+
+	List<Message> queryMessage();
+
+	List<Message> queryMessDetail(Integer customerId);
+
+	void updateMessDetail(Message request);
 
 }

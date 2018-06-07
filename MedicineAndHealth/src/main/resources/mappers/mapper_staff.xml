@@ -47,6 +47,13 @@
 		<result column="price" property="price"/>
 	</resultMap>
 	
+	<resultMap type="MedicineAndHealth.entity.Message" id="MessageMap">
+		<result column="customerName" property="customerName"/>
+		<result column="time" property="time"/>
+		<result column="customerId" property="customerId"/>
+		<result column="problem" property="problem"/>
+	</resultMap>
+	
 	<select id="queryStaffExist" parameterType="java.lang.Integer" resultType="java.lang.Integer">
 		SELECT
 			COUNT(*)
@@ -271,4 +278,37 @@
 		WHERE
 			medicine.name LIKE #{medicineName}
 	</select>
+	
+	<select id="queryMessage" resultMap="MessageMap">
+		SELECT 
+			customer.userName as customerName,
+			time,
+			customer.id as customerId,
+			problem
+		FROM
+			customer,customermess
+		WHERE
+			customer.id=customermess.customerid AND customermess.answer='无' 
+		ORDER BY time ASC
+	</select>
+	
+	<select id="queryMessDetail" parameterType="java.lang.Integer" resultMap="MessageMap">
+		SELECT 
+			customer.userName as customerName,
+			customer.id as customerId,
+			problem
+		FROM
+			customer,customermess
+		WHERE
+			customer.id=customermess.customerid AND customermess.answer='无' AND customerid=#{customerId}
+	</select>
+	
+	<update id="updateMessDetail" parameterType="java.util.Map">
+		UPDATE customermess
+		SET
+			staffid=#{staffId},
+			answer=#{answer}
+		WHERE
+			customerid=#{customerId}
+	</update>
 </mapper>
