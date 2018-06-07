@@ -21,7 +21,7 @@
  	  	where username=#{userName} and password=#{password}
  	</select>
  	<select id="queryById" parameterType="java.lang.Integer" resultMap="customer">
- 		select id,username
+ 		select id,username,phonenumber
  		from customer
  		where id=#{id}
  	</select>

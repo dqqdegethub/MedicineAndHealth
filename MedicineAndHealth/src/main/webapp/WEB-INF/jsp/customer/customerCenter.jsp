@@ -45,7 +45,7 @@
 		<div style="padding-top: 10px">
 			<%@include file="../element/customerLeftBar.jsp"%>
 			
-			<div style="width: 80%;height:450px;background-color:#f1f1f1;float:left">
+			<div style="width: 80%;height:450px;background-color:#f3f3f3;float:left">
 				<p style="font-size: 30px;margin: 20px 20px 20px">个人中心</p>
 				
 				<div style="margin-top:20px;margin-left:20px">

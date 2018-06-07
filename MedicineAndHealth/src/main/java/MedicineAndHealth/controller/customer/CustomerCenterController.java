@@ -83,4 +83,17 @@ public class CustomerCenterController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/passwordChange",method = RequestMethod.GET)
+	public ModelAndView passwordChange(HttpSession session){
+		Integer customerId = (Integer)session.getAttribute("userId");
+		if(customerId == null){
+			return new ModelAndView("redirect:/customer/customerLogin");
+		}
+		Customer customer = cs.queryCustomerById(customerId);
+		ModelAndView mv = new ModelAndView("/customer/passwordChange");
+		mv.addObject("customer",customer);
+		mv.addObject("customerId",customerId);
+		return mv;
+	}
+	
 }
