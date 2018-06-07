@@ -6,7 +6,7 @@ import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 
-public interface StaffService {
+public interface StaffService { 
 
 	Integer queryStaffExist(Staff request);
 

@@ -13,7 +13,7 @@ import MedicineAndHealth.intf.staff.StaffDao;
 import MedicineAndHealth.intf.staff.StaffService;
 
 @Service
-public class StaffServiceImpl implements StaffService {
+public class StaffServiceImpl implements StaffService { 
 	@Autowired
 	StaffDao staffDao;
 	

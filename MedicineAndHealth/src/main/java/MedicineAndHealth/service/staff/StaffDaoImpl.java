@@ -14,7 +14,7 @@ import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffDao;
 
 @Repository
-public class StaffDaoImpl implements StaffDao {
+public class StaffDaoImpl implements StaffDao { 
 	private static final String NAME_SPACE="MedicineAndHealth.staff.";
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
