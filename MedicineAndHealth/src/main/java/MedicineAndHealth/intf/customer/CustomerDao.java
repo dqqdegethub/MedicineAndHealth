@@ -1,9 +1,6 @@
 package MedicineAndHealth.intf.customer;
 
-import java.util.List;
-
 import MedicineAndHealth.entity.Customer;
-import MedicineAndHealth.entity.Indent;
 
 public interface CustomerDao {
 
@@ -20,12 +17,6 @@ public interface CustomerDao {
 	
 	//根据userename 与新密码来 修改密码
 	void updatePwd(String username,String pwd,String answer);
-
-	List<Indent> indentConfirmQuery(int customerId);
-
-	void indentConfirm(int customerId, int medicineId);
-
-	List<Indent> allIndents(int customerId);
 
 
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="MedicineAndHealth.customercenter">   
+     <resultMap type="MedicineAndHealth.entity.Indent" id="indentQuery">
+     	<result column="medicineId" property="medicineId"/>
+     	<result column="name" property="medicineName"/>
+     	<result column="count" property="count"/>
+      	<result column="company" property="company"/> 
+      	<result column="packagecode" property="packagecode"/>
+      	<result column="state" property="state"/>
+     </resultMap>
+     
+	<select id="indentComfirmQuery" parameterType="java.lang.Integer" resultMap="indentQuery">
+		SELECT 
+			indent.medicineid as medicineId,
+			packagecode,
+			name,
+			indent.count as count,
+			company
+		FROM 
+			indent,medicine,delivery
+		WHERE 
+			indent.medicineid=medicine.id AND delivery.id=indent.companyid AND indent.customerid=#{customerId} AND indent.state='已发货'
+	</select>
+	
+	<update id="indentComfirm" parameterType="java.util.Map">
+		UPDATE
+			indent
+		SET
+			state='已收货'
+		WHERE
+			customerid=#{customerId} AND medicineid=#{medicineId} AND state='已发货'
+	
+	</update>
+ 
+ 	<select id="allIndents" parameterType="java.lang.Integer" resultMap="indentQuery">
+ 		SELECT 
+			indent.medicineid as medicineId,
+			packagecode,
+			name,
+			indent.count as count,
+			company,
+			state
+		FROM 
+			indent LEFT JOIN delivery ON delivery.id=indent.companyid,medicine
+		WHERE 
+			indent.medicineid=medicine.id AND indent.customerid=#{customerId}
+ 	</select>
+ 
+ </mapper>
