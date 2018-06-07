@@ -43,4 +43,6 @@ public interface StaffService {
 
 	List<Ordercheck> queryPurchaseInfo(Integer medicineId,Integer staffId);
 
+	List<Ordercheck> inventorySearch(String medicineName);
+
 }

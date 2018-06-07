@@ -1,6 +1,5 @@
 package MedicineAndHealth.intf.staff;
 
-import java.sql.Date;
 import java.util.List;
 
 import MedicineAndHealth.entity.Ordercheck;
@@ -47,5 +46,7 @@ public interface StaffDao {
 	void updateMedicine(Integer medicineId, Integer amount);
 
 	List<Ordercheck> queryPurchaseInfo(Integer medicineId,Integer staffId);
+
+	List<Ordercheck> inventorySearch(String medicineName);
 
 }

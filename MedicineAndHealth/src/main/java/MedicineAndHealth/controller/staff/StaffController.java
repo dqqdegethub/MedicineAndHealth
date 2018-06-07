@@ -325,4 +325,29 @@ public class StaffController {
 		header.set("Access-Control-Request-Method", "post");
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/inventorySearch",method=RequestMethod.GET)
+	public ModelAndView showInventory(HttpSession session) {
+		Integer staffId=(Integer)session.getAttribute("staffId");
+		if(staffId==null){
+			return new ModelAndView("redirect:/staff/staffLogin");
+		}
+		ModelAndView mv=new ModelAndView("/staff/inventorySearch");
+		return mv;
+	}
+	
+	@RequestMapping(value="/inventorySearch",method=RequestMethod.POST)
+	public ResponseEntity<BaseResponse> inventoryManage(HttpEntity<Ordercheck>httpEntity,HttpSession session){
+		BaseResponse response=new BaseResponse();
+		Ordercheck or=httpEntity.getBody();
+		String medicineName="%"+or.getMedicineName()+"%";
+		List<Ordercheck> inventorysearch=staffService.inventorySearch(medicineName);
+		response.setCode(1);
+		response.setObj(inventorysearch);
+				
+		MultiValueMap<String, String>header=new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
 }

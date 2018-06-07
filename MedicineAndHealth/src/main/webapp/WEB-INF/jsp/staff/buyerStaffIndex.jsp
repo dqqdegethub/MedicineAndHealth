@@ -125,7 +125,7 @@
 						<div>
 							<img src="<%=request.getContextPath()%>/statics/images/staffIndexW.png" style="padding-bottom:60px;padding-top:80px;width:60px"/>
 						</div>
-						<span style="">药品入库</span>
+						<span style="">库存查询</span>
 					</div>
 				</div>
 			</div>

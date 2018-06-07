@@ -40,6 +40,13 @@
 		<result column="producer" property="producer"/>
 	</resultMap>
 	
+	<resultMap type="MedicineAndHealth.entity.Ordercheck" id="InventorySearchMap">
+		<result column="medicineName" property="medicineName"/>
+		<result column="amount" property="amount"/>
+		<result column="producer" property="producer"/>
+		<result column="price" property="price"/>
+	</resultMap>
+	
 	<select id="queryStaffExist" parameterType="java.lang.Integer" resultType="java.lang.Integer">
 		SELECT
 			COUNT(*)
@@ -241,6 +248,7 @@
 		WHERE
 			id=#{medicineId}
 	</update>
+	
 	<update id="updatePurchase" parameterType="java.util.Map">
 		UPDATE purchase
 		SET
@@ -251,4 +259,16 @@
 		WHERE
 			medicineid=#{medicineId}
 	</update>
+	
+	<select id="queryInventorySearch" resultMap="InventorySearchMap" parameterType="java.lang.String">
+		SELECT
+			medicine.name as medicineName,
+			amount,
+			producer,
+			price
+		FROM
+			medicine
+		WHERE
+			medicine.name LIKE #{medicineName}
+	</select>
 </mapper>

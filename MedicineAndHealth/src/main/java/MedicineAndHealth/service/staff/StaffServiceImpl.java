@@ -124,4 +124,9 @@ public class StaffServiceImpl implements StaffService {
 		staffDao.updateMedicine(request.getMedicineId(), request.getQuantity());
 		staffDao.updatePurchase(request.getMedicineId(),request.getStaffId(),request.getDate(),request.getQuantity());
 	}
+	
+	@Override
+	public List<Ordercheck> inventorySearch(String medicineName) {
+		return staffDao.inventorySearch(medicineName);
+	}
 }

@@ -158,4 +158,9 @@ public class StaffDaoImpl implements StaffDao {
 		paraMap.put("quantity", quantity);
 		sqlSessionTemplate.selectOne(NAME_SPACE+"updateMedicine",paraMap);
 	}
+	
+	@Override
+	public List<Ordercheck> inventorySearch(String medicineName) {
+		return sqlSessionTemplate.selectList(NAME_SPACE + "queryInventorySearch", medicineName);
+	}
 }
