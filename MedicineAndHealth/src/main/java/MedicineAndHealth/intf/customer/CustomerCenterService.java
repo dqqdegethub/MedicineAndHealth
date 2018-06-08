@@ -20,5 +20,4 @@ public interface CustomerCenterService {
 
 	void informationModify(int customerId, String userName, String telephone, String address);
 
-
 }

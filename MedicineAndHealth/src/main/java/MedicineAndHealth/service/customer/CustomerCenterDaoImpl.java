@@ -63,5 +63,6 @@ public class CustomerCenterDaoImpl implements CustomerCenterDao {
 		map.put("telephone", telephone);
 		map.put("address", address);		
 		sqlSessionTemplate.update(NAME_SPACE + "informationModify", map);
+		
 	}
 }
