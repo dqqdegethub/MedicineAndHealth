@@ -116,18 +116,6 @@
 			leftBarShow();
 		})
 
-		function leftBarShow(){
-			switch($.cookie("customerLeftBar")){
-				case "1" :
-					$("#information_1").show();
-					$("#indent_1").hide();
-					break;
-				default:
-					$("#indent_1").show();
-					$("#information_1").hide();
-					break;
-			}
-		}
 	</script>
 	
 </body>

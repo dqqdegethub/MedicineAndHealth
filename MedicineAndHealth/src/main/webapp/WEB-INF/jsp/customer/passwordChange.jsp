@@ -105,10 +105,12 @@
 				$("#leftBar").hide();
 			})
 			
-			
 			$(".centerLeftNav").click(function(){
 				window.location.href = contextPath + "/customer/customerCenter";
 			})
+			
+			leftBarStyleShow();
+			leftBarShow();
 		})
 		
 		$("#passwordChange").click(function(){

@@ -80,12 +80,26 @@
 			}
 		}
 		
+		function leftBarShow(){
+			switch($.cookie("customerLeftBar")){
+				case "1" :
+					$("#information_1").show();
+					$("#indent_1").hide();
+					break;
+				default:
+					$("#indent_1").show();
+					$("#information_1").hide();
+					break;
+			}
+		}
+		
 		//leftNav
 		$(".centerLeftNav").hover(function(){
 			$(this).addClass("isHover")
 		},function(){
 			$(this).removeClass("isHover");
 		})
+		
 		
 		
     </script>
