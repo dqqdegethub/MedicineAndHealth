@@ -8,12 +8,13 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffDao;
-
+ 
 @Repository
-public class StaffDaoImpl implements StaffDao {
+public class StaffDaoImpl implements StaffDao { 
 	private static final String NAME_SPACE="MedicineAndHealth.staff.";
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
@@ -21,7 +22,7 @@ public class StaffDaoImpl implements StaffDao {
 	@Override
 	public Integer queryStaffExist(Integer staffId){
 		return sqlSessionTemplate.selectOne(NAME_SPACE+"queryStaffExist",staffId);
-	}
+	}  
 	
 	@Override
 	public Staff login(Integer staffId,String password){
@@ -162,5 +163,24 @@ public class StaffDaoImpl implements StaffDao {
 	@Override
 	public List<Ordercheck> inventorySearch(String medicineName) {
 		return sqlSessionTemplate.selectList(NAME_SPACE + "queryInventorySearch", medicineName);
+	}
+	
+	@Override
+	public List<Message> queryMessage(){
+		return sqlSessionTemplate.selectList(NAME_SPACE+"queryMessage");
+	}
+	
+	@Override
+	public List<Message> queryMessDetail(Integer customerId){
+		return sqlSessionTemplate.selectList(NAME_SPACE+"queryMessDetail",customerId);
+	}
+	
+	@Override
+	public void updateMessDetail(Integer staffId,Integer customerId,String answer) {
+		Map<String, Object>paraMap=new HashMap<>();
+		paraMap.put("staffId", staffId);
+		paraMap.put("customerId", customerId);
+		paraMap.put("answer", answer);
+		sqlSessionTemplate.selectOne(NAME_SPACE+"updateMessDetail",paraMap);
 	}
 }

@@ -1,17 +1,18 @@
 package MedicineAndHealth.intf.staff;
 
-import java.util.List;
+import java.util.List; 
 
+import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 
-public interface StaffDao {
+public interface StaffDao {  
 
 	Integer queryStaffExist(Integer staffId);
 
 	Staff login(Integer staffId, String password);
 
-	Integer orderNum(Integer staffId);
+	Integer orderNum(Integer staffId); 
 
 	Integer queryStaffPwd(Integer staffId, String password);
 
@@ -48,5 +49,11 @@ public interface StaffDao {
 	List<Ordercheck> queryPurchaseInfo(Integer medicineId,Integer staffId);
 
 	List<Ordercheck> inventorySearch(String medicineName);
+
+	List<Message> queryMessage();
+
+	List<Message> queryMessDetail(Integer customerId);
+
+	void updateMessDetail(Integer staffId, Integer customerId, String answer);
 
 }

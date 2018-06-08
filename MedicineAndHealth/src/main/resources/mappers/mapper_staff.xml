@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -6,14 +6,14 @@
 	<resultMap type="MedicineAndHealth.entity.Staff" id="loginMap">
 		<result column="id" property="staffId"/>
 		<result column="name" property="staffName"/>
-		<result column="partname" property="partment"/>
+		<result column="partname" property="partment"/>  
 	</resultMap>
 	<resultMap type="MedicineAndHealth.entity.Staff" id="personalInfoMap">
 		<result column="id" property="staffId"/>
 		<result column="name" property="staffName"/>
 		<result column="partname" property="partment"/>
 		<result column="phoneNumber" property="phoneNumber"/>
-	</resultMap>
+	</resultMap> 
 	<resultMap type="MedicineAndHealth.entity.Ordercheck" id="OrderMap">
 		<result column="medicineId" property="medicineId"/>
 		<result column="medicineName" property="medicineName"/>
@@ -45,6 +45,13 @@
 		<result column="amount" property="amount"/>
 		<result column="producer" property="producer"/>
 		<result column="price" property="price"/>
+	</resultMap>
+	
+	<resultMap type="MedicineAndHealth.entity.Message" id="MessageMap">
+		<result column="customerName" property="customerName"/>
+		<result column="time" property="time"/>
+		<result column="customerId" property="customerId"/>
+		<result column="problem" property="problem"/>
 	</resultMap>
 	
 	<select id="queryStaffExist" parameterType="java.lang.Integer" resultType="java.lang.Integer">
@@ -271,4 +278,37 @@
 		WHERE
 			medicine.name LIKE #{medicineName}
 	</select>
+	
+	<select id="queryMessage" resultMap="MessageMap">
+		SELECT 
+			customer.userName as customerName,
+			time,
+			customer.id as customerId,
+			problem
+		FROM
+			customer,customermess
+		WHERE
+			customer.id=customermess.customerid AND customermess.answer='无' 
+		ORDER BY time ASC
+	</select>
+	
+	<select id="queryMessDetail" parameterType="java.lang.Integer" resultMap="MessageMap">
+		SELECT 
+			customer.userName as customerName,
+			customer.id as customerId,
+			problem
+		FROM
+			customer,customermess
+		WHERE
+			customer.id=customermess.customerid AND customermess.answer='无' AND customerid=#{customerId}
+	</select>
+	
+	<update id="updateMessDetail" parameterType="java.util.Map">
+		UPDATE customermess
+		SET
+			staffid=#{staffId},
+			answer=#{answer}
+		WHERE
+			customerid=#{customerId}
+	</update>
 </mapper>
