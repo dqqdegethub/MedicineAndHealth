@@ -52,6 +52,6 @@ public class CustomerCenterDaoImpl implements CustomerCenterDao {
 	
 	@Override
 	public Customer customerDetails(int customerId){
-		return sqlSessionTemplate.selectOne(NAME_SPACE + "detais", customerId);
+		return sqlSessionTemplate.selectOne(NAME_SPACE + "details", customerId);
 	}
 }

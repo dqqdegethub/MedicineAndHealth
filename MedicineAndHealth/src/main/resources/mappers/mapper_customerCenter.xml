@@ -14,7 +14,7 @@
      
      <resultMap type="MedicineAndHealth.entity.Customer" id="detailsQuery">
      	<result column="username" property="userName"/>
-     	<result column="realname," property="realName"/>
+     	<result column="realname" property="realName"/>
      	<result column="phonenumber" property="phoneNumber"/>
       	<result column="address" property="address"/> 
       	<result column="coupon" property="coupon"/>
@@ -75,7 +75,7 @@
 
 	</update>
 	
-	<select id="detais" parameterType="java.lang.Integer" resultMap="detailsQuery">
+	<select id="details" parameterType="java.lang.Integer" resultMap="detailsQuery">
 		SELECT 
 			username,
 			realname,
