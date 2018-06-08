@@ -96,4 +96,5 @@
 		WHERE 
 			id = #{customerId}
 	</update>
+	
  </mapper>

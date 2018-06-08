@@ -50,4 +50,5 @@ public class CustomerCenterServiceImpl implements CustomerCenterService {
 	public void informationModify(int customerId,String userName,String telephone,String address){
 		ccDao.informationModify(customerId, userName, telephone, address);
 	}
+	
 }

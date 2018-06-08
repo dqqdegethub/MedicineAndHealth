@@ -6,7 +6,6 @@ import MedicineAndHealth.entity.Customer;
 import MedicineAndHealth.entity.Indent;
 
 public interface CustomerCenterService {
-
 	List<Indent> indentConfirmQuery(int customerId);
 
 	void indentConfirm(int customerId, int medicineId);

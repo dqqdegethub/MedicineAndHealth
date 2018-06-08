@@ -139,7 +139,7 @@ public class CustomerCenterController {
 		ccService.informationModify(customerId, customer.getUserName(), customer.getPhoneNumber(), customer.getAddress());
 		response.setObj(null);
 		response.setCode(1);
-		
+	
 		MultiValueMap<String, String> header = new HttpHeaders();
 		header.set("Access-Control-Allow-Origin", "*");
 		header.set("Access-Control-Request-Method", "post");		
