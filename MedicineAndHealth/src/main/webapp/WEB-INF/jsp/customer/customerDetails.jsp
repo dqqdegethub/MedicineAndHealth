@@ -138,7 +138,7 @@
 	 			}
 	 		})
 		})
-		
+	
 
 		$("#indent").click(function(){
 			$.removeCookie("customerLeftBar");
