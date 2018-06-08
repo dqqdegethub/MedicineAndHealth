@@ -85,4 +85,15 @@
 		FROM customer
 		WHERE id = #{customerId}
 	</select>
+	
+	<update id="informationModify" parameterType="java.util.Map">
+		UPDATE 
+			customer
+		SET
+			username = #{userName},
+			phonenumber = #{telephone},
+			address = #{address}
+		WHERE 
+			id = #{customerId}
+	</update>
  </mapper>

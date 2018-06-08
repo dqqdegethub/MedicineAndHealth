@@ -54,4 +54,15 @@ public class CustomerCenterDaoImpl implements CustomerCenterDao {
 	public Customer customerDetails(int customerId){
 		return sqlSessionTemplate.selectOne(NAME_SPACE + "details", customerId);
 	}
+	
+	@Override
+	public void informationModify(int customerId,String userName,String telephone,String address){
+		Map<String, Object> map = new HashMap<>();
+		map.put("customerId", customerId);
+		map.put("userName", userName);
+		map.put("telephone", telephone);
+		map.put("address", address);
+		
+		sqlSessionTemplate.update(NAME_SPACE + "informationModify", map);
+	}
 }

@@ -130,4 +130,19 @@ public class CustomerCenterController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/customerDetails",method=RequestMethod.POST)
+	public HttpEntity<BaseResponse> customerDetails(HttpEntity<Customer> httpEntity,HttpSession session){
+		BaseResponse response=new BaseResponse();
+		Customer customer=httpEntity.getBody();
+		Integer customerId = (Integer)session.getAttribute("userId");		
+		
+		ccService.informationModify(customerId, customer.getUserName(), customer.getPhoneNumber(), customer.getAddress());
+		response.setObj(null);
+		response.setCode(1);
+		
+		MultiValueMap<String, String> header = new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");		
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
 }

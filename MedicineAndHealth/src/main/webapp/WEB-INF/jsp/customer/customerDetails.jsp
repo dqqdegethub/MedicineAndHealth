@@ -23,9 +23,6 @@
     <![endif]-->
     
     <style>
-    .SpanStyle{
-    	line-height: 34px
-    }
     </style>
   </head>
 
@@ -43,38 +40,46 @@
 				<div style="margin-top:20px;margin-left:20px">
 					<a href="<%=request.getContextPath() %>/home/homePage" style="cursor:pointer;">药康网</a>>><span>我的药康网</span>
 					
-					<div class="form-group ">
-						<label class="col-xs-3 control-label" >用户名：</label>
-						<div class="col-xs-4">
-							<span class="form-control SpanStyle">${customer.userName }</span>
+					<form class="col-xs-offset-1 col-xs-11 form-horizontal" style="padding-top: 30px">
+						<div class="form-group col-xs-12">
+							<label class="col-xs-3 control-label" >用户名：</label>
+							<div class="col-xs-4">
+								<input id="userName" class="form-control" type="text" value="${customer.userName }" required/>
+							</div>
 						</div>
-					</div>
-					<div class="form-group ">
-						<label class="col-xs-3 control-label" >真实姓名：</label>
-						<div class="col-xs-4">
-							<span class="form-control SpanStyle">${customer.realName }</span>
+						<div class="form-group col-xs-12">
+							<label class="col-xs-3 control-label" >真实姓名：</label>
+							<div class="col-xs-4">
+								<input class="form-control" type="text" value="${customer.realName }" readonly/>
+							</div>
 						</div>
-					</div>
-					<div class="form-group ">
-						<label class="col-xs-3 control-label" >联系电话：</label>
-						<div class="col-xs-4">
-							<span class="form-control SpanStyle">${customer.phoneNumber }</span>
+						<div class="form-group col-xs-12">
+							<label class="col-xs-3 control-label" >联系电话：</label>
+							<div class="col-xs-4">
+								<input id="phoneNumber" class="form-control" type="text" value="${customer.phoneNumber }" required/>
+							</div>
+							<span id="warning" style="line-height: 34px;color: red"></span>
 						</div>
-					</div>
-					<div class="form-group ">
-						<label class="col-xs-3 control-label" >收货地址：</label>
-						<div class="col-xs-4">
-							<span class="form-control SpanStyle">${customer.address }</span>
+						<div class="form-group col-xs-12">
+							<label class="col-xs-3 control-label" >收货地址：</label>
+							<div class="col-xs-4">
+								<input id="address" class="form-control" type="text" value="${customer.address }" required/>
+							</div>
 						</div>
-					</div>
-					<div class="form-group ">
-						<label class="col-xs-3 control-label" >优惠券：</label>
-						<div class="col-xs-4">
-							<span class="form-control SpanStyle">${customer.coupon }</span>
+						<div class="form-group col-xs-12">
+							<label class="col-xs-3 control-label" >优惠券：</label>
+							<div class="col-xs-4">
+								<input class="form-control" type="text" value="${customer.coupon } 元" readonly/>
+							</div>
+						</div>
+					</form>
+					
+					<div class="col-xs-12 " style="padding-top: 20px">
+						<div class="col-xs-offset-5 col-xs-2">
+							<button id="informationChange" class="btn btn-info" type="button">确定</button>
 						</div>
 					</div>
 				</div>
-					
 			</div>
 		</div>
 	</div>
@@ -102,6 +107,38 @@
 				window.location.href = contextPath + "/customer/customerCenter";
 			})
 		})
+		
+		$("#informationChange").click(function(){
+			if($("#phoneNumber").val() == "" || isNaN($("#phoneNumber").val())){
+				$("#warning")[0].innerHTML = "请输入正确格式的联系电话";
+				return;
+			}
+			
+			var postData={	userName: $("#userName").val(),
+							phoneNumber: $("#phoneNumber").val(),
+							address: $("#address").val()
+			};
+	 		$.ajax({
+	 			method:"POST",
+	 			url: contextPath + "/customer/customerDetails",
+	 			contentType: "application/json",
+	 			data:JSON.stringify(postData),
+	 			dataType:"json",
+	 		 	crossDomain: true,
+	 			success: function(data){
+	 				if(data.code == 1){
+	 					$.removeCookie("userName");
+	 					$.cookie("userName",$('#userName').val(),{path: '/'});
+	 					
+		 				window.location.href = contextPath + "/customer/customerDetails";
+	 				}
+	 			},
+	 			error: function(){
+	 			   alert("error.");
+	 			}
+	 		})
+		})
+		
 		
 		$("#indent").click(function(){
 			$.removeCookie("customerLeftBar");

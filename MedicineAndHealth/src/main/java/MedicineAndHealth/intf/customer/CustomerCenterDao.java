@@ -19,4 +19,6 @@ public interface CustomerCenterDao {
 
 	Customer customerDetails(int customerId);
 
+	void informationModify(int customerId, String userName, String telephone, String address);
+
 }
