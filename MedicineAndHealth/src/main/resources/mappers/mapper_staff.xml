@@ -13,7 +13,7 @@
 		<result column="name" property="staffName"/>
 		<result column="partname" property="partment"/>
 		<result column="phoneNumber" property="phoneNumber"/>
-	</resultMap>
+	</resultMap> 
 	<resultMap type="MedicineAndHealth.entity.Ordercheck" id="OrderMap">
 		<result column="medicineId" property="medicineId"/>
 		<result column="medicineName" property="medicineName"/>

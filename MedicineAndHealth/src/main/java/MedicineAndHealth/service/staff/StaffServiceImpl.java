@@ -22,7 +22,7 @@ public class StaffServiceImpl implements StaffService {
 		return staffDao.queryStaffExist(request.getStaffId());
 	}  
 	
-	@Override
+	@Override 
 	public Staff login(Staff request){
 		String password=request.getPassword().toUpperCase();
 		return staffDao.login(request.getStaffId(), password);

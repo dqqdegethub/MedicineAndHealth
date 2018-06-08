@@ -23,7 +23,7 @@ import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffService;
 
 @Controller
-@RequestMapping("/staff")
+@RequestMapping("/staff") 
 public class StaffController {
 //	private final Logger LOG=LoggerFactory.getLogger(StaffLoginController.class);
 	

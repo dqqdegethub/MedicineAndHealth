@@ -11,7 +11,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>回复详情</title> 
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap --> 
     <link href="<%=request.getContextPath()%>/statics/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<%=request.getContextPath()%>/statics/css/index.css" rel="stylesheet">
 	<link href="<%=request.getContextPath()%>/statics/css/summernote.css" rel="stylesheet">

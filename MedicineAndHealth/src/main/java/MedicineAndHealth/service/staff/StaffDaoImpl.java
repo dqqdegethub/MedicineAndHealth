@@ -12,7 +12,7 @@ import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.entity.Staff;
 import MedicineAndHealth.intf.staff.StaffDao;
-
+ 
 @Repository
 public class StaffDaoImpl implements StaffDao { 
 	private static final String NAME_SPACE="MedicineAndHealth.staff.";

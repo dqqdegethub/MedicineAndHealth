@@ -10,7 +10,7 @@ public interface StaffService {
 
 	Integer queryStaffExist(Staff request);
 
-	Staff login(Staff request);
+	Staff login(Staff request); 
 
 	Integer staffLoginStatus(Staff request);
 

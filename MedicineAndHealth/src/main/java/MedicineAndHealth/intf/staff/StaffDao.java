@@ -12,7 +12,7 @@ public interface StaffDao {
 
 	Staff login(Integer staffId, String password);
 
-	Integer orderNum(Integer staffId);
+	Integer orderNum(Integer staffId); 
 
 	Integer queryStaffPwd(Integer staffId, String password);
 

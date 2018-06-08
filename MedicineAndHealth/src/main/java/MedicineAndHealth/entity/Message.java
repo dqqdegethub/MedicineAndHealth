@@ -6,7 +6,7 @@ public class Message {
 	private Integer staffId;
 	private String problem;
 	private String answer; 
-	private String time; 
+	private String time;  
 	
 	public String getCustomerName() { 
 		return customerName;
