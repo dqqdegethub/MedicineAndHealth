@@ -1,6 +1,8 @@
 package MedicineAndHealth.controller.customer;
 
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpSession;
 
@@ -147,21 +149,22 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		Message me=httpEntity.getBody();
 		me.setCustomerId(customerId);
 		if(me.getStep()==0){
+			Message m=cs.queryCustomerPro(customerId);
 			switch (cs.customerProStatus(customerId)) {
 			case 0:
 				response.setCode(1);
-				Integer re1=0;
-				response.setObj(re1);
+				m.setStatus(0);
+				response.setObj(m);
 				break;
 			case 1:
 				response.setCode(1);
-				Integer re2=1;
-				response.setObj(re2);
+				m.setStatus(1);
+				response.setObj(m);
 				break;
 			case 2:
 				response.setCode(1);
-				Integer re3=0;
-				response.setObj(re3);
+				m.setStatus(2);
+				response.setObj(m);
 				break;
 			}
 		}

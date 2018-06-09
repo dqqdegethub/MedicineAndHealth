@@ -8,6 +8,8 @@ public class Message {
 	private String answer; 
 	private String time;
 	private int step;
+	private String phoneNumber;
+	private int status;  
 	
 	public String getCustomerName() { 
 		return customerName;
@@ -50,6 +52,18 @@ public class Message {
 	}
 	public void setStep(int step) {
 		this.step = step;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 }

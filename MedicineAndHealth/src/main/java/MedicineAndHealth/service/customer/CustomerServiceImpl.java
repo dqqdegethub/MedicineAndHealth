@@ -1,5 +1,8 @@
 package MedicineAndHealth.service.customer;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,10 +60,18 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 	@Override
 	public void insertPro(Message request){
-		cusDao.insertPro(request.getCustomerId(), request.getProblem(), request.getTime());
+		long l=System.currentTimeMillis();
+		Date date=new Date(l);
+		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
+		String time=sdf.format(date);
+		cusDao.insertPro(request.getCustomerId(), request.getProblem(), time);
 	}
 	@Override
 	public void updatePro(Message request){
-		cusDao.updatePro(request.getCustomerId(), request.getProblem(), request.getTime());
+		long l=System.currentTimeMillis();
+		Date date=new Date(l);
+		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
+		String time=sdf.format(date);
+		cusDao.updatePro(request.getCustomerId(), request.getProblem(),time);
 	}
 }
