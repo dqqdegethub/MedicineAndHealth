@@ -1,6 +1,9 @@
 package MedicineAndHealth.intf.customer;
 
+import java.util.List;
+
 import MedicineAndHealth.entity.Customer;
+import MedicineAndHealth.entity.Message;
 
 public interface CustomerDao {
 
@@ -17,6 +20,12 @@ public interface CustomerDao {
 	
 	//根据userename 与新密码来 修改密码
 	void updatePwd(String username,String pwd,String answer);
+
+	Message queryCustomerPro(Integer customerId);
+
+	void insertPro(Integer customerId, String problem, String time);
+
+	void updatePro(Integer customerId, String problem, String time);
 
 
 }

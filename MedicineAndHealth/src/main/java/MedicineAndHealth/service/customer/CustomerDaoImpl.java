@@ -1,6 +1,7 @@
 package MedicineAndHealth.service.customer;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import MedicineAndHealth.entity.Customer;
+import MedicineAndHealth.entity.Message;
+import MedicineAndHealth.entity.Ordercheck;
 import MedicineAndHealth.intf.customer.CustomerDao;
 
 @Repository
@@ -66,6 +69,26 @@ public class CustomerDaoImpl implements CustomerDao {
 		map2.put("id",id);
 		map2.put("password",pwd);	
 		sqlSessionTemplate.update(NAME_SPACE+"updatePwd",map2);
+	}
+	@Override
+	public Message queryCustomerPro(Integer customerId){
+		return sqlSessionTemplate.selectOne(NAME_SPACE+"queryCustomerPro",customerId);
+	}
+	@Override
+	public void insertPro(Integer customerId,String problem,String time){
+		Map<String, Object>map=new HashMap<String, Object>();
+		map.put("customerId", customerId);
+		map.put("problem", problem);
+		map.put("time", time);
+		sqlSessionTemplate.insert(NAME_SPACE+"insertPro",map);
+	}
+	@Override
+	public void updatePro(Integer customerId,String problem,String time){
+		Map<String, Object>map=new HashMap<String, Object>();
+		map.put("customerId", customerId);
+		map.put("problem", problem);
+		map.put("time", time);
+		sqlSessionTemplate.update(NAME_SPACE+"updatePro",map);
 	}
 
 }

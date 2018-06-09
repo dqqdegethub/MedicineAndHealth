@@ -15,9 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import MedicineAndHealth.entity.BaseResponse;
 import MedicineAndHealth.entity.Customer;
+import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.intf.customer.CustomerService;
 
 
@@ -128,5 +130,53 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/customerService",method = RequestMethod.GET)
+	public ModelAndView  showcustomerService(HttpSession session){
+		Integer customerId = (Integer)session.getAttribute("userId");
+		if(customerId == null){
+			return new ModelAndView("redirect:/customer/customerLogin");
+		}
+		ModelAndView mv = new ModelAndView("/customer/customerService");
+		return mv;
+	}
 	
+	@RequestMapping(value = "/customerService",method = RequestMethod.POST)
+	public HttpEntity<BaseResponse> updateCusSer(HttpEntity<Message> httpEntity,HttpSession session){
+		Integer customerId = (Integer)session.getAttribute("userId");
+		BaseResponse response=new BaseResponse();
+		Message me=httpEntity.getBody();
+		me.setCustomerId(customerId);
+		if(me.getStep()==0){
+			switch (cs.customerProStatus(customerId)) {
+			case 0:
+				response.setCode(1);
+				Integer re1=0;
+				response.setObj(re1);
+				break;
+			case 1:
+				response.setCode(1);
+				Integer re2=1;
+				response.setObj(re2);
+				break;
+			case 2:
+				response.setCode(1);
+				Integer re3=0;
+				response.setObj(re3);
+				break;
+			}
+		}
+		if(me.getStep()==1){
+			cs.insertPro(me);
+			response.setCode(1);
+		}
+		if(me.getStep()==2){
+			cs.updatePro(me);
+			response.setCode(1);
+		}
+		
+		MultiValueMap<String, String>header=new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
+	}
 }

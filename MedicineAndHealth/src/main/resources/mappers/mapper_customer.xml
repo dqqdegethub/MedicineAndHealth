@@ -15,6 +15,11 @@
       	<result column="answer" property="answer"/>
      </resultMap>
      
+     <resultMap type="MedicineAndHealth.entity.Message" id="customerPro">
+     	<result column="problem" property="problem"/>
+     	<result column="answer" property="answer"/>
+     </resultMap>
+     
  	<select id="query" parameterType="java.util.Map" resultType="java.lang.Integer">
  	 	select count(*)
  	 	 from customer
@@ -65,5 +70,32 @@
 <!--     insert into user(userId,username,password)  -->
 <!--     values(#{id},#{name},#{password})   -->
 <!--     </insert> -->
- 
+ 	<select id="queryCustomerPro" parameterType="java.lang.Integer" resultMap="customerPro">
+ 		SELECT
+ 			problem,answer
+ 		FROM
+ 			customermess
+ 		WHERE
+ 			customerid=#{customerId}
+ 	</select>
+ 	
+ 	<insert id="insertPro" parameterType="java.util.Map">
+ 		INSERT INTO customermess(
+ 			customerid,
+ 			problem,
+ 			time
+ 		)
+ 		VALUES(
+ 			#{customerId},#{problem},#{time}
+ 		)
+ 	</insert>
+ 	
+ 	<update id="updatePro" parameterType="java.util.Map">
+ 		UPDATE customermess
+ 		SET
+ 			problem=#{problem},
+ 			time=#{time}
+ 		WHERE
+ 			customerid=#{customerId}
+ 	</update>
  </mapper>

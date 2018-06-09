@@ -6,7 +6,8 @@ public class Message {
 	private Integer staffId;
 	private String problem;
 	private String answer; 
-	private String time;  
+	private String time;
+	private int step;
 	
 	public String getCustomerName() { 
 		return customerName;
@@ -43,6 +44,12 @@ public class Message {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public int getStep() {
+		return step;
+	}
+	public void setStep(int step) {
+		this.step = step;
 	}
 	
 }
