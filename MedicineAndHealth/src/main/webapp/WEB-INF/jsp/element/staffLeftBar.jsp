@@ -10,7 +10,7 @@
 		border-left:5px solid #45a9c9;
 	}
 	.showBar img{
-		width:20px;
+		width:20px; 
 		margin-left:25px;
 	}
 	.showBar span{
