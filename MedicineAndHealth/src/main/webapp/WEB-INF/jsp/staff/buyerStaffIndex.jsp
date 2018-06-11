@@ -170,7 +170,7 @@
 			$("#businessManage").css("display","none")
 			$("#accountManage").css("display","")
 			$("#business").removeClass("showBar")
-			$("#account").removeClass("unshowBar")
+			$("#account").removeClass("unshowBar") 
 			$("#business").addClass("unshowBar")
 			$("#account").addClass("showBar")
 			var bpath=contextPath+"/statics/images/staffIndexicon1.png"
