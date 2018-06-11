@@ -40,122 +40,17 @@
   </head>
 
   <body>
-    <header>
-<!--     <a>登录</a> |  -->
- <div id="note"style="float:right">
- 		欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;
-    	<a href="<%=request.getContextPath() %>/customer/customerLogin"><span>请登录&nbsp;</span> </a>
-    	<a href="<%=request.getContextPath() %>/customer/customerRegister" target="_blank"><span>注册</span> </a>
-    	<span><img src="<%=request.getContextPath()%>/statics/images/cart.png" style="width:25px;height:25px;padding-bottom:5px"/><a href="<%=request.getContextPath() %>/customer/cartPage">需求清单</a></span>
-    </div>
-   </header>
+	<%@include file="../element/header.jsp"%>
+	
+	<a href="<%=request.getContextPath()%>/customer/customerService" style="position: fixed;left: 24px;top: 240px">
+		<img src="<%=request.getContextPath()%>/statics/images/customerservice.gif" style="height:80px;width:72px">
+	</a>
+		
 	<div style="width:1024px;margin:0 auto;">
-		<div id="headerImg" style="float:left;height:110px;width:110px">
-				<img src="<%=request.getContextPath()%>/statics/images/logo.png" style="height:120px;margin-top:15px;width:150px;margin-left:27.5px;"/>
-		</div>
-		<div id="medicineSearch" style="float:left;margin:30px 0px 0px 150px;">
-			<div id="searchBorder" style="width:499px;height:50px;border:3px solid #0c69ae">
-				<div id="search-wrapper" style="width:420px;float:left;background:white">
-					<input id="searchtext" style="width:445px;height:46px;line-height:33px;padding-left:12px;border:white" type="text">
-				</div>
-				<div id="searchBtn" style="float:left;width:75px;height:46px;lin-height:46px;background:#0c69ae;margin-right:-15px">
-					<button id="searchBtn" style="background:none;width:75px;height:46px;border:#0c69ae;text-align:center;color:white">搜索</button>
-					<input value="搜索" style="background:none;width:75px;height:46px;border:#0c69ae;text-align:center;color:white">
-				</div>
-			</div>
-			<div id="searchMore" style="padding-left:12px;">
-				<a href="<%=request.getContextPath()%>/home/viewDrug/401011" style="color:grey;text-decoration-line: none;">牛黄解毒丸</a>
-				<a href="<%=request.getContextPath()%>/home/viewDrug/301041" style="padding-left:12px;color:grey;text-decoration-line: none;">六味地黄丸</a>
-				<a href="<%=request.getContextPath()%>/home/viewDrug/302042" style="padding-left:12px;color:grey;text-decoration-line: none;">丹参片</a>
-				<a href="<%=request.getContextPath()%>/home/viewDrug/401012" style="padding-left:12px;color:grey;text-decoration-line: none;">四季感冒片</a>
-				<a href="<%=request.getContextPath()%>/home/viewDrug/402031" style="padding-left:12px;color:grey;text-decoration-line: none;">叶酸片</a>
-			</div>
-		</div>
+	
+		<%@include file="../element/searchBanner.jsp"%>
 		
-		<div id="headerImg" style="float:left;height:70px;width:70px;padding-left:90px;padding-top:35px">
-				<ul>
-					<li style="width:200px;height:70px">
-						<img src="<%=request.getContextPath()%>/statics/images/phone.png" style="height:40px;float:left"/>
-						<span style="font-size:16px;top:20px">客户投诉电话<b style="color:#efb336">15951078533</b>
-						</span>
-					</li>
-				</ul>
-		</div>
-		
-		<div>
-			<a href="<%=request.getContextPath()%>/customer/customerService"><img src="<%=request.getContextPath()%>/statics/images/customerservice.gif" style="height:70px;width:50px;margin-left:-70px;margin-top:21px"></a>
-		</div>
-		
-		<div class="header-wrapper" style="clear:both">
-			<div class="headerNavMain">
-				<div class="nav-all">
-					<a href="#">
-						<span style="color:white;font-size:19px">全部药品分类</span>
-					</a>
-					<div class="leftHeader" style="text-align:left;">
-						<div class="leftNavIndex" style="z-index:2;margin:0 auto;position:relative">
-							<div class="pulldown" style="z-index:1;position:absolute;list-style:none">
-								<ul class="pullDownList" id="pull">
-									<li> 
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon1.png" style="width:20px;"/>
-										<a id="100000" href="<%=request.getContextPath()%>/home/drugTypeSearch/100000" data-id="100000" >重大疾病</a>、
-										<a id="101000" href="<%=request.getContextPath()%>/home/drugTypeSearch/101000" value="">肿瘤</a>、
-										<a id="101030" href="<%=request.getContextPath()%>/home/drugTypeSearch/101030" value="">肺癌</a>
-									</li>
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon2.png" style="width:20px;"/>
-										<a id="200000" href="<%=request.getContextPath()%>/home/drugTypeSearch/200000" value="">新药特药</a>、
-										<a id="203000" href="<%=request.getContextPath()%>/home/drugTypeSearch/203000" value="">血液</a>、
-										<a id="202000" href="<%=request.getContextPath()%>/home/drugTypeSearch/202000" value="">罕见病</a>
-									</li>
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon3.png" style="width:20px;"/>
-										<a id="300000" href="<%=request.getContextPath()%>/home/drugTypeSearch/300000" value="">慢性疾病</a>、
-										<a id="302000" href="<%=request.getContextPath()%>/home/drugTypeSearch/302000" value="">三高</a>、
-										<a id="302010" href="<%=request.getContextPath()%>/home/drugTypeSearch/302010" value="">帕金森</a>
-									</li>
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon4.png" style="width:20px;"/>
-										<a id="400000" href="<%=request.getContextPath()%>/home/drugTypeSearch/400000" value="">家庭常备</a>、
-										<a id="402000" href="<%=request.getContextPath()%>/home/drugTypeSearch/402000" value="">妇科</a>、
-										<a id="403000" href="<%=request.getContextPath()%>/home/drugTypeSearch/403000" value="">儿科</a>
-									</li>
-									<li>
-										<img src="<%=request.getContextPath()%>/statics/images/homeicon5.png" style="width:20px;"/>
-										<a id="500000" href="<%=request.getContextPath()%>/home/drugTypeSearch/500000" value="">营养保健</a>、
-										<a id="502020" href="<%=request.getContextPath()%>/home/drugTypeSearch/500000" value="">减肥</a>、
-										<a id="501000" href="<%=request.getContextPath()%>/home/drugTypeSearch/500000" value="">亚健康</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="headerLink">
-					<ul>
-						<a href="<%=request.getContextPath()%>/home/homePage"><li>首页</li></a>
-					</ul>
-					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/200000"><li>新药特药进口药</li></a>
-					</ul>
-					<ul>
-						<a href="<%=request.getContextPath()%>/home/charityTheme"><li>慈善援助</li></a>
-					</ul>
-					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/100000"><li>重大疾病</li></a>
-					</ul>
-					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/300000"><li>慢性疾病</li></a>
-					</ul>
-					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/400000"><li>常见疾病</li></a>
-					</ul>
-					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/500000"><li>健康商城</li></a>
-					</ul>
-				</div>
-			</div>
-		</div>
+
 		<div style="float:left;padding-left:205px;">
 			<div id="wrapper"><!--最外层部分-->
 	            <div id="banner"><!--轮播部分-->
@@ -175,6 +70,8 @@
 	            </div>
 	        </div>
         </div>
+        
+        
         
         <div style="padding-top:30px;clear:both">
         	<h3 class="drugF1" style="border-bottom:2px solid #63c19f;">

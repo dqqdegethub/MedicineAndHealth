@@ -144,22 +144,22 @@
 						<a href="<%=request.getContextPath()%>/home/homePage"><li>首页</li></a>
 					</ul>
 					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/200000"><li>新药特药进口药</li></a>
+						<a href="<%=request.getContextPath()%>/home/drugTypeSearch/200000"><li>新药特药进口药</li></a>
 					</ul>
 					<ul>
 						<a href="<%=request.getContextPath()%>/home/charityTheme"><li>慈善援助</li></a>
 					</ul>
 					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/100000"><li>重大疾病</li></a>
+						<a href="<%=request.getContextPath()%>/home/drugTypeSearch/100000"><li>重大疾病</li></a>
 					</ul>
 					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/300000"><li>慢性疾病</li></a>
+						<a href="<%=request.getContextPath()%>/home/drugTypeSearch/300000"><li>慢性疾病</li></a>
 					</ul>
 					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/400000"><li>常见疾病</li></a>
+						<a href="<%=request.getContextPath()%>/home/drugTypeSearch/400000"><li>常见疾病</li></a>
 					</ul>
 					<ul>
-						<a href="<%=request.getContextPath()%>/home/drugSearch/500000"><li>健康商城</li></a>
+						<a href="<%=request.getContextPath()%>/home/drugTypeSearch/500000"><li>健康商城</li></a>
 					</ul>
 				</div>
 			</div>

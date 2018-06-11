@@ -30,7 +30,7 @@
     <script type="text/javascript">
     <!--已登录-->
     	if($.cookie('userName')!=null){
-    		$("#note")[0].innerHTML="<div style=\"float:right\">"+$.cookie('userName')+"，欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;"+
+    		$("#note")[0].innerHTML="<div style=\"float:right\"><a href=\"" + contextPath + "/customer/customerCenter\">" + $.cookie('userName')+"</a>，欢迎来到药房网！&emsp;&emsp;&emsp;&emsp;"+
     									"<button id=\"exitLogin\" >退出登录</button><span><img src=\""+ contextPath +"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span></div>"
     	}
     	
