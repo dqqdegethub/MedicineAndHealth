@@ -74,14 +74,14 @@
 <!--     </insert> -->
  	<select id="queryCustomerPro" parameterType="java.lang.Integer" resultMap="customerPro">
  		SELECT
- 			problem,answer,username,phonenumber
+ 			problem,customermess.answer as answer,username,phonenumber
  		FROM
  			customermess,customer
  		WHERE
  			customerid=#{customerId} AND customerid=customer.id
  	</select>
  	
- 	<insert id="insertPro" parameterType="java.util.Map">
+ 	<insert id="insertPro" parameterType="java.util.Map" keyProperty="#{customerId}">
  		INSERT INTO customermess(
  			customerid,
  			problem,

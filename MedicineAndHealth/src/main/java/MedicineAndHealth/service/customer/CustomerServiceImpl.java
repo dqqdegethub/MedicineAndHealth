@@ -51,12 +51,14 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Integer customerProStatus(Integer customerId){
 		if(queryCustomerPro(customerId).getProblem()==null){
-			if(queryCustomerPro(customerId).getAnswer().equals('无')){
-				return 0;
-			}
-			else return 1;
+			return 0;
 		}
-		else return 2;
+		else{
+			if(queryCustomerPro(customerId).getAnswer().equals("无")) {
+				return 1;
+			}
+			else return 2;
+		}
 	}
 	@Override
 	public void insertPro(Message request){
