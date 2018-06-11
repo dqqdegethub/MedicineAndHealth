@@ -197,6 +197,12 @@
 		$("#account2").click(function(){
 			location.href=contextPath+"/staff/changePassword"
 		})
+		$("#business1").click(function(){
+			location.href=contextPath+"/staff/ensurePurchase"
+		})
+		$("#business2").click(function(){
+			location.href=contextPath+"/staff/inventorySearch"
+		})
     </script>
 </body>
 
