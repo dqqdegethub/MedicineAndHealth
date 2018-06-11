@@ -64,5 +64,23 @@
 		$("#type")[0].innerHTML+="<img src="+ contextPath +"/statics/images/staffIndexicon5.png style=\"width:20px;margin-right:5px;\"/>优秀客服";
 	}else{
 		$("#type")[0].innerHTML+="<img src="+ contextPath +"/statics/images/staffIndexicon5.png style=\"width:20px;margin-right:5px;\"/>优秀采购员";
-	}	
+	}
+    
+    $("#staffName")[0].innerHTML=$.cookie("staffName")
+    $("#staffImg")
+    var imgpath=contextPath+"/statics/images/staff"+ $.cookie('staffId') +".png"
+	$("#staffImg").attr('src',imgpath)
+	
+	$("#account").click(function(){
+		if($.cookie('partment')=='客服部'){
+ 			location.href=contextPath+"/staff/supportStaffIndex"
+ 		}
+ 		else location.href=contextPath+"/staff/buyerStaffIndex"
+	})
+	$("#business").click(function(){
+		if($.cookie('partment')=='客服部'){
+ 			location.href=contextPath+"/staff/supportStaffIndex?i=1"
+ 		}
+ 		else location.href=contextPath+"/staff/buyerStaffIndex?i=1"
+	})
     </script>
