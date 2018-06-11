@@ -207,6 +207,9 @@
 		$("#business1").click(function(){
 			location.href=contextPath+"/staff/ensureOrder"
 		})
+		$("#business2").click(function(){
+			location.href=contextPath+"/staff/messageList"
+		})
     </script>
 </body>
 
