@@ -60,6 +60,7 @@
 	}
    </style>
 
+
 		<div id="headerImgO">
 				<img src="<%=request.getContextPath()%>/statics/images/logo.png" style="height:110px;margin-top:15px;width:150px;margin-left:27.5px;"/>
 		</div>

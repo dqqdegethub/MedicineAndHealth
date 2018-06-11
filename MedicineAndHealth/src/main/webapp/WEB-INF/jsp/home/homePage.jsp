@@ -41,7 +41,6 @@
 
   <body>
 	<%@include file="../element/header.jsp"%>
-	
 	<a href="<%=request.getContextPath()%>/customer/customerService" style="position: fixed;left: 24px;top: 240px">
 		<img src="<%=request.getContextPath()%>/statics/images/customerservice.gif" style="height:80px;width:72px">
 	</a>
