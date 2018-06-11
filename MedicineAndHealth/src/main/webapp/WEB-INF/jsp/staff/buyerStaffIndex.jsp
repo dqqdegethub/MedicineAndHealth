@@ -170,7 +170,7 @@
 			$("#businessManage").css("display","none")
 			$("#accountManage").css("display","")
 			$("#business").removeClass("showBar")
-			$("#account").removeClass("unshowBar")
+			$("#account").removeClass("unshowBar") 
 			$("#business").addClass("unshowBar")
 			$("#account").addClass("showBar")
 			var bpath=contextPath+"/statics/images/staffIndexicon1.png"
@@ -196,6 +196,12 @@
 		})
 		$("#account2").click(function(){
 			location.href=contextPath+"/staff/changePassword"
+		})
+		$("#business1").click(function(){
+			location.href=contextPath+"/staff/ensurePurchase"
+		})
+		$("#business2").click(function(){
+			location.href=contextPath+"/staff/inventorySearch"
 		})
     </script>
 </body>
