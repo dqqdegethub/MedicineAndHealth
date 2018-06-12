@@ -116,6 +116,14 @@
     var medicineId="${medicineId }"
     var customerId="${order[0].customerId}"
     var count="${order[0].count }"
+    $("#account").removeClass("showBar");
+	$("#account").addClass("unshowBar");
+	$("#business").removeClass("unshowBar");
+	$("#business").addClass("showBar");
+	var bpath=contextPath+"/statics/images/staffIndexicon3.png"
+	var apath=contextPath+"/statics/images/staffIndexicon2.png"
+	$("#apath").attr('src',apath)
+	$("#bpath").attr('src',bpath)
     
     $("#skipto").click(function(){
     	if($.cookie('partment')=='客服部'){

@@ -40,12 +40,12 @@
 		</div>
 		<img id="customerImg" src="<%=request.getContextPath()%>/statics/images/customers/${customerId }.jpeg" style="width:100px;margin-left:50px"/>
 		
-		<div class="showBar centerLeftNav" id="indent" style="margin-top:70px;">
+		<div class="showBar centerLeftNav" id="indent" style="margin-top:70px;cursor:pointer">
 			<img id="indentImg" src="<%=request.getContextPath()%>/statics/images/staffIndexicon4.png" />
 			<span>我的清单</span>
 		</div>
 		
-		<div class="unshowBar centerLeftNav" id="information">
+		<div class="unshowBar centerLeftNav" id="information" style="cursor:pointer">
 			<img id="informationImg" src="<%=request.getContextPath()%>/statics/images/staffIndexicon1.png"/>
 			<span>个人信息</span>
 		</div>

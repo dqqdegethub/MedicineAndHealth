@@ -51,7 +51,7 @@
 				<div style="margin-top:20px;margin-left:20px">
 					<a href="<%=request.getContextPath() %>/home/homePage" style="cursor:pointer;">药康网</a>>><span>我的药康网</span>
 					
-					<div id="indent_1" class="col-xs-12" style="margin-top:40px;text-align:center;padding-left: 100px">
+					<div id="indent_1" class="col-xs-12" style="margin-top:40px;text-align:center;padding-left: 100px;">
 						<a class="col-xs-6 aStyle" href="<%=request.getContextPath()%>/customer/indentConfirm">
 							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexB.png" />
 							<span class="col-xs-12" style="color: black">确认订单</span>
@@ -63,7 +63,7 @@
 						</a>
 					</div>
 					
-					<div id="information_1" class="col-xs-12" style="margin-top:40px;text-align:center;padding-left: 100px">
+					<div id="information_1" class="col-xs-12" style="margin-top:40px;text-align:center;padding-left: 100px;">
 						<a class="col-xs-6 aStyle" href="<%=request.getContextPath()%>/customer/customerDetails">
 							<img class="aImgStyle" src="<%=request.getContextPath()%>/statics/images/staffIndexA.png" />
 							<span class="col-xs-12" style="color: black">详细信息</span>

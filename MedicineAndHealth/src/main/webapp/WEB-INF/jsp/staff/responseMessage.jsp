@@ -114,6 +114,15 @@
     <script src="<%=request.getContextPath()%>/statics/js/jquery.cookie.min.js"></script>
     
     <script type="text/javascript">
+    $("#account").removeClass("showBar");
+	$("#account").addClass("unshowBar");
+	$("#business").removeClass("unshowBar");
+	$("#business").addClass("showBar");
+	var bpath=contextPath+"/statics/images/staffIndexicon3.png"
+	var apath=contextPath+"/statics/images/staffIndexicon2.png"
+	$("#apath").attr('src',apath)
+	$("#bpath").attr('src',bpath)
+    
     $(document).ready(function(){
    	 $('.summernote').summernote({
    			lang:"zh-CN",

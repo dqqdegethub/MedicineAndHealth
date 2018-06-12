@@ -83,7 +83,14 @@
 	var thead = $("#pad").html()
 	var i=0;
 	var contextPath="<%=request.getContextPath()%>" 
-
+	$("#account").removeClass("showBar");
+	$("#account").addClass("unshowBar");
+	$("#business").removeClass("unshowBar");
+	$("#business").addClass("showBar");
+	var bpath=contextPath+"/statics/images/staffIndexicon3.png"
+	var apath=contextPath+"/statics/images/staffIndexicon2.png"
+	$("#apath").attr('src',apath)
+	$("#bpath").attr('src',bpath)
 	
 	function cutSet(dataSet){
  		var dataCol = []

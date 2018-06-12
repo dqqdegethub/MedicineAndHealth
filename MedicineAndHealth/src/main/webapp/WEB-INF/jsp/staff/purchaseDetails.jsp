@@ -94,6 +94,15 @@
     <script type="text/javascript">
     var medicineId="${medicineId}"
     var staffId="${staffId}"
+    $("#account").removeClass("showBar");
+	$("#account").addClass("unshowBar");
+	$("#business").removeClass("unshowBar");
+	$("#business").addClass("showBar");
+	var bpath=contextPath+"/statics/images/staffIndexicon3.png"
+	var apath=contextPath+"/statics/images/staffIndexicon2.png"
+	$("#apath").attr('src',apath)
+	$("#bpath").attr('src',bpath)
+    
     var date = new Date();
     var year = date.getFullYear(); //获取年   
     var month = date.getMonth()+1;//获取月

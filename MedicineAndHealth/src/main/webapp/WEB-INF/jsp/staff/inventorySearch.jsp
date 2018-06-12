@@ -94,7 +94,14 @@
     var dataSet = []
 	var thead = $("#pad").html()
 	var contextPath="<%=request.getContextPath()%>" 
-	$("#selectAllCheckbox").prop("checked",false);
+	$("#account").removeClass("showBar");
+	$("#account").addClass("unshowBar");
+	$("#business").removeClass("unshowBar");
+	$("#business").addClass("showBar");
+	var bpath=contextPath+"/statics/images/staffIndexicon3.png"
+	var apath=contextPath+"/statics/images/staffIndexicon2.png"
+	$("#apath").attr('src',apath)
+	$("#bpath").attr('src',bpath)
 	
 	function cutSet(dataSet){
  		var dataCol = []
