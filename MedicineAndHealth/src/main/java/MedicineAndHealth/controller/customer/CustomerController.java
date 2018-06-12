@@ -24,7 +24,6 @@ import MedicineAndHealth.entity.Customer;
 import MedicineAndHealth.entity.Message;
 import MedicineAndHealth.intf.customer.CustomerService;
 
-
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
@@ -108,7 +107,22 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 
 	}
 	
-	
+	@RequestMapping(value = "/customerLogout", method = RequestMethod.POST)
+	public ResponseEntity<BaseResponse> doLogout(HttpSession session) {
+
+		BaseResponse response = new BaseResponse();
+
+		session.removeAttribute("userName");
+		session.removeAttribute("userId");
+		session.removeAttribute("password");
+		response.setCode(1); //1表示退出登录成功
+		response.setObj(null);
+
+		MultiValueMap<String, String> header = new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		header.set("Access-Control-Request-Method", "post");
+		return new ResponseEntity<BaseResponse>(response, header, HttpStatus.OK);
+	}
 	 
 	@RequestMapping(value="/forgetPwd",method=RequestMethod.POST)
 	public HttpEntity<BaseResponse> updatePwd(HttpEntity<Customer> httpEntity,HttpSession session){
@@ -131,7 +145,7 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		header.set("Access-Control-Request-Method", "post");		
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
-	
+		
 	@RequestMapping(value = "/customerService",method = RequestMethod.GET)
 	public ModelAndView  showcustomerService(HttpSession session){
 		Integer customerId = (Integer)session.getAttribute("userId");
@@ -182,4 +196,6 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		header.set("Access-Control-Request-Method", "post");
 		return new ResponseEntity<BaseResponse>(response,header,HttpStatus.OK);
 	}
+	
+
 }
