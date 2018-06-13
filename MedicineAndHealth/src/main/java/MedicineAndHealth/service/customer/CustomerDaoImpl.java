@@ -40,6 +40,11 @@ public class CustomerDaoImpl implements CustomerDao {
 		return sqlSessionTemplate.selectOne(NAME_SPACE+"login", map);
 	}
 	@Override
+	public void insertMess(Integer customerId) {
+		sqlSessionTemplate.insert(NAME_SPACE+"insertMess",customerId);
+	}
+	
+	@Override
 	public int insertCustomer(Customer c) {
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("userName",c.getUserName());
@@ -74,21 +79,29 @@ public class CustomerDaoImpl implements CustomerDao {
 	public Message queryCustomerPro(Integer customerId){
 		return sqlSessionTemplate.selectOne(NAME_SPACE+"queryCustomerPro",customerId);
 	}
+//	@Override
+//	public void insertPro(Integer customerId,String problem,String time){
+//		Map<String, Object>map=new HashMap<String, Object>();
+//		map.put("customerId", customerId);
+//		map.put("problem", problem);
+//		map.put("time", time);
+//		sqlSessionTemplate.insert(NAME_SPACE+"insertPro",map);
+//	}
 	@Override
-	public void insertPro(Integer customerId,String problem,String time){
+	public void updatePro(Integer customerId,String problem,String time,String answer){
 		Map<String, Object>map=new HashMap<String, Object>();
 		map.put("customerId", customerId);
 		map.put("problem", problem);
 		map.put("time", time);
-		sqlSessionTemplate.insert(NAME_SPACE+"insertPro",map);
-	}
-	@Override
-	public void updatePro(Integer customerId,String problem,String time){
-		Map<String, Object>map=new HashMap<String, Object>();
-		map.put("customerId", customerId);
-		map.put("problem", problem);
-		map.put("time", time);
+		if(answer==null) {
+			answer="无";
+		}
+		map.put("answer", answer);
 		sqlSessionTemplate.update(NAME_SPACE+"updatePro",map);
 	}
-
+	
+	@Override
+	public Integer queryCusId(String customerName) {
+		return sqlSessionTemplate.selectOne(NAME_SPACE+"queryCusId",customerName);
+	}
 }

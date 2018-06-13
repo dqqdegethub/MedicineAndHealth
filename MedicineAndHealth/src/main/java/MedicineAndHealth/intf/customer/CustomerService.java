@@ -19,8 +19,12 @@ public interface CustomerService {
 
 	Integer customerProStatus(Integer customerId);
 
-	void insertPro(Message request);
+//	void insertPro(Message request);
 
 	void updatePro(Message request);
+
+	void insertMess(Integer customerId);
+
+	Integer queryCusId(String customerName);
 
 }

@@ -23,9 +23,13 @@ public interface CustomerDao {
 
 	Message queryCustomerPro(Integer customerId);
 
-	void insertPro(Integer customerId, String problem, String time);
+//	void insertPro(Integer customerId, String problem, String time);
 
-	void updatePro(Integer customerId, String problem, String time);
+	void insertMess(Integer customerId);
+
+	void updatePro(Integer customerId, String problem, String time, String answer);
+
+	Integer queryCusId(String customerName);
 
 
 }

@@ -96,8 +96,9 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 			//未注册
 			int userId=cs.customerRegister(c);//
 			Customer c3=cs.queryCustomerById(userId);
+			cs.insertMess(cs.queryCusId(c.getUserName()));
 			response.setObj(c3);
-			response.setCode(1);//1表示注册成功					
+			response.setCode(1);//1表示注册成功		
 		}
 		
 		MultiValueMap<String, String> header = new HttpHeaders();
@@ -183,7 +184,7 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 			}
 		}
 		if(me.getStep()==1){
-			cs.insertPro(me);
+			cs.updatePro(me);
 			response.setCode(1);
 		}
 		if(me.getStep()==2){

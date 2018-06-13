@@ -81,24 +81,37 @@
  			customerid=#{customerId} AND customerid=customer.id
  	</select>
  	
- 	<insert id="insertPro" parameterType="java.util.Map" keyProperty="#{customerId}">
- 		INSERT INTO customermess(
- 			customerid,
- 			problem,
- 			time
- 		)
- 		VALUES(
- 			#{customerId},#{problem},#{time}
- 		)
- 	</insert>
+<!--  	<insert id="insertPro" parameterType="java.util.Map" keyProperty="#{customerId}"> -->
+<!--  		INSERT INTO customermess( -->
+<!--  			customerid, -->
+<!--  			problem, -->
+<!--  			time -->
+<!--  		) -->
+<!--  		VALUES( -->
+<!--  			#{customerId},#{problem},#{time} -->
+<!--  		) -->
+<!--  	</insert> -->
  	
  	<update id="updatePro" parameterType="java.util.Map">
  		UPDATE customermess
  		SET
  			problem=#{problem},
  			time=#{time},
- 			answer='无'
+ 			answer=#{answer}
  		WHERE
  			customerid=#{customerId}
  	</update>
+ 	<insert id="insertMess" parameterType="java.lang.Integer" keyProperty="#{customerId}">
+ 		INSERT INTO customermess(
+ 			customerid
+ 		)
+ 		VALUES(
+ 			#{customerId}
+ 		)
+ 	</insert>
+ 	<select id="queryCusId" parameterType="java.lang.String" resultType="java.lang.Integer">
+ 		SELECT id
+ 		FROM customer
+ 		WHERE username=#{customerName}
+ 	</select>
  </mapper>

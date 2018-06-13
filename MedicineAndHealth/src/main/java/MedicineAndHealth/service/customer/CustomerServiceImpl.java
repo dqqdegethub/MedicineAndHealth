@@ -33,6 +33,11 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 	
 	@Override
+	public void insertMess(Integer customerId) {
+		cusDao.insertMess(customerId);
+	}
+	
+	@Override
 	public int customerRegister(Customer c) {
 		return cusDao.insertCustomer(c);
 	}
@@ -60,20 +65,25 @@ public class CustomerServiceImpl implements CustomerService {
 			else return 2;
 		}
 	}
-	@Override
-	public void insertPro(Message request){
-		long l=System.currentTimeMillis();
-		Date date=new Date(l);
-		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
-		String time=sdf.format(date);
-		cusDao.insertPro(request.getCustomerId(), request.getProblem(), time);
-	}
+//	@Override
+//	public void insertPro(Message request){
+//		long l=System.currentTimeMillis();
+//		Date date=new Date(l);
+//		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
+//		String time=sdf.format(date);
+//		cusDao.insertPro(request.getCustomerId(), request.getProblem(), time);
+//	}
 	@Override
 	public void updatePro(Message request){
 		long l=System.currentTimeMillis();
 		Date date=new Date(l);
 		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
 		String time=sdf.format(date);
-		cusDao.updatePro(request.getCustomerId(), request.getProblem(),time);
+		cusDao.updatePro(request.getCustomerId(), request.getProblem(),time,request.getAnswer());
+	}
+	
+	@Override
+	public Integer queryCusId(String customerName) {
+		return cusDao.queryCusId(customerName);
 	}
 }

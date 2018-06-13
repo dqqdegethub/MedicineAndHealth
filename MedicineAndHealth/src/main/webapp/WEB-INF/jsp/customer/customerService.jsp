@@ -225,7 +225,7 @@
 	 				$("#detail1").css("display",""),
 	 				$("#userName1")[0].innerHTML=data.obj.customerName,
 	 				$("#phonenumber1")[0].innerHTML=data.obj.phoneNumber
-	 			}
+	 			} 
 	 			else if(data.obj.status==2){
 	 				$("#detail0").css("display","none"),
 	 				$("#detail1").css("display","none"),
