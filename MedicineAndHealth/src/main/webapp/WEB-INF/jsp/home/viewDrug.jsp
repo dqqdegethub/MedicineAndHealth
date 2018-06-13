@@ -189,7 +189,7 @@
 						</p>
 					</div>
 					<div>
-						<table style="margin-top:30px;">
+						<table id="inventoryTable" style="margin-top:30px;">
 							<tr >
 								<td>数 量：</td>
 								<td>
@@ -353,6 +353,7 @@
 		}
 		if("${drugInformation.isRx}" == "Rx"){
 			$("#addCart").hide();
+			$("#inventoryTable").hide();
 		}
 		$("#leftBar").hide();
     	$("#allNav").hover(function(){	
