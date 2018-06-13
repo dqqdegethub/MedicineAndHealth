@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html lang="zh-CN">  
+<html lang="zh-CN">
 	<head>
 		<meta charset="utf-8"> 
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -189,14 +189,14 @@
 						</p>
 					</div>
 					<div>
-						<table id="inventoryTable" style="margin-top:30px;">
+						<table style="margin-top:30px;">
 							<tr >
 								<td>数 量：</td>
 								<td>
 									<div style="margin-left:30px;">
-										<span class="minus">-</span>
+										<span class="minus" style="cursor:pointer;">-</span>
 										<input id="num-text" class="num-text" value="1" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" type="text"></input>
-										<span class="plus">+</span>
+										<span class="plus" style="cursor:pointer;">+</span>
 									</div>
 								</td>
 							</tr>
@@ -353,7 +353,6 @@
 		}
 		if("${drugInformation.isRx}" == "Rx"){
 			$("#addCart").hide();
-			$("#inventoryTable").hide();
 		}
 		$("#leftBar").hide();
     	$("#allNav").hover(function(){	

@@ -87,7 +87,7 @@
 							</div>
 							<div class="form-group" style="padding-top:20px">
 								<div class="col-xs-2 col-xs-offset-3"><a href="<%=request.getContextPath()%>/staff/buyerStaffIndex"><button class=" btn btn-info"><span class="glyphicon glyphicon-chevron-left">返回</span></button></a></div>
-								<div class="col-xs-2"><button class="btn btn-success" id="confirmBtn" type="button"><span class="glyphicon glyphicon-ok">确认修改</span></button></div>
+								<div class="col-xs-2"><button class="btn btn-success" id="confirmBtn" type="button"><span class="glyphicon glyphicon-ok">确认订单</span></button></div>
 							</div>
 						</form>	
 					</div>
@@ -97,8 +97,8 @@
 	</div>
 	<div class="footer" style="margin-top:20px;width:100%;text-align:center;verticle:middle;">
 			<dl style="">
-				<dd style="font-size:14px;line-height:50px">.
-					Copyright©2005-2019 药扛网（北京）医药科技有限公司版权所有，并保留所有权利。互联网药品交易服务证：京C20160006号
+				<dd style="font-size:14px;line-height:50px">
+					Copyright©2018-2023 药康网（江苏）医药科技有限公司版权所有，并保留所有权利。互联网药品交易服务证：苏C20160006号
 				</dd>
 			</dl>
 		</div>

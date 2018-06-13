@@ -67,14 +67,14 @@
 						<dt style="height:45px;border:1px solid #cfcfcf;margin-bottom:25px;">
 							<img src="<%=request.getContextPath()%>/statics/images/account.png" style="width:25px;float:left;margin-left:10px;margin-top:8px" />
 							<input id="username" style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="用户名/手机号/邮箱" type="text">
-							<img src="<%=request.getContextPath()%>/statics/images/reset.png" style="width:15px;float:right;margin-right:10px;margin-top:12px" />
+							<img id="reset-1" src="<%=request.getContextPath()%>/statics/images/reset.png" style="width:15px;float:right;margin-right:10px;margin-top:12px" />
 						</dt>
 					</dl>
 					<dl>
 						<dt style="height:45px;border:1px solid #cfcfcf;margin-bottom:25px;">
 							<img src="<%=request.getContextPath()%>/statics/images/password.png" style="width:25px;float:left;margin-left:10px;margin-top:8px" />
 							<input id="pwd" style="width:218px;float:left;height:40px;padding:0 10px;line-height:40px;border:none;outline:none;font-size:14px" placeholder="密码" type="password">
-							<img src="<%=request.getContextPath()%>/statics/images/reset.png" style="width:15px;float:right;margin-right:10px;margin-top:12px" />
+							<img id="reset-2" src="<%=request.getContextPath()%>/statics/images/reset.png" style="width:15px;float:right;margin-right:10px;margin-top:12px" />
 						</dt>
 					</dl>
 					<p style="padding:5px 0">
@@ -106,6 +106,13 @@
     
     
     <script>
+    $("#reset-1").click(function(){
+    	$("#username").val("");
+    })
+    $("#reset-2").click(function(){
+    	$("#pwd").val("");
+    })
+    
     $("#btn").click(function(){
     	//console.log(111)
     	postdata = {"userName" : $("#username").val(),
@@ -121,7 +128,11 @@
 			"success" : function(data){
 				if(data.code==1){
 					var cname=data.obj.userName;
-					//console.log(cname)
+	 				$.removeCookie("id");
+	 				$.removeCookie("userName");
+	 				$.cookie("login","0",{path: '/'});
+	 				console.log(cname);
+	 				$.cookie("login","1",{path: '/'});
 					$.cookie("id",data.obj.id,{path:"/"})
 					$.cookie("userName",data.obj.userName,{path:"/"})
 					//$()
