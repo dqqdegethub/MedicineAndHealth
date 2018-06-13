@@ -80,7 +80,7 @@
         			<a href="<%=request.getContextPath()%>/home/viewDrug/205011">力如太</a>|
         			<a href="<%=request.getContextPath()%>/home/viewDrug/201042">佳维乐</a>|
         			<a href="<%=request.getContextPath()%>/home/viewDrug/202012">凡瑞克</a>|
-        			<a href="<%=request.getContextPath()%>/home/drugSearch/200000">更多></a>
+        			<a href="<%=request.getContextPath()%>/home/drugTypeSearch/200000">更多></a>
         		</div>
         	</h3>
         	<div class="drugMain" style="margin-top:-10px">
@@ -180,7 +180,7 @@
         			<a href="<%=request.getContextPath()%>/home/viewDrug/302052">伊迈格</a>|
         			<a href="<%=request.getContextPath()%>/home/viewDrug/304011">凯西莱</a>|
         			<a href="<%=request.getContextPath()%>/home/viewDrug/304012">天晴复欣</a>|
-        			<a href="<%=request.getContextPath()%>/home/drugSearch/300000">更多></a>
+        			<a href="<%=request.getContextPath()%>/home/drugTypeSearch/300000">更多></a>
         		</div>
         	</h3>
         	<div class="drugMain" style="margin-top:-10px">
@@ -280,7 +280,7 @@
         			<a href="<%=request.getContextPath()%>/home/viewDrug/402012">抗宫炎片</a>|
         			<a href="<%=request.getContextPath()%>/home/viewDrug/402031">叶酸片</a>|
         			<a href="<%=request.getContextPath()%>/home/viewDrug/403011">托恩</a>|
-        			<a href="<%=request.getContextPath()%>/home/drugSearch/400000">更多></a>
+        			<a href="<%=request.getContextPath()%>/home/drugTypeSearch/400000">更多></a>
         		</div>
         	</h3>
         	<div class="drugMain" style="margin-top:-10px">
