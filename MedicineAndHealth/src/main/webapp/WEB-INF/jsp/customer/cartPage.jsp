@@ -133,7 +133,7 @@
 				<span class="col-xs-2">优惠：<span style="color: red">￥${coupon }</span></span>
 				<span id="total" class="col-xs-2"></span>
 				<div class="col-xs-1">
-					<button id="nextStep" class="btn btn-danger" type="button">下一步</button>
+					<button id="nextStep" class="btn btn-danger" type="button">提交</button>
 				</div>
 			</div>
 		</div>
