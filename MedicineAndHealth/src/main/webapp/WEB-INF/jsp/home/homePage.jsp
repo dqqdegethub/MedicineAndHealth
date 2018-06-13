@@ -85,16 +85,16 @@
         	</h3>
         	<div class="drugMain" style="margin-top:-10px">
         		<div class="drugLeft">
-        			<a id="201010" href="<%=request.getContextPath()%>/home/drugSearch/201010" value="201010">艾滋病</a>
-        			<a id="201020" href="<%=request.getContextPath()%>/home/drugSearch/201020" value="201020">皮肤疾病</a>
-        			<a id="201030" href="<%=request.getContextPath()%>/home/drugSearch/201030" value="201030">甲亢</a>
-        			<a id="201040" href="<%=request.getContextPath()%>/home/drugSearch/201040" value="201040">糖尿病</a>
-        			<a id="204010" href="<%=request.getContextPath()%>/home/drugSearch/204010" value="204010">肝病</a>
-        			<a id="205000" href="<%=request.getContextPath()%>/home/drugSearch/205000" value="205000">神经系统</a>
-        			<a id="203000" href="<%=request.getContextPath()%>/home/drugSearch/203000" value="203000">血液病</a>
-        			<a id="202000" href="<%=request.getContextPath()%>/home/drugSearch/202000" value="202000">罕见病</a>
-        			<a id="201050" href="<%=request.getContextPath()%>/home/drugSearch/201050" value="201050">心脑血管</a>
-        			<a id="202010" href="<%=request.getContextPath()%>/home/drugSearch/202010" value="202010">肺动脉高压</a>
+        			<a id="201010" href="<%=request.getContextPath()%>/home/drugTypeSearch/201010" value="201010">艾滋病</a>
+        			<a id="201020" href="<%=request.getContextPath()%>/home/drugTypeSearch/201020" value="201020">皮肤疾病</a>
+        			<a id="201030" href="<%=request.getContextPath()%>/home/drugTypeSearch/201030" value="201030">甲亢</a>
+        			<a id="201040" href="<%=request.getContextPath()%>/home/drugTypeSearch/201040" value="201040">糖尿病</a>
+        			<a id="204010" href="<%=request.getContextPath()%>/home/drugTypeSearch/204010" value="204010">肝病</a>
+        			<a id="205000" href="<%=request.getContextPath()%>/home/drugTypeSearch/205000" value="205000">神经系统</a>
+        			<a id="203000" href="<%=request.getContextPath()%>/home/drugTypeSearch/203000" value="203000">血液病</a>
+        			<a id="202000" href="<%=request.getContextPath()%>/home/drugTypeSearch/202000" value="202000">罕见病</a>
+        			<a id="201050" href="<%=request.getContextPath()%>/home/drugTypeSearch/201050" value="201050">心脑血管</a>
+        			<a id="202010" href="<%=request.getContextPath()%>/home/drugTypeSearch/202010" value="202010">肺动脉高压</a>
         		</div>
         		<div class="drugRight" style="float:left">
         			<div class="drugRPic">
@@ -185,16 +185,16 @@
         	</h3>
         	<div class="drugMain" style="margin-top:-10px">
         		<div class="drugLeft">
-        			<a id="302010" href="<%=request.getContextPath()%>/home/drugSearch/302010" value="302010">高血压</a>
-        			<a id="302020" href="<%=request.getContextPath()%>/home/drugSearch/302020" value="302020">高血脂</a>
-        			<a id="303000" href="<%=request.getContextPath()%>/home/drugSearch/303000" value="303000">糖尿病</a>
-        			<a id="305010" href="<%=request.getContextPath()%>/home/drugSearch/305010" value="305010">帕金森</a>
-        			<a id="302040" href="<%=request.getContextPath()%>/home/drugSearch/302040" value="302040">冠心病</a>
-        			<a id="302030" href="<%=request.getContextPath()%>/home/drugSearch/302030" value="302030">脑血管病</a>
-        			<a id="304010" href="<%=request.getContextPath()%>/home/drugSearch/304010" value="304010">乙肝</a>
-        			<a id="304050" href="<%=request.getContextPath()%>/home/drugSearch/304050" value="304050">胰腺炎</a>
-        			<a id="301000" href="<%=request.getContextPath()%>/home/drugSearch/301000" value="301000">阳痿</a>
-        			<a id="301000" href="<%=request.getContextPath()%>/home/drugSearch/301000" value="301000">早泄</a>
+        			<a id="302010" href="<%=request.getContextPath()%>/home/drugTypeSearch/302010" value="302010">高血压</a>
+        			<a id="302020" href="<%=request.getContextPath()%>/home/drugTypeSearch/302020" value="302020">高血脂</a>
+        			<a id="303000" href="<%=request.getContextPath()%>/home/drugTypeSearch/303000" value="303000">糖尿病</a>
+        			<a id="305010" href="<%=request.getContextPath()%>/home/drugTypeSearch/305010" value="305010">帕金森</a>
+        			<a id="302040" href="<%=request.getContextPath()%>/home/drugTypeSearch/302040" value="302040">冠心病</a>
+        			<a id="302030" href="<%=request.getContextPath()%>/home/drugTypeSearch/302030" value="302030">脑血管病</a>
+        			<a id="304010" href="<%=request.getContextPath()%>/home/drugTypeSearch/304010" value="304010">乙肝</a>
+        			<a id="304050" href="<%=request.getContextPath()%>/home/drugTypeSearch/304050" value="304050">胰腺炎</a>
+        			<a id="301000" href="<%=request.getContextPath()%>/home/drugTypeSearch/301000" value="301000">阳痿</a>
+        			<a id="301000" href="<%=request.getContextPath()%>/home/drugTypeSearch/301000" value="301000">早泄</a>
         		</div>
         		<div class="drugRight" style="float:left">
         			<div class="drugRPic">
@@ -285,16 +285,16 @@
         	</h3>
         	<div class="drugMain" style="margin-top:-10px">
         		<div class="drugLeft">
-        			<a id="401020" href="<%=request.getContextPath()%>/home/drugSearch/401020" value="401020">风热感冒</a>
-        			<a id="401010" href="<%=request.getContextPath()%>/home/drugSearch/401010" value="401010">清热祛火</a>
-        			<a id="404010" href="<%=request.getContextPath()%>/home/drugSearch/404010" value="404010">腹痛腹泻</a>
-        			<a id="402010" href="<%=request.getContextPath()%>/home/drugSearch/402010" value="402010">妇科炎症</a>
-        			<a id="402020" href="<%=request.getContextPath()%>/home/drugSearch/402020" value="402020">调经止痛</a>
-        			<a id="406010" href="<%=request.getContextPath()%>/home/drugSearch/406010" value="406010">安神助眠</a>
-        			<a id="405010" href="<%=request.getContextPath()%>/home/drugSearch/405010" value="405010">口腔溃疡</a>
-        			<a id="401040" href="<%=request.getContextPath()%>/home/drugSearch/401040" value="401040">抗菌消炎</a>
-        			<a id="403010" href="<%=request.getContextPath()%>/home/drugSearch/403010" value="403010">小儿退热</a>
-        			<a id="404030" href="<%=request.getContextPath()%>/home/drugSearch/404030" value="404030">胃肠胀气</a>
+        			<a id="401020" href="<%=request.getContextPath()%>/home/drugTypeSearch/401020" value="401020">风热感冒</a>
+        			<a id="401010" href="<%=request.getContextPath()%>/home/drugTypeSearch/401010" value="401010">清热祛火</a>
+        			<a id="404010" href="<%=request.getContextPath()%>/home/drugTypeSearch/404010" value="404010">腹痛腹泻</a>
+        			<a id="402010" href="<%=request.getContextPath()%>/home/drugTypeSearch/402010" value="402010">妇科炎症</a>
+        			<a id="402020" href="<%=request.getContextPath()%>/home/drugTypeSearch/402020" value="402020">调经止痛</a>
+        			<a id="406010" href="<%=request.getContextPath()%>/home/drugTypeSearch/406010" value="406010">安神助眠</a>
+        			<a id="405010" href="<%=request.getContextPath()%>/home/drugTypeSearch/405010" value="405010">口腔溃疡</a>
+        			<a id="401040" href="<%=request.getContextPath()%>/home/drugTypeSearch/401040" value="401040">抗菌消炎</a>
+        			<a id="403010" href="<%=request.getContextPath()%>/home/drugTypeSearch/403010" value="403010">小儿退热</a>
+        			<a id="404030" href="<%=request.getContextPath()%>/home/drugTypeSearch/404030" value="404030">胃肠胀气</a>
         		</div>
         		<div class="drugRight" style="float:left">
         			<div class="drugRPic">
