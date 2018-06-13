@@ -152,7 +152,7 @@
 			    <div class="breadcrumb">
 			    	<a href="<%=request.getContextPath()%>/home/homePage" class="bold">首页</a>
 			    	<b> > </b>
-			    	<a class="bold">${drugInformation.mCatalog}</a>
+			    	<a class="bold" id="nowDrugType">${drugInformation.mCatalog}</a>
 			    	<b> > </b>
 			    	<span>${drugInformation.medicineName} </span>
 			    </div>
@@ -333,6 +333,9 @@
 // 	mIndication.split("。").forEach(function(item){
 // 		$("#mIndication")[0].innerHTML+=item;
 // 	})
+	var intType=parseInt(${drugInformation.medicineId}/100000);
+	var type=intType*100000;
+	$("#nowDrugType").attr("href",contextPath+"/home/drugTypeSearch/"+type);
 		<!--searchBanner -->
 		var str="<%=request.getContextPath()%>/home/drugSearch?seekword="
    	     $("#searchBtn").click(function(){
@@ -370,7 +373,7 @@
 						alert("已成功加入购物车！");
 					},
 					"error" : function(){
-						alert("请您先登录！");
+						alert("add error!");
 					}
 				});
 		});

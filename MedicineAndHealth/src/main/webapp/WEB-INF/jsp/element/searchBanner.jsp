@@ -107,7 +107,7 @@
 								<ul class="pullDownList" id="pull">
 									<li> 
 										<img src="<%=request.getContextPath()%>/statics/images/homeicon1.png" style="width:20px;"/>
-										<a id="100000" href="<%=request.getContextPath()%>/home/drugTypeSearch/100000" data-id="100000" >重大疾病</a>
+										<a id="100000" href="<%=request.getContextPath()%>/home/drugTypeSearch/100000" data-id="100000" >重大疾病</a>、
 										<a id="101000" href="<%=request.getContextPath()%>/home/drugTypeSearch/101000" value="">肿瘤</a>、
 										<a id="101030" href="<%=request.getContextPath()%>/home/drugTypeSearch/101030" value="">肺癌</a>
 									</li>
