@@ -91,7 +91,7 @@
    			<div class="register" style="margin-top:0">
    				<div style="text-align:center">
    					<form action="" method="post" id="forgetPwd" class="forgetPwd">
-   						 <h1><img src="<%=request.getContextPath()%>/statics/images/forgetPwd.jpg" style="height:20px;width:20px;margin-bottom:-5px;"/><span style="border-bottom: 2px solid #0c69ae;color:#0c69ae;font-size:20px;display: inline-block;margin-left:10px;">找回密码</span></h1>
+   						 <h1><span style="border-bottom: 2px solid #0c69ae;color:#0c69ae;font-size:20px;display: inline-block;margin-left:10px;">找回密码</span></h1>
 				          <p style="margin-left:175px;margin-top:30px;">
 				             <label for="username">用户名：</label>
 				             <!-- id和name最好同时写上 -->
