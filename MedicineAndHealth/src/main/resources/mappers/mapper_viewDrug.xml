@@ -43,7 +43,19 @@
 			medicine.id = information.medicineid AND medicine.id=#{medicineId}
 	</select>
 	
+	<select id="selectNumber" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT count(*)
+		FROM cart
+		WHERE cart.medicineid=#{medicineId} AND cart.customerid=#{customerId}
+	</select>
+	
 	<insert id="insertCart" parameterType="java.util.Map" keyProperty="#{customerId},medicineId">
 		INSERT cart VALUES (#{customerId},#{medicineId},#{amount})
 	</insert>
+	
+	<update id="updateCart" parameterType="java.util.Map">
+		UPDATE cart
+		SET count=count+#{count}
+		WHERE  cart.medicineid=#{medicineId} AND cart.customerid=#{customerId}
+	</update>
 </mapper>
