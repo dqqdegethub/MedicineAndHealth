@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
+<html  lang="zh-CN">
+  <head>   
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,9 +86,9 @@
 					<div id="price-${drug.medicineId }" class="col-xs-1">${drug.price }</div>
 					
 					<div class="col-xs-2" style="margin-top: 20px;line-height: 24px;">
-						<div id="minus-${drug.medicineId }" class="col-xs-3 col-xs-offset-1 countChange" onclick="countChange('minus',${drug.medicineId })">-</div>
+						<div id="minus-${drug.medicineId }" class="col-xs-3 col-xs-offset-1 countChange" onclick="countChange('minus',${drug.medicineId })" style="cursor:pointer;">-</div>
 						<input class="col-xs-4" id="count-${drug.medicineId }" style="border:1px solid #e9e9e9" type="text" value="${drug.count }"/>
-						<div id="add-${drug.medicineId }" class="col-xs-3 countChange" onclick="countChange('add',${drug.medicineId })">+</div>	
+						<div id="add-${drug.medicineId }" class="col-xs-3 countChange" onclick="countChange('add',${drug.medicineId })" style="cursor:pointer;">+</div>	
 					</div>
 					
 					<div class="col-xs-1"><span id="total-${drug.medicineId }">${drug.price * drug.count }</span></div>
@@ -96,7 +96,7 @@
 					<div class="col-xs-2" ><span id="storageStatus-${drug.medicineId }" data-amount="${drug.stockAmount }"></span></div>
 					
 					<div class="col-xs-1">
-						<a onclick="deleteCart(${drug.medicineId })">删除</a>
+						<a style="cursor:pointer;" onclick="deleteCart(${drug.medicineId })">删除</a>
 					</div>
 				</div>
 			</div>

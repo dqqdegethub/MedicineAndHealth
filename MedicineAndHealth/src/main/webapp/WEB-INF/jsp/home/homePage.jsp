@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
+<html lang="zh-CN">  
+  <head>  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -393,8 +393,8 @@
 				</li>
 			</ul>
 			<dl style="border-top:1px solid grey;">
-				<dd style="font-size:14px;line-height:50px">.
-					Copyright©2005-2019 药扛网（北京）医药科技有限公司版权所有，并保留所有权利。互联网药品交易服务证：京C20160006号
+				<dd style="font-size:14px;line-height:50px">
+					Copyright©2018-2023 药康网（江苏）医药科技有限公司版权所有，并保留所有权利。互联网药品交易服务证：苏C20160006号
 				</dd>
 			</dl>
 		</div>

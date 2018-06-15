@@ -37,10 +37,14 @@ public class ViewDrugController {
 	public ResponseEntity<BaseResponse> viewDrug(HttpEntity<Cart>httpEntity,HttpSession session){
 		BaseResponse response=new BaseResponse();
 		Cart cartdrug=httpEntity.getBody();
-		
 		int customerId=(Integer)session.getAttribute("userId");
 		
-		drugInfoService.insertCart(customerId,cartdrug.getMedicineId(), cartdrug.getCount());
+		if(drugInfoService.queryDrugNumber(customerId, cartdrug.getMedicineId())<1) {
+			drugInfoService.insertCart(customerId,cartdrug.getMedicineId(), cartdrug.getCount());
+		}
+		else {
+			drugInfoService.updateCart(customerId, cartdrug.getMedicineId(), cartdrug.getCount());
+		}
 		response.setCode(1);
 		response.setObj(null);
 		

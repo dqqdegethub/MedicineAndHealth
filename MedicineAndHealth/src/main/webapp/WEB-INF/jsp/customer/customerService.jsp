@@ -155,7 +155,7 @@
 		<div class="footer" style="margin-top:20px;width:100%;text-align:center;verticle:middle;">
 			<dl style="">
 				<dd style="font-size:14px;line-height:50px">.
-					Copyright©2005-2019 药扛网（北京）医药科技有限公司版权所有，并保留所有权利。互联网药品交易服务证：京C20160006号
+					Copyright©2018-2023 药康网（江苏）医药科技有限公司版权所有，并保留所有权利。互联网药品交易服务证：苏C20160006号
 				</dd>
 			</dl>
 		</div>

@@ -23,11 +23,28 @@ public class DrugInfoDaolmpl implements DrugInfoDao{
 	}
 	
 	@Override
+	public Integer queryDrugNumber(int customerId,int medicineId) {
+		Map<String, Object> map=new HashMap<>();
+		map.put("customerId",customerId);
+		map.put("medicineId",medicineId);
+		return sqlSessionTemplate.selectOne(NAME_SPACE+"selectNumber",map);
+	}
+	
+	@Override
 	public void insertCart(int customerId,int medicineId,int amount) {
 		Map<String, Object> map=new HashMap<>();
 		map.put("customerId",customerId);
 		map.put("medicineId",medicineId);
 		map.put("amount",amount);
 		sqlSessionTemplate.insert(NAME_SPACE+"insertCart", map);
+	}
+	
+	@Override
+	public void updateCart(int customerId,int medicineId,int count) {
+		Map<String, Object> map=new HashMap<>();
+		map.put("customerId",customerId);
+		map.put("medicineId",medicineId);
+		map.put("count", count);
+		sqlSessionTemplate.update(NAME_SPACE+"updateCart",map);
 	}
 }

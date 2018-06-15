@@ -362,6 +362,9 @@
     		$("#leftBar").hide();
     	})
 		$("#addCart").click(function(){
+			if($.cookie("id")==null){
+				window.document.location.href=contextPath+"/customer/customerLogin"
+			}
 			 var postData={medicineId:"${drugInformation.medicineId}",count:$("#num-text").val()};
 			 $.ajax({
 					"method" : "POST",

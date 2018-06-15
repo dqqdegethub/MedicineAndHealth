@@ -19,7 +19,17 @@ public class DrugInfoServicelmpl implements DrugInfoService{
 	}
 	
 	@Override
+	public Integer queryDrugNumber(int customerId,int medicineId) {
+		return drugInfoDao.queryDrugNumber(customerId, medicineId);
+	}
+	
+	@Override
 	public void insertCart(int customerId,int medicineId,int amount) {
 		drugInfoDao.insertCart(customerId, medicineId, amount);
+	}
+	
+	@Override
+	public void updateCart(int customerId,int medicineId,int count) {
+		drugInfoDao.updateCart(customerId, medicineId, count);
 	}
 }
