@@ -197,6 +197,11 @@
     	}
     	
     	$("#nextStep").click(function(){
+    		if($.cookie("userId") == null){
+    			window.location.href = contextPath + "/customer/customerLogin";
+    			return;
+    		}
+    		
     		var cartArray = [];
     		$("input[id^='cartCkb-']").each(function(){
     			if($(this).is(":checked")){
