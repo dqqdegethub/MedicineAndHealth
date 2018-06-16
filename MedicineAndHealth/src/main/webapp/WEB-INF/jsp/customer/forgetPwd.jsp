@@ -150,17 +150,24 @@
 	  			"success" : function(data){
 	  				if(data.code==10){
 	  					var cname=data.obj.userName;
-	  					alert("修改密码成功！现在去登录？")
+	  					alert("修改密码成功！现在去登录？");
 	  					//console.log(cname)
 	  					//$.cookie("customerId",data.obj.id,{path:"/"})
 	  					//$.cookie("customerName",data.obj.name,{path:"/"})
 	  					window.document.location.href=contextPath+"/customer/customerLogin"
 	  					//window.document.location.href=contextPath+"/customer/success"
 	  				}
-	  				else{
-	  					alert("修改密码失败！请重新操作。")
+	  				else if(data.code==-1){
+	  					alert("用户名不存在！请先注册！");	  					
+	  					$("#password").val('');
+	  					$("#confirm_password").val('');
+	  					$("#answer").val('');
 	  					//window.document.location.href=contextPath+"/customer/fail"
 	  					
+	  				}
+	  				else if(data.code==-2){
+	  					alert("密保答案错误，请重新输入！");
+	  					$("#answer").val('');
 	  				}
 	  				
 	  				//alert(data.obj.uesrname);

@@ -43,6 +43,11 @@
  		where username=#{userName} and answer=#{answer}
  	</select>
  	
+ 	<select id="queryByUsername" parameterType="java.util.Map" resultType="java.lang.Integer">
+ 	    select count(*)
+ 	    from customer
+ 	    where username=#{userName}
+ 	</select>
 	 <select id="login" parameterType="java.util.Map" resultMap="customer">
 	     SELECT
 	     	id,username

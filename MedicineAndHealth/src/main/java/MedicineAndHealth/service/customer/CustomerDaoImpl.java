@@ -61,8 +61,23 @@ public class CustomerDaoImpl implements CustomerDao {
 	public Integer queryCustomerByAnswer(String username,String answer) {
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("userName", username);
-		map.put("answer",answer);
-		return sqlSessionTemplate.selectOne(NAME_SPACE+"queryByAnswer", map);
+		Integer intResult=sqlSessionTemplate.selectOne(NAME_SPACE+"queryByUsername", map);
+		 
+		if(intResult>0) {
+			map.put("answer",answer);
+			Integer intResult2=sqlSessionTemplate.selectOne(NAME_SPACE+"queryByAnswer", map);
+			if(intResult2 !=null) {
+				return intResult2; //查到了结果
+			}
+			else if(intResult2==null) {
+				return -2; //表明密保问题不正确
+			}
+			//return sqlSessionTemplate.selectOne(NAME_SPACE+"queryByAnswer", map);
+		}
+		else {
+			return -1; //表明用户名不存在
+		}
+		return 0;
 	}
 	@Override
 	public void updatePwd(String username,String pwd,String answer) {

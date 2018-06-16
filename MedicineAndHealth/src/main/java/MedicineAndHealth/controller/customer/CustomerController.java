@@ -132,14 +132,28 @@ private final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 		Customer c=httpEntity.getBody();
 		//查找该用户有没有注册过
 		Integer userId=cs.queryByAnswer(c);		
-		if(userId>0) {
+//		if(userId>0) {
+//			
+//			cs.updatePwd(c);
+//			response.setCode(10);//10表示更改密码成功
+//			Customer c2=cs.queryCustomerById(userId);
+//			response.setObj(c2);
+//		}
+//		else {
+//			response.setCode(0);//0表示更改密码失败
+//		}
+		if(userId==-1) {//用户名不存在
+			response.setCode(-1);
+			
+		}
+		else if(userId==-2) {//密保答案输入错误
+			response.setCode(-2);
+		}
+		else if(userId>0) {//全部正确之后，开始修改密码
 			cs.updatePwd(c);
 			response.setCode(10);//10表示更改密码成功
 			Customer c2=cs.queryCustomerById(userId);
 			response.setObj(c2);
-		}
-		else {
-			response.setCode(0);//0表示更改密码失败
 		}
 		MultiValueMap<String, String> header = new HttpHeaders();
 		header.set("Access-Control-Allow-Origin", "*");
