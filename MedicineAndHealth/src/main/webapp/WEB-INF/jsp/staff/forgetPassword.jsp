@@ -187,9 +187,9 @@
 					$("#step2").css("display","")
 					$("#problem")[0].innerHTML=data.obj
 				} else{
-					$("#stuchange-errmsg-2").css("display","");
-					$("#stuchange-errmsg-2")[0].innerHTML="";
-					$("#stuchange-errmsg-2")[0].innerHTML+="不存在该员工！"
+					$("#errmsg-2").css("display","");
+					$("#errmsg-2")[0].innerHTML="";
+					$("#errmsg-2")[0].innerHTML+="不存在该员工！"
 				}  
 			  },
 		  	error: function(){
@@ -224,9 +224,9 @@
 						$("#step2").css("display","none")
 						$("#step3").css("display","")
 					} else{
-						$("#stuchange-errmsg-3").css("display","");
-						$("#stuchange-errmsg-3")[0].innerHTML="";
-						$("#stuchange-errmsg-3")[0].innerHTML+="问题答案错误！"
+						$("#errmsg-3").css("display","");
+						$("#errmsg-3")[0].innerHTML="";
+						$("#errmsg-3")[0].innerHTML+="问题答案错误！"
 					}  
 				  },
 			  	error: function(){
