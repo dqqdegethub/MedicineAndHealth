@@ -57,7 +57,7 @@
 						<div class="col-xs-3 warning-errmsg" id="msg-2"></div>
 						<div class="col-xs-2 col-xs-offset-3"><button class=" btn btn-info" style="margin-left:-450px;" id="searchBtn" type="button"><span class="glyphicon glyphicon-chevron-left">查询</span></button></div>
 					</div>
-					<div style="margin-top:60px;">
+					<div style="margin-top:75px;">
 						<table class="table table-bordered" id="pad" style="width:90%;margin-left:20px;margin-top:50px;min-height:300px">
 							<thead>
 								<tr>
@@ -102,6 +102,7 @@
 	var apath=contextPath+"/statics/images/staffIndexicon2.png"
 	$("#apath").attr('src',apath)
 	$("#bpath").attr('src',bpath)
+	$("#pageList").css("margin-top","5px");
 	
 	function cutSet(dataSet){
  		var dataCol = []
@@ -109,7 +110,7 @@
 		var ct = 0
 		var flag = true
 		while(flag){
-			for (var i = ct*5; i < ct*5+5; i++){
+			for (var i = ct*7; i < ct*7+7; i++){
 				if (dataSet[i]==undefined){
 				dataCol.push(_)
 				return dataCol
