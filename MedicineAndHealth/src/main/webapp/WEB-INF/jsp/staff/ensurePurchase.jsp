@@ -43,6 +43,7 @@
 				</span>
 				<div style="margin-top:20px;margin-left:20px" id="changePwd">
 					<a id="skipto" style="cursor:pointer;">个人中心</a>>><span>业务管理>>采购管理</span>
+					
 					<div style="margin-top:20px;">
 						<table class="table table-bordered" id="pad" style="width:90%;margin-left:20px;margin-top:50px;min-height:300px">
 							<thead>
@@ -56,6 +57,7 @@
 							</thead>
 						</table>	
 					</div>
+					<div class="col-xs-12" id="noData" style="text-align: center"></div>
 				</div>
 			</div>
 			<%@include file="../element/pageList.jsp"%>
@@ -91,6 +93,13 @@
 	var apath=contextPath+"/statics/images/staffIndexicon2.png"
 	$("#apath").attr('src',apath)
 	$("#bpath").attr('src',bpath)
+	
+	$("#skipto").click(function(){
+    	if($.cookie('partment')=='客服部'){
+     		location.href=contextPath+"/staff/supportStaffIndex"
+     	}
+     	else location.href=contextPath+"/staff/buyerStaffIndex"
+    })
 	
 	function cutSet(dataSet){
  		var dataCol = []
@@ -152,7 +161,13 @@
  	}
  	
  	$(document).ready(function(){
- 		 var postData={
+//  		if("${purchaseCount}"== 0){
+// 	 		$("#noData")[0].innerHTML = "<span style=\"line-height: 40px;font-size: 24px\">暂无采购信息！</span>";
+// 	 	}
+//  		else{
+//  			$("#noData")[0].innerHTML = "";
+//  		}
+ 		var postData={
  				 "step":0
  		 }
  		 $.ajax({
@@ -162,10 +177,17 @@
  			 data:JSON.stringify(postData),
  			 dataType:"json",
  		 	 crossDomain: true,
- 			 success: function(data){
- 				dataSet = data.obj
- 				renderPage(dataSet)
- 				 },
+ 			 success: function(data){ 
+ 					dataSet = data.obj;
+ 	 				renderPage(dataSet);
+ 	 				list=data.obj;
+ 	 				if(list.length<1){
+ 	 					$("#noData")[0].innerHTML = "<span style=\"line-height: 40px;font-size: 24px\">暂无采购信息！</span>";
+ 	 				}
+ 	 				else{
+ 	 					$("#noData")[0].innerHTML = " ";
+ 	 				}
+ 				},
  			 error: function(){
  				   alert("Search failed.");
  				 }

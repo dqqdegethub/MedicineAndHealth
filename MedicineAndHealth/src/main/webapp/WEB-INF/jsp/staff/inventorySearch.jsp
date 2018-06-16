@@ -69,6 +69,7 @@
 							</thead>
 						</table>	
 					</div>
+					<div class="col-xs-12" id="noData" style="text-align: center"></div>
 				</div>
 			</div>
 			<%@include file="../element/pageList.jsp"%>
@@ -104,6 +105,13 @@
 	$("#bpath").attr('src',bpath)
 	$("#pageList").css("margin-top","5px");
 	
+	$("#skipto").click(function(){
+    	if($.cookie('partment')=='客服部'){
+     		location.href=contextPath+"/staff/supportStaffIndex"
+     	}
+     	else location.href=contextPath+"/staff/buyerStaffIndex"
+    })
+    
 	function cutSet(dataSet){
  		var dataCol = []
  		var _ = []
@@ -160,7 +168,7 @@
  	}
  	
  	$("#searchBtn").click(function(){
-		var postData={
+ 		var postData={
 			"medicineName":$("#medicineName").val()
 		}
 		$.ajax({
@@ -171,8 +179,15 @@
  			"dataType" : "json",
  			"crossDomain" : true,
  			"success" : function(data){
- 				dataSet = data.obj
- 				renderPage(dataSet)
+ 				dataSet = data.obj;
+	 			renderPage(dataSet);
+ 				list=data.obj;
+ 				if(list.length<1){
+	 				$("#noData")[0].innerHTML = "<span style=\"line-height: 40px;font-size: 24px\">未查询到此药品库存信息！</span>";
+	 			}
+ 				else{
+ 					$("#noData")[0].innerHTML = " ";
+ 				}
  			},
  			"error" : function(){
  				alert("search error!")

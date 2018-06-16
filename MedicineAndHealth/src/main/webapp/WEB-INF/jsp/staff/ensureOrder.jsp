@@ -66,6 +66,7 @@
 							</thead>
 						</table>	
 					</div>
+					<div class="col-xs-12" id="noData" style="text-align: center"></div>
 				</div>
 			</div>
 			<%@include file="../element/pageList.jsp"%>
@@ -169,7 +170,7 @@
  	}
  	
  	$(document).ready(function(){
- 		 var postData={
+ 		var postData={
  				 "step":0
  		 }
  		 $.ajax({
@@ -180,9 +181,16 @@
  			 dataType:"json",
  		 	 crossDomain: true,
  			 success: function(data){
- 				dataSet = data.obj
- 				renderPage(dataSet)
- 				 },
+ 					dataSet = data.obj;
+ 					renderPage(dataSet);
+ 					list=data.obj;
+ 					if(list.length<1){
+ 						$("#noData")[0].innerHTML = "<span style=\"line-height: 40px;font-size: 24px\">暂无订单信息！</span>";
+	 				}
+ 					else{
+ 	 					$("#noData")[0].innerHTML = " ";
+ 	 				}
+ 				},
  			 error: function(){
  				   alert("Search failed.");
  				 }
