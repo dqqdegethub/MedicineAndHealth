@@ -62,7 +62,7 @@
 							<div class="form-group">
 								<label class="col-xs-3 control-label"><span style="color:red;font-size:18px;margin-right:2px">*</span>采购数量：</label>
 								<div class="col-xs-4"><input class="form-control" id="quantity" type="text" placeholder=""></div>
-								<div class="col-xs-3 warning-errmsg" id="msg-2"></div>
+								<div class="col-xs-3 warning-errmsg" id="errmsg-1"></div>
 							</div>
 							<div class="form-group" style="padding-top:20px">
 								<div class="col-xs-2 col-xs-offset-3"><a href="<%=request.getContextPath()%>/staff/buyerStaffIndex"><button class=" btn btn-info"><span class="glyphicon glyphicon-chevron-left">返回</span></button></a></div>
@@ -107,13 +107,21 @@
     var year = date.getFullYear(); //获取年   
     var month = date.getMonth()+1;//获取月
     var day = date.getDate(); //获取当日
-    if(month<10 || day<10){
+    if(month<10){
     	month="0"+month;
+    }
+    if(day<10){
     	day="0"+day;
     }
     var time = year+month+day; //组合时间  
     
 	$("#confirmBtn").click(function(){
+		if($("#quantity").val()<0){
+			$("#errmsg-1")[0].innerHTML="";
+			$("#errmsg-1").css("display","");
+			$("#errmsg-1")[0].innerHTML+="数量不能为负！"
+		}
+		else{
 		var postData={
 			"staffId":$.cookie("staffId"),
 			"date":time,
@@ -136,6 +144,7 @@
  				alert("search error!")
  			}
  		});
+		}
 	})
     </script>
 </body>

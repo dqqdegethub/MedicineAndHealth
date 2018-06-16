@@ -39,7 +39,7 @@
 		margin-right:auto;
 		margin-top:10px;
 		width:1024px;
-		height:170px;
+		height:220px;
 		background-color:#f8fafc;
 		margin-top:80px;
 	}
@@ -101,9 +101,8 @@
 				<div class="form-group" style="margin-left:90px;margin-top:-10px;">
 					<div>
 						<button class="btn btn-success" id="confirmBtn0" style="background-color:#0c69ae;margin-left:-14px;" type="button" ><span class="glyphicon glyphicon-ok">确认提交</span></button>
-						<a href="<%=request.getContextPath()%>/staff/buyerStaffIndex"><button class=" btn btn-info" style="margin-left:5px;"><span class="glyphicon glyphicon-chevron-left">返回</span></button></a>
+						<a href="<%=request.getContextPath()%>/home/homePage"  class=" btn btn-info" style="margin-left:5px;"><span class="glyphicon glyphicon-chevron-left">返回</span></a>
 					</div>
-					
 				</div>
 			</form>	
 		</div>
@@ -120,6 +119,11 @@
 				<div class="form-group">
 					<label style="margin-left:90px;line-height:50px;">您的留言已收到，客服正在处理中，请您耐心等待。</label>
 				</div>
+				<div class="form-group" style="margin-left:70px;margin-top:-25px;">
+					<div>
+						<a href="<%=request.getContextPath()%>/home/homePage"  class=" btn btn-info" style="margin-left:5px;"><span class="glyphicon glyphicon-chevron-left">返回</span></a>
+					</div>
+				</div>
 			</form>	
 		</div>
 		<div id="detail2" class="detail2">
@@ -131,7 +135,7 @@
 				<div class="form-group" style="">
 					<label class="col-xs-3 control-label" style="margin-left:-100px;"><span style="color:red;font-size:18px;margin-right:2px">*</span>手机号：</label>
 					<label class="col-xs-3 control-label" id="phonenumber2" style="margin-left:-160px;line-height:32px"></label>
-				</div>
+				</div> 
 				<div class="form-group">
 					<label class="col-xs-3 control-label" style="margin-left:-85px;"><span style="color:red;font-size:18px;margin-right:2px">*</span>留言内容：</label>
 					<label class="col-xs-3 control-label" id="message" style="margin-left:-160px;line-height:32px;"></label>
@@ -146,8 +150,8 @@
 				</div>
 				<div class="form-group" style="margin-left:90px;margin-top:-10px;">
 					<div>
-						<a href="<%=request.getContextPath()%>/staff/buyerStaffIndex"><button class=" btn btn-info" style="margin-left:-17px;"><span class="glyphicon glyphicon-chevron-left">返回</span></button></a>
-						<button class="btn btn-success" id="confirmBtn2" style="background-color:#0c69ae;margin-left:5px;" type="button" ><span class="glyphicon glyphicon-ok">确认提交</span></button>
+						<button class="btn btn-success" id="confirmBtn2" style="background-color:#0c69ae;margin-left:-15px;" type="button" ><span class="glyphicon glyphicon-ok">确认提交</span></button>
+						<a href="<%=request.getContextPath()%>/home/homePage"  class=" btn btn-info" style="margin-left:5px;"><span class="glyphicon glyphicon-chevron-left">返回</span></a>
 					</div>
 				</div>
 			</form>	
