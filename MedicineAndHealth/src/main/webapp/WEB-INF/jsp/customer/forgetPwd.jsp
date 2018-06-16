@@ -222,7 +222,7 @@
 	    	        equalTo: "两次密码输入不一致"
 	    	      },
 	    	      answer:{
-	    	    	  required:"",
+	    	    	  required:"答案不能为空！",
 	    	      },
 	    	     }
 	    	    });
