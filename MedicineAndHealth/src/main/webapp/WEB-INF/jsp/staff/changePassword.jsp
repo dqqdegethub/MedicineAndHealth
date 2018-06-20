@@ -71,7 +71,7 @@
 								<div class="col-xs-3 warning-errmsg" id="errmsg-3"></div>
 							</div>
 							<div class="form-group" style="padding-top:20px">
-								<div class="col-xs-2 col-xs-offset-3"><a href=""><button class=" btn btn-info"><span class="glyphicon glyphicon-chevron-left">返回</span></button></a></div>
+								<div class="col-xs-2 col-xs-offset-3"><button class="btn btn-info" id="backBtn" type="button"><span class="glyphicon glyphicon-chevron-left">返回</span></button></div>
 								<div class="col-xs-2"><button class="btn btn-success" id="confirmChangeBtn" type="button"><span class="glyphicon glyphicon-ok">确认修改</span></button></div>
 							</div>
 						</form>	
@@ -121,6 +121,13 @@
  		}
  		else location.href=contextPath+"/staff/buyerStaffIndex"
 	})
+	
+	$("#backBtn").click(function(){
+    	if($.cookie('partment')=='客服部'){
+ 			location.href=contextPath+"/staff/supportStaffIndex"
+ 		}
+ 		else location.href=contextPath+"/staff/buyerStaffIndex"
+    })
 	$("#confirmChangeBtn").click(function(){
 		$("#errmsg-1").css("display","none");
 		$("#errmsg-2").css("display","none");

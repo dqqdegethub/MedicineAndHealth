@@ -86,7 +86,7 @@
 								<div class="col-xs-3 warning-errmsg" id="msg-2"></div>
 							</div>
 							<div class="form-group" style="padding-top:20px">
-								<div class="col-xs-2 col-xs-offset-3"><a href="<%=request.getContextPath()%>/staff/buyerStaffIndex"><button class=" btn btn-info"><span class="glyphicon glyphicon-chevron-left">返回</span></button></a></div>
+								<div class="col-xs-2 col-xs-offset-3"><a href="<%=request.getContextPath()%>/staff/supportStaffIndex"><button class=" btn btn-info"><span class="glyphicon glyphicon-chevron-left">返回</span></button></a></div>
 								<div class="col-xs-2"><button class="btn btn-success" id="confirmBtn" type="button"><span class="glyphicon glyphicon-ok">确认订单</span></button></div>
 							</div>
 						</form>	

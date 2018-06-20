@@ -98,7 +98,7 @@
 		<div class="header-wrapper" style="clear:both">
 			<div class="headerNavMain">
 				<div id="allNav" class="nav-all">
-					<a href="#">
+					<a href="<%=request.getContextPath()%>/home/allDrugType">
 						<span style="color:white;font-size:19px">全部药品分类</span>
 					</a>
 					<div id="leftBar" class="leftHeader" style="text-align:left;">

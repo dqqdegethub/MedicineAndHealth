@@ -70,7 +70,7 @@
 		    	"<a href=\""+contextPath+"/customer/customerRegister\"><span>注册</span> </a>" +
 		    	"<span><img src=\""+contextPath+"/statics/images/cart.png\" style=\"width:25px;height:25px;padding-bottom:5px\"/><a href=\""+contextPath+"/customer/cartPage\">需求清单</a></span>" + 
 		    "</div>";  
-			//location.href=contextPath+"/home/homePage";  	 
+			location.href=contextPath+"/home/homePage";  	 
     	    //	parent.location.reload();  
     	    	
     	    }

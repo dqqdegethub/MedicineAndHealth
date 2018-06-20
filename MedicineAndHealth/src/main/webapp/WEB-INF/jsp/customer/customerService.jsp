@@ -88,7 +88,7 @@
 			<form class="form-horizontal" style="padding-top:20px">
 				<div class="form-group" style="">
 					<label class="col-xs-3 control-label" style="margin-left:-100px;"><span style="color:red;font-size:18px;margin-right:2px">*</span>用户名：</label>
-					<label class="col-xs-3 control-label" id="userName0" style="margin-left:-200px;line-height:32px"></label>
+					<label class="col-xs-3 control-label" id="userName0" style="margin-left:-100px;line-height:32px"></label>
 				</div>
 				<div class="form-group" style="">
 					<label class="col-xs-3 control-label" style="margin-left:-100px;"><span style="color:red;font-size:18px;margin-right:2px">*</span>手机号：</label>
@@ -110,11 +110,7 @@
 			<form class="form-horizontal" style="padding-top:20px">
 				<div class="form-group" style="">
 					<label class="col-xs-3 control-label" style="margin-left:-100px;"><span style="color:red;font-size:18px;margin-right:2px">*</span>用户名：</label>
-					<label class="col-xs-3 control-label" id="userName1" style="margin-left:-200px;line-height:32px"></label>
-				</div>
-				<div class="form-group" style="">
-					<label class="col-xs-3 control-label" style="margin-left:-100px;"><span style="color:red;font-size:18px;margin-right:2px">*</span>手机号：</label>
-					<label class="col-xs-3 control-label" id="phonenumber1" style="margin-left:-160px;line-height:32px"></label>
+					<label class="col-xs-3 control-label" id="userName1" style="margin-left:-100px;line-height:32px"></label>
 				</div>
 				<div class="form-group">
 					<label style="margin-left:90px;line-height:50px;">您的留言已收到，客服正在处理中，请您耐心等待。</label>
@@ -130,7 +126,7 @@
 			<form class="form-horizontal" style="padding-top:20px">
 				<div class="form-group" style="">
 					<label class="col-xs-3 control-label" style="margin-left:-100px;"><span style="color:red;font-size:18px;margin-right:2px">*</span>用户名：</label>
-					<label class="col-xs-3 control-label" id="userName2" style="margin-left:-200px;line-height:32px"></label>
+					<label class="col-xs-3 control-label" id="userName2" style="margin-left:-100px;line-height:32px"></label>
 				</div>
 				<div class="form-group" style="">
 					<label class="col-xs-3 control-label" style="margin-left:-100px;"><span style="color:red;font-size:18px;margin-right:2px">*</span>手机号：</label>
@@ -227,8 +223,7 @@
 	 				$("#detail0").css("display","none"),
 	 				$("#detail2").css("display","none"),
 	 				$("#detail1").css("display",""),
-	 				$("#userName1")[0].innerHTML=data.obj.customerName,
-	 				$("#phonenumber1")[0].innerHTML=data.obj.phoneNumber
+	 				$("#userName1")[0].innerHTML=$.cookie("userName")
 	 			} 
 	 			else if(data.obj.status==2){
 	 				$("#detail0").css("display","none"),
@@ -259,7 +254,9 @@
  			"dataType" : "json",
  			"crossDomain" : true,
  			"success" : function(data){
- 				alert("提交成功!")
+ 				alert("提交成功!");
+ 				$("#detail0").css("display","none");
+ 				$("#detail1").css("display","");
  			},
  			"error" : function(){
  				alert("error!")

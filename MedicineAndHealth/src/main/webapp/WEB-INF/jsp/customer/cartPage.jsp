@@ -197,7 +197,7 @@
     	}
     	
     	$("#nextStep").click(function(){
-    		if($.cookie("userId") == null){
+    		if($.cookie("id") == null){
     			window.location.href = contextPath + "/customer/customerLogin";
     			return;
     		}

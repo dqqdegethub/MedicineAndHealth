@@ -194,9 +194,9 @@
 								<td>数 量：</td>
 								<td>
 									<div style="margin-left:30px;">
-										<span class="minus">-</span>
+										<span class="minus" style="cursor:pointer;">-</span>
 										<input id="num-text" class="num-text" value="1" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" type="text"></input>
-										<span class="plus">+</span>
+										<span class="plus" style="cursor:pointer;">+</span>
 									</div>
 								</td>
 							</tr>
@@ -362,7 +362,7 @@
     		$("#leftBar").hide();
     	})
 		$("#addCart").click(function(){
-			if($.cookie("id")==null){
+			if($.cookie('id')==null){
 				window.document.location.href=contextPath+"/customer/customerLogin"
 			}
 			 var postData={medicineId:"${drugInformation.medicineId}",count:$("#num-text").val()};
